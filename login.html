@@ -148,6 +148,10 @@ h1{font-size:1.4rem;font-weight:700;margin-bottom:.4rem}
           remember: document.getElementById('remember').checked
         })
       });
+      data = data || {};
+      if (!data.token && !data.user) {
+        throw new Error(data.message || 'Login failed – empty response. Check API_BASE / CORS.');
+      }
       if (data.token) SwiftPurse.setToken(data.token);
       if (data.user) SwiftPurse.setUser(data.user);
       try { if (window.SwiftPurseAuth && SwiftPurseAuth.promptNotificationsOnLogin) await SwiftPurseAuth.promptNotificationsOnLogin(); } catch (e) {}

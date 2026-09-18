@@ -7,7 +7,13 @@ function pageLoginPath() {
 async function isLoggedIn() {
   try {
     const response = await api.get('/auth/me');
-    localStorage.setItem('user', JSON.stringify(response.data));
+    const payload = response && response.data ? response.data : null;
+    if (!payload) {
+      localStorage.removeItem('user');
+      return false;
+    }
+    const user = payload.user || payload;
+    localStorage.setItem('user', JSON.stringify(user));
     return true;
   } catch (_) {
     localStorage.removeItem('user');
@@ -215,12 +221,53 @@ function bindLogoutControls() {
   });
 }
 
+
+/** Fill common header/sidebar dynamic bits on user pages */
+async function loadNavChrome() {
+  try {
+    if (typeof api === 'undefined') return null;
+    var meRes = await api.get('/auth/me');
+    var user = (meRes && meRes.data) || {};
+    // If nested
+    if (user.user) user = user.user;
+    var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'User';
+    document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
+    document.querySelectorAll('.userTier').forEach(function (el) {
+      el.textContent = user.account_tier || user.account_status || 'Tier 1';
+    });
+    if (user.image) {
+      document.querySelectorAll('#headerAvatar, #menuAvatar, img[alt="User"]').forEach(function (img) {
+        img.src = user.image;
+      });
+    }
+    // notification badge
+    try {
+      var nRes = await api.get('/user/dashboard/notifications');
+      var nData = (nRes && nRes.data) || {};
+      var count = nData.unreadCount || 0;
+      document.querySelectorAll('#notifBadge, .notifBadge').forEach(function (badge) {
+        if (count > 0) {
+          badge.textContent = count;
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      });
+    } catch (e) {}
+    return user;
+  } catch (e) {
+    return null;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   bindLogoutControls();
   const allowed = await protectCurrentFrontendPage();
   if (!allowed) return;
+  await loadNavChrome();
   await initializePushForCurrentPage();
 });
+
 
 // Expose helpers for page scripts
 window.SwiftPurseAuth = {
@@ -234,4 +281,5 @@ window.SwiftPurseAuth = {
   setupPushIfNeeded,
   setupPublicPush,
   initializePushForCurrentPage,
+  loadNavChrome,
 };

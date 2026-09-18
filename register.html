@@ -239,6 +239,10 @@ h1{font-size:1.35rem;font-weight:700;margin-bottom:.35rem;display:flex;align-ite
         method: 'POST',
         body: JSON.stringify(payload)
       });
+      data = data || {};
+      if (!data.success && !data.token && !data.user) {
+        throw new Error(data.message || 'Registration failed – empty response from server. Check API_BASE.');
+      }
       toast('Account created successfully. Verification email sent.', 'success');
       if (data.token) SwiftPurse.setToken(data.token);
       if (data.user) SwiftPurse.setUser(data.user);
