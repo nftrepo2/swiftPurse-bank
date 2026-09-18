@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#fff">
+<title>App - SwiftPurse Bank | Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Mulish,sans-serif;background:#fff;min-height:100vh;color:#19202F}
+.wrap{max-width:420px;margin:0 auto;padding:1.25rem 1.5rem 2rem;min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem;padding-top:.5rem}
+.back{font-size:1.35rem;color:#19202F;text-decoration:none;cursor:pointer;background:none;border:none}
+.sign-in{border:1px solid #ddd;border-radius:999px;padding:.45rem 1.1rem;font-size:.9rem;color:#19202F;text-decoration:none;font-weight:500}
+.sign-in:hover{background:#f5f5f5}
+.step{display:none}
+.step.active{display:block}
+h1{font-size:1.35rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem}
+.sub{color:#6b7280;font-size:.9rem;margin-bottom:1.75rem;line-height:1.45}
+.field{margin-bottom:.85rem}
+.field input[type="text"],.field input[type="email"],.field input[type="password"]{
+  width:100%;padding:.9rem 1rem;border:1px solid #e5e7eb;border-radius:999px;font-size:.95rem;font-family:Inter,sans-serif;background:#fff;outline:none
+}
+.field input:focus{border-color:#3498db}
+.check-row{display:flex;align-items:flex-start;gap:.55rem;margin:1.1rem 0 1.4rem;font-size:.85rem;color:#374151}
+.check-row input{margin-top:.2rem;width:16px;height:16px;accent-color:#19202F}
+.btn{
+  width:100%;padding:.95rem;border:none;border-radius:999px;font-size:1rem;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:opacity .15s
+}
+.btn:disabled{background:#c4c4c4;color:#fff;cursor:not-allowed}
+.btn:not(:disabled){background:#19202F;color:#fff}
+.btn:not(:disabled):hover{opacity:.92}
+.pin-wrap{text-align:center}
+.pin-icon{font-size:1.6rem;margin:1rem 0 .5rem}
+.pin-label{font-size:.85rem;color:#6b7280;margin-bottom:.75rem;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.pins{display:flex;justify-content:center;gap:.45rem;margin:1rem 0 1.75rem}
+.pins input{
+  width:42px;height:42px;text-align:center;border:2px solid #93c5fd;border-radius:8px;font-size:1.15rem;font-weight:500;font-family:Inter,sans-serif;outline:none;background:#fff
+}
+.pins input:focus{border-color:#19202F}
+.toast{
+  position:fixed;top:1rem;left:50%;transform:translateX(-50%);max-width:90%;padding:.75rem 1.1rem;border-radius:10px;font-size:.9rem;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.12);display:none
+}
+.toast.error{background:#dc2626;color:#fff}
+.toast.success{background:#16a34a;color:#fff}
+.toast.show{display:block}
+.footer{margin-top:auto;padding-top:2rem;text-align:center;color:#9ca3af;font-size:.8rem}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="wrap">
+  <div class="top">
+    <button type="button" class="back" id="topBack" aria-label="Back">←</button>
+    <a class="sign-in" href="login.html">Sign In</a>
+  </div>
+
+  <!-- STEP 1: Profile -->
+  <div id="step1" class="step active">
+    <h1>Set up your profile <span aria-hidden="true">✏️</span></h1>
+    <p class="sub">create an account so you can manage your money faster</p>
+    <form id="form1" autocomplete="on">
+      <div class="field"><input type="text" id="first_name" name="first_name" placeholder="First Name" required></div>
+      <div class="field"><input type="text" id="last_name" name="last_name" placeholder="Last Name" required></div>
+      <div class="field"><input type="text" id="username" name="username" placeholder="Username" required></div>
+      <div class="field"><input type="email" id="email" name="email" placeholder="Email" required></div>
+      <div class="check-row">
+        <input type="checkbox" id="age_check">
+        <label for="age_check">I'm at least 18 years old and agree to the following terms:</label>
+      </div>
+      <button type="button" class="btn" id="btnNext1" disabled>Next</button>
+    </form>
+  </div>
+
+  <!-- STEP 2: Create PIN -->
+  <div id="step2" class="step">
+    <div class="pin-wrap">
+      <h1>Set up your account authentication</h1>
+      <div class="pin-icon">👆</div>
+      <p class="sub">Kindly input a secure Personal Identification Number (PIN) to be utilized for account authentication and access verification purposes.</p>
+      <div class="pin-label">🔒 Enter Passcode</div>
+      <div class="pins" id="pinCreate">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      </div>
+      <button type="button" class="btn" id="btnNext2" disabled>Next</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Confirm PIN -->
+  <div id="step3" class="step">
+    <div class="pin-wrap">
+      <h1>Set up your account authentication</h1>
+      <div class="pin-icon">👆</div>
+      <p class="sub">Kindly confirm your account authentication PIN to proceed with secure verification.</p>
+      <div class="pin-label">🔒 Enter Passcode</div>
+      <div class="pins" id="pinConfirm">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      </div>
+      <button type="button" class="btn" id="btnConfirm" disabled>Confirm</button>
+    </div>
+  </div>
+
+  <div class="footer">Copyright © 2026 All rights reserved.</div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+(function () {
+  var createdPin = '';
+  var currentStep = 1;
+
+  function toast(msg, type) {
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast ' + (type || 'error') + ' show';
+    setTimeout(function () { el.classList.remove('show'); }, 4000);
+  }
+
+  function showStep(n) {
+    currentStep = n;
+    document.querySelectorAll('.step').forEach(function (s) { s.classList.remove('active'); });
+    document.getElementById('step' + n).classList.add('active');
+  }
+
+  document.getElementById('topBack').addEventListener('click', function () {
+    if (currentStep === 1) window.location.href = 'login.html';
+    else if (currentStep === 2) showStep(1);
+    else if (currentStep === 3) showStep(2);
+  });
+
+  // Step 1 validation – enable Next only when all filled + checkbox
+  function validateStep1() {
+    var ok =
+      document.getElementById('first_name').value.trim() &&
+      document.getElementById('last_name').value.trim() &&
+      document.getElementById('username').value.trim() &&
+      document.getElementById('email').value.trim() &&
+      document.getElementById('age_check').checked;
+    document.getElementById('btnNext1').disabled = !ok;
+  }
+  ['first_name', 'last_name', 'username', 'email'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', validateStep1);
+  });
+  document.getElementById('age_check').addEventListener('change', validateStep1);
+
+  document.getElementById('btnNext1').addEventListener('click', function () {
+    var email = document.getElementById('email').value.trim();
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      toast('Please enter a valid email address');
+      return;
+    }
+    showStep(2);
+    var first = document.querySelector('#pinCreate input');
+    if (first) first.focus();
+  });
+
+  function setupPins(containerId, onComplete) {
+    var inputs = Array.prototype.slice.call(document.querySelectorAll('#' + containerId + ' input'));
+    function getValue() {
+      return inputs.map(function (i) { return i.value; }).join('');
+    }
+    inputs.forEach(function (input, idx) {
+      input.addEventListener('input', function (e) {
+        var v = e.target.value.replace(/\D/g, '').slice(-1);
+        e.target.value = v;
+        if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+        var code = getValue();
+        if (onComplete) onComplete(code);
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+          inputs[idx - 1].focus();
+        }
+      });
+    });
+    return { getValue: getValue, inputs: inputs };
+  }
+
+  var createPins = setupPins('pinCreate', function (code) {
+    document.getElementById('btnNext2').disabled = code.length !== 6;
+  });
+
+  document.getElementById('btnNext2').addEventListener('click', function () {
+    createdPin = createPins.getValue();
+    if (createdPin.length !== 6) {
+      toast('Please enter a 6-digit passcode');
+      return;
+    }
+    showStep(3);
+    document.querySelectorAll('#pinConfirm input').forEach(function (i) { i.value = ''; });
+    document.getElementById('btnConfirm').disabled = true;
+    var first = document.querySelector('#pinConfirm input');
+    if (first) first.focus();
+  });
+
+  var confirmPins = setupPins('pinConfirm', function (code) {
+    document.getElementById('btnConfirm').disabled = code.length !== 6;
+    if (code.length === 6) {
+      if (code !== createdPin) {
+        toast('PIN and confirmation do not match. “The two PINs do not match. Please try again.”');
+        document.getElementById('btnConfirm').disabled = true;
+      }
+    }
+  });
+
+  document.getElementById('btnConfirm').addEventListener('click', async function () {
+    var code = confirmPins.getValue();
+    if (code !== createdPin) {
+      toast('PIN and confirmation do not match. “The two PINs do not match. Please try again.”');
+      return;
+    }
+    var btn = document.getElementById('btnConfirm');
+    btn.disabled = true;
+    btn.textContent = 'Creating...';
+    try {
+      var payload = {
+        first_name: document.getElementById('first_name').value.trim(),
+        last_name: document.getElementById('last_name').value.trim(),
+        username: document.getElementById('username').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        password: createdPin
+      };
+      var data = await SwiftPurse.api('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      toast('Account created successfully. Verification email sent.', 'success');
+      if (data.token) SwiftPurse.setToken(data.token);
+      if (data.user) SwiftPurse.setUser(data.user);
+      var emailId = (data.user && (data.user._id || data.user.id)) || encodeURIComponent(payload.email);
+      setTimeout(function () {
+        window.location.href = 'user/email.html?email=' + encodeURIComponent(payload.email) + '&id=' + emailId;
+      }, 1200);
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Registration failed');
+      btn.disabled = false;
+      btn.textContent = 'Confirm';
+    }
+  });
+})();
+</script>
+</body>
+</html>

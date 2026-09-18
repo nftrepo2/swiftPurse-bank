@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#fff">
+  <title>App - SwiftPurse Bank</title>
+  <link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f7f7f7; }
+    #sidenav {
+      width: 250px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    #sidenav.closed { transform: translateX(-100%); }
+    #overlay { 
+      transition: opacity 0.3s ease; 
+      backdrop-filter: blur(2px);
+    }
+    .main-wrapper {
+      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Desktop behaviour */
+    @media (min-width: 768px) {
+      #sidenav { transform: translateX(0); }
+      #sidenav.closed { transform: translateX(-100%); }
+      .main-wrapper { margin-left: 250px; }
+      .main-wrapper.full { margin-left: 0; }
+    }
+  </style>
+
+</head>
+<body class="min-h-screen overflow-x-hidden">
+  <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidenav" class="fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg closed">
+    <div class="p-4 border-b">
+      <img src="https://swiftpursebank.com/wp-api/site/t_cbb32d3de57c298453db01621c630933.svg" alt="SwiftPurse" class="h-10">
+    </div>
+    <div class="px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">General</div>
+    <nav class="flex-1 px-2 space-y-0.5 overflow-y-auto pb-6 text-sm">
+      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_DASH ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Dashboard
+      </a>
+      <a href="add-funds.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+        Add Funds
+      </a>
+      <a href="make-payment.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        Make Payment
+      </a>
+      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        Bank Transfer
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Loan <span class="text-red-500 text-xs">▲</span>
+      </a>
+      <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        Fixed Deposit
+      </a>
+      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        Notifications <span class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        Credit Card <span class="text-red-500 text-xs">▲</span>
+      </a>
+      <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+        Upgrade Account
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        Help & Support
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Pay Bills <span class="text-red-500 text-xs">▲</span>
+      </a>
+      <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50  bg-gray-100 text-gray-900 font-medium">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Statements & Report
+      </a>
+      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        Log Out
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen">
+    <header class="bg-white sticky top-0 z-30 border-b border-gray-100">
+      <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center gap-3">
+          <button onclick="toggleSidebar()" class="p-1.5 rounded-lg hover:bg-gray-100">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <img src="https://swiftpursebank.com/wp-api/site/t_564238e3795f75706dc155a65d045103.svg" alt="SwiftPurse" class="h-8">
+        </div>
+        <div class="flex items-center gap-3 relative">
+          <a href="#" class="p-1.5 rounded-full hover:bg-gray-100">
+            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </a>
+          <button onclick="toggleProfile()" class="focus:outline-none">
+            <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
+          </button>
+          <!-- Profile dropdown -->
+          <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
+              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
+              <div>
+                <div class="text-sm font-medium text-gray-900">Gomez Maria</div>
+                <div class="text-xs text-gray-500">Tier 1</div>
+              </div>
+            </div>
+            <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile</a>
+            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <main class="flex-1 p-4 max-w-lg mx-auto w-full">
+      <h1 class="text-xl font-semibold text-gray-800 mb-1">Statements & Report</h1>
+      <p class="text-sm text-gray-500 mb-6">Transactions</p>
+      <div class="space-y-3">
+        <a href="#" class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-red-500 text-lg">●</div>
+            <div>
+              <div class="font-medium text-gray-900">Bank Transfer</div>
+              <div class="text-xs text-gray-500">Fri Sep 18 2026</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="font-medium text-red-500">-$1,000.00</div>
+            <span class="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">In Progress</span>
+          </div>
+        </a>
+        <a href="#" class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-green-500 text-lg">●</div>
+            <div>
+              <div class="font-medium text-gray-900">INWARD TRANSFER</div>
+              <div class="text-xs text-gray-500">Fri Sep 04 2026</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="font-medium text-green-600">+$10,000.00</div>
+            <span class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Successful</span>
+          </div>
+        </a>
+        <a href="#" class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-green-500 text-lg">●</div>
+            <div>
+              <div class="font-medium text-gray-900">INWARD TRANSFER</div>
+              <div class="text-xs text-gray-500">Fri Sep 04 2026</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="font-medium text-green-600">+$10,000.00</div>
+            <span class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Successful</span>
+          </div>
+        </a>
+      </div>
+    </main>
+<footer class="text-center text-xs text-gray-500 py-6">
+      Copyright © 2026. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function openSidebar() {
+      const sn = document.getElementById('sidenav');
+      const mw = document.getElementById('mainWrapper');
+      const ov = document.getElementById('overlay');
+      sn.classList.remove('closed');
+      mw.classList.remove('full');
+      ov.classList.remove('hidden');
+      requestAnimationFrame(() => ov.classList.remove('opacity-0'));
+    }
+    function closeSidebar() {
+      const sn = document.getElementById('sidenav');
+      const mw = document.getElementById('mainWrapper');
+      const ov = document.getElementById('overlay');
+      sn.classList.add('closed');
+      mw.classList.add('full');
+      ov.classList.add('opacity-0');
+      setTimeout(() => ov.classList.add('hidden'), 300);
+    }
+    function toggleSidebar() {
+      const sn = document.getElementById('sidenav');
+      if (sn.classList.contains('closed')) openSidebar();
+      else closeSidebar();
+    }
+    function toggleProfile() {
+      document.getElementById('profileMenu').classList.toggle('hidden');
+    }
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('profileMenu');
+      if (!menu) return;
+      const btn = e.target.closest('button[onclick="toggleProfile()"]');
+      if (!menu.contains(e.target) && !btn) menu.classList.add('hidden');
+    });
+  </script>
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '0acec184ba638708391cb26d405f0f81a1ac24bc';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+  </script>
+</body>
+</html>

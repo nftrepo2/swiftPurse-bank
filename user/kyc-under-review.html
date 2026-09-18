@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>KYC Under Review | SwiftPurse Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#f7f7f7;min-height:100vh;color:#19202F}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:#fff;border-bottom:1px solid #eee}
+.logo{font-weight:700;font-size:1.1rem}
+.logout{border:1px solid #ddd;border-radius:999px;padding:.4rem 1rem;font-size:.9rem;background:#fff;cursor:pointer;text-decoration:none;color:#19202F}
+.card{max-width:420px;margin:3rem auto;background:#fff;border-radius:16px;padding:2rem 1.5rem;box-shadow:0 2px 16px rgba(0,0,0,.06);text-align:left}
+h1{font-size:1.25rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
+p{color:#4b5563;font-size:.95rem;line-height:1.55;margin-bottom:.75rem}
+.btn{display:block;width:100%;margin-top:1.5rem;padding:.95rem;border:none;border-radius:999px;background:#19202F;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none}
+.footer{text-align:center;color:#9ca3af;font-size:.8rem;margin-top:2rem}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo">SwiftPurse</div>
+  <a class="logout" href="#" id="logoutBtn">Logout</a>
+</div>
+<div class="card">
+  <h1>Kyc Under Review 📄</h1>
+  <p id="msg1">We are reviewing your documents please be patient our team of experts are available 24/7 to analyze your provided information.</p>
+  <p>you will receive a notification via email on the update of your Verification.</p>
+  <a class="btn" href="../login.html" id="okBtn">Okay</a>
+</div>
+<div class="footer">Copyright © 2026 All rights reserved.</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+(function () {
+  var user = SwiftPurse.getUser() || {};
+  var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'there';
+  document.getElementById('msg1').textContent =
+    'Hi ' + name + ', we are reviewing your documents please be patient our team of experts are available 24/7 to analyze your provided information.';
+  document.getElementById('logoutBtn').onclick = function (e) {
+    e.preventDefault();
+    SwiftPurse.clearAuth();
+    window.location.href = '../login.html';
+  };
+})();
+</script>
+</body>
+</html>

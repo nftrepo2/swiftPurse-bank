@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Submit Verification | SwiftPurse Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#f7f7f7;min-height:100vh;color:#19202F}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:#fff;border-bottom:1px solid #eee}
+.logo{font-weight:700}
+.logout{border:1px solid #ddd;border-radius:999px;padding:.4rem 1rem;font-size:.9rem;background:#fff;cursor:pointer;text-decoration:none;color:#19202F}
+.wrap{max-width:440px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem}
+h1{font-size:1.25rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.sub{color:#6b7280;font-size:.9rem;margin-bottom:1.5rem;line-height:1.45}
+.section{font-size:.8rem;font-weight:600;color:#6b7280;margin:1.25rem 0 .6rem;text-transform:uppercase;letter-spacing:.03em}
+.field{margin-bottom:.75rem}
+.field input,.field select{
+  width:100%;padding:.85rem 1rem;border:1px solid #e5e7eb;border-radius:12px;font-size:.95rem;font-family:Inter,sans-serif;background:#fff;outline:none
+}
+.field input:focus,.field select:focus{border-color:#3498db}
+.upload-box{
+  border:1px dashed #cbd5e1;border-radius:12px;padding:1.5rem 1rem;text-align:center;cursor:pointer;background:#fff;margin-bottom:.75rem;position:relative
+}
+.upload-box:hover{border-color:#3498db}
+.upload-box input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-box .preview{max-width:100%;max-height:140px;border-radius:8px;margin-top:.5rem;display:none}
+.upload-box.has-preview .placeholder{display:none}
+.upload-box.has-preview .preview{display:inline-block}
+.btn{width:100%;padding:.95rem;border:none;border-radius:999px;background:#19202F;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;margin-top:1rem}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.toast{position:fixed;top:1rem;left:50%;transform:translateX(-50%);padding:.75rem 1.1rem;border-radius:10px;font-size:.9rem;z-index:9999;display:none}
+.toast.error{background:#dc2626;color:#fff}.toast.success{background:#16a34a;color:#fff}.toast.show{display:block}
+.footer{text-align:center;color:#9ca3af;font-size:.8rem;margin-top:1.5rem}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="topbar">
+  <div class="logo">SwiftPurse</div>
+  <a class="logout" href="#" id="logoutBtn">Logout</a>
+</div>
+<div class="wrap">
+  <h1>Submit Verification 📋</h1>
+  <p class="sub">To request an account verification, kindly provide your information with a valid means of identification attached as an image document.</p>
+  <form id="kycForm">
+    <div class="section">Personal Info</div>
+    <div class="field">
+      <select id="country" required>
+        <option value="">Select country</option>
+        <option>United Kingdom</option><option>United States</option><option>Nigeria</option>
+        <option>Canada</option><option>Germany</option><option>France</option><option>Other</option>
+      </select>
+    </div>
+    <div class="field"><input type="tel" id="phone" placeholder="Enter phone number" required></div>
+    <div class="field"><input type="text" id="address" placeholder="Address" required></div>
+    <div class="upload-box" id="boxSelf">
+      <input type="file" id="photoSelf" accept="image/*">
+      <div class="placeholder">📷 Upload a pic of yourself</div>
+      <img class="preview" id="prevSelf" alt="Self preview">
+    </div>
+
+    <div class="section">Identity Proof</div>
+    <div class="field">
+      <select id="docType" required>
+        <option value="">Select document type below</option>
+        <option>Driver's License</option>
+        <option>National ID</option>
+        <option>Passport</option>
+        <option>Residence Permit</option>
+      </select>
+    </div>
+    <div class="upload-box" id="boxFront">
+      <input type="file" id="photoFront" accept="image/*">
+      <div class="placeholder">⬆️ Upload front of ID<br><small>SVG, PNG, JPG or GIF (max. 800×400px)</small></div>
+      <img class="preview" id="prevFront" alt="Front preview">
+    </div>
+    <div class="upload-box" id="boxBack">
+      <input type="file" id="photoBack" accept="image/*">
+      <div class="placeholder">⬆️ Upload back of ID<br><small>SVG, PNG, JPG or GIF (max. 800×400px)</small></div>
+      <img class="preview" id="prevBack" alt="Back preview">
+    </div>
+    <button type="submit" class="btn" id="btnSubmit">Continue</button>
+  </form>
+  <div class="footer">Copyright © 2026 All rights reserved.</div>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+(function () {
+  function toast(msg, type) {
+    var el = document.getElementById('toast');
+    el.textContent = msg; el.className = 'toast ' + (type || 'error') + ' show';
+    setTimeout(function () { el.classList.remove('show'); }, 4000);
+  }
+  document.getElementById('logoutBtn').onclick = function (e) {
+    e.preventDefault(); SwiftPurse.clearAuth(); window.location.href = '../login.html';
+  };
+
+  function bindPreview(inputId, imgId, boxId) {
+    document.getElementById(inputId).addEventListener('change', function (e) {
+      var file = e.target.files && e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function (ev) {
+        var img = document.getElementById(imgId);
+        img.src = ev.target.result;
+        document.getElementById(boxId).classList.add('has-preview');
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  bindPreview('photoSelf', 'prevSelf', 'boxSelf');
+  bindPreview('photoFront', 'prevFront', 'boxFront');
+  bindPreview('photoBack', 'prevBack', 'boxBack');
+
+  document.getElementById('kycForm').onsubmit = async function (e) {
+    e.preventDefault();
+    var country = document.getElementById('country').value;
+    var phone = document.getElementById('phone').value.trim();
+    var address = document.getElementById('address').value.trim();
+    var docType = document.getElementById('docType').value;
+    var selfF = document.getElementById('photoSelf').files[0];
+    var frontF = document.getElementById('photoFront').files[0];
+    var backF = document.getElementById('photoBack').files[0];
+    if (!country || !phone || !address || !docType) {
+      toast('Please fill all required fields'); return;
+    }
+    if (!frontF || !backF) {
+      toast('Please upload front and back of your ID'); return;
+    }
+    var btn = document.getElementById('btnSubmit');
+    btn.disabled = true; btn.textContent = 'Submitting...';
+    try {
+      var fd = new FormData();
+      fd.append('country', country);
+      fd.append('phone', phone);
+      fd.append('address', address);
+      fd.append('document_type', docType);
+      if (selfF) fd.append('photo', selfF);
+      fd.append('frontimg', frontF);
+      fd.append('backimg', backF);
+      var data = await SwiftPurse.api('/user/verification', { method: 'POST', body: fd, headers: {} });
+      if (data.user) SwiftPurse.setUser(data.user);
+      var status = (data.status || (data.user && data.user.verificationStatus) || 'pending').toLowerCase();
+      if (status === 'pending' || status === 'not_verified') {
+        window.location.href = 'kyc-under-review.html';
+      } else {
+        window.location.href = 'dashboard.html';
+      }
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Submission failed');
+      btn.disabled = false; btn.textContent = 'Continue';
+    }
+  };
+})();
+</script>
+</body>
+</html>

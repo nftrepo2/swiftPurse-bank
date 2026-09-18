@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#fff">
+<title>App - SwiftPurse Bank | Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Mulish,sans-serif;background:#fff;min-height:100vh;color:#19202F}
+.wrap{max-width:420px;margin:0 auto;padding:1.25rem 1.5rem 2rem;min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-top:.5rem}
+.back{font-size:1.35rem;color:#19202F;text-decoration:none;background:none;border:none;cursor:pointer}
+.sign-up{border:1px solid #ddd;border-radius:999px;padding:.45rem 1.1rem;font-size:.9rem;color:#19202F;text-decoration:none;font-weight:500}
+.step{display:none}.step.active{display:block}
+.logo-wrap{text-align:center;margin-bottom:1.5rem}
+.logo-wrap img{max-height:48px}
+h1{font-size:1.4rem;font-weight:700;margin-bottom:.4rem}
+.sub{color:#6b7280;font-size:.9rem;margin-bottom:1.5rem;line-height:1.45}
+.field{margin-bottom:1rem;position:relative}
+.field input{
+  width:100%;padding:.9rem 1rem;border:1px solid #e5e7eb;border-radius:999px;font-size:.95rem;font-family:Inter,sans-serif;outline:none
+}
+.field input:focus{border-color:#3498db}
+.row-between{display:flex;justify-content:space-between;align-items:center;margin:1rem 0;font-size:.85rem}
+.row-between a{color:#3498db;text-decoration:none}
+.btn{width:100%;padding:.95rem;border:none;border-radius:999px;font-size:1rem;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;background:#19202F;color:#fff}
+.btn:disabled{background:#c4c4c4;cursor:not-allowed}
+.btn:not(:disabled):hover{opacity:.92}
+.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 1rem;display:block;background:#e5e7eb}
+.welcome{text-align:center;font-size:1.25rem;font-weight:700;margin-bottom:.25rem}
+.uname{text-align:center;color:#6b7280;margin-bottom:1rem}
+.pin-label{text-align:center;font-size:.9rem;margin-bottom:.75rem;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.pins{display:flex;justify-content:center;gap:.45rem;margin:1rem 0 1.5rem}
+.pins input{width:42px;height:42px;text-align:center;border:2px solid #93c5fd;border-radius:8px;font-size:1.15rem;font-weight:500;outline:none}
+.pins input:focus{border-color:#19202F}
+.toast{position:fixed;top:1rem;left:50%;transform:translateX(-50%);max-width:90%;padding:.75rem 1.1rem;border-radius:10px;font-size:.9rem;z-index:9999;display:none;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.toast.error{background:#dc2626;color:#fff}.toast.success{background:#16a34a;color:#fff}.toast.show{display:block}
+.footer{margin-top:auto;padding-top:2rem;text-align:center;color:#9ca3af;font-size:.8rem}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="wrap">
+  <div class="top">
+    <button type="button" class="back" id="topBack">←</button>
+    <a class="sign-up" href="register.html">Sign Up</a>
+  </div>
+
+  <div id="step1" class="step active">
+    <div class="logo-wrap">
+      <img src="https://swiftpursebank.com/wp-api/site/t_564238e3795f75706dc155a65d045103.svg" alt="Logo" onerror="this.style.display='none'">
+    </div>
+    <h1>Login Account</h1>
+    <p class="sub">It's good to have you back!<br>Welcome to your secure online banking portal. Please log in with your credentials to access your account.</p>
+    <div class="field"><input type="email" id="email" placeholder="Enter mail" autocomplete="username"></div>
+    <div class="row-between">
+      <label><input type="checkbox" id="remember"> Remember me</label>
+      <a href="forgot-password.html">Forgot Passcode?</a>
+    </div>
+    <button type="button" class="btn" id="btnNext">Next</button>
+  </div>
+
+  <div id="step2" class="step">
+    <img class="avatar" id="avatar" src="https://swiftpursebank.com/wp-user/lo/defpho.svg" alt="">
+    <div class="welcome">Welcome Back</div>
+    <div class="uname" id="displayName"></div>
+    <div class="pin-label">🔒 Enter Passcode</div>
+    <div class="pins" id="loginPin">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input maxlength="1" type="tel" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+    </div>
+    <button type="button" class="btn" id="btnLogin" disabled>Login Account</button>
+  </div>
+
+  <div class="footer">Copyright © 2026 All rights reserved.</div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+(function () {
+  var pendingUser = null;
+  function toast(msg, type) {
+    var el = document.getElementById('toast');
+    el.textContent = msg; el.className = 'toast ' + (type || 'error') + ' show';
+    setTimeout(function () { el.classList.remove('show'); }, 4000);
+  }
+  function showStep(n) {
+    document.getElementById('step1').classList.toggle('active', n === 1);
+    document.getElementById('step2').classList.toggle('active', n === 2);
+  }
+  document.getElementById('topBack').onclick = function () {
+    if (document.getElementById('step2').classList.contains('active')) showStep(1);
+    else window.location.href = 'index.html';
+  };
+
+  document.getElementById('btnNext').onclick = async function () {
+    var email = document.getElementById('email').value.trim();
+    if (!email) { toast('Please enter your email'); return; }
+    var btn = this; btn.disabled = true; btn.textContent = 'Checking...';
+    try {
+      var data = await SwiftPurse.api('/auth/login/check-email', {
+        method: 'POST',
+        body: JSON.stringify({ email: email })
+      });
+      pendingUser = data.user || { email: email, name: data.name || email };
+      document.getElementById('displayName').textContent = pendingUser.name || pendingUser.first_name || email;
+      if (pendingUser.image) document.getElementById('avatar').src = pendingUser.image;
+      toast('Welcome back' + (pendingUser.name ? ', ' + pendingUser.name : ''), 'success');
+      showStep(2);
+      document.querySelector('#loginPin input').focus();
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Email not found');
+    }
+    btn.disabled = false; btn.textContent = 'Next';
+  };
+
+  var inputs = Array.prototype.slice.call(document.querySelectorAll('#loginPin input'));
+  function pinValue() { return inputs.map(function (i) { return i.value; }).join(''); }
+  inputs.forEach(function (input, idx) {
+    input.addEventListener('input', function (e) {
+      var v = e.target.value.replace(/\D/g, '').slice(-1);
+      e.target.value = v;
+      if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+      document.getElementById('btnLogin').disabled = pinValue().length !== 6;
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Backspace' && !e.target.value && idx > 0) inputs[idx - 1].focus();
+    });
+  });
+
+  document.getElementById('btnLogin').onclick = async function () {
+    var pin = pinValue();
+    if (pin.length !== 6) { toast('Enter your 6-digit passcode'); return; }
+    var btn = this; btn.disabled = true; btn.textContent = 'Logging in...';
+    try {
+      var data = await SwiftPurse.api('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: document.getElementById('email').value.trim(),
+          password: pin,
+          remember: document.getElementById('remember').checked
+        })
+      });
+      if (data.token) SwiftPurse.setToken(data.token);
+      if (data.user) SwiftPurse.setUser(data.user);
+      try { if (window.SwiftPurseAuth && SwiftPurseAuth.promptNotificationsOnLogin) await SwiftPurseAuth.promptNotificationsOnLogin(); } catch (e) {}
+      // continue redirect logic
+      var user = data.user || {};
+      var role = (user.role || '').toUpperCase();
+      var status = (user.verificationStatus || user.account_verify || '').toLowerCase();
+
+      if (role === 'ADMIN') {
+        window.location.href = '/admin/dashboard.html';
+        return;
+      }
+      if (status === 'verified' || user.isVerified === true || status === 'verified') {
+        window.location.href = '/user/dashboard.html';
+        return;
+      }
+      if (status === 'pending') {
+        window.location.href = 'user/kyc-under-review.html';
+        return;
+      }
+      window.location.href = 'user/kyc-form.html';
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Invalid passcode');
+      btn.disabled = false; btn.textContent = 'Login Account';
+    }
+  };
+})();
+</script>
+</body>
+</html>

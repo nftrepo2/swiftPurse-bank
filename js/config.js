@@ -1,0 +1,115 @@
+// SwiftPurse frontend API configuration (axios-like + helpers)
+(function (global) {
+  var API_BASE = (typeof window !== 'undefined' && window.API_BASE)
+    ? window.API_BASE
+    : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'https://swiftpurse-backend.onrender.com'
+      : window.location.origin);
+
+  function getToken() {
+    try {
+      return localStorage.getItem('baUid') || localStorage.getItem('token') || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function setToken(token) {
+    try {
+      if (token) {
+        localStorage.setItem('baUid', token);
+        localStorage.setItem('token', token);
+      } else {
+        localStorage.removeItem('baUid');
+        localStorage.removeItem('token');
+      }
+    } catch (e) {}
+  }
+
+  function clearAuth() {
+    try {
+      ['baUid', 'token', 'user', 'tempbaUid', 'sbaUid', 'pendingPushSubscription'].forEach(function (k) {
+        localStorage.removeItem(k);
+      });
+    } catch (e) {}
+  }
+
+  function getUser() {
+    try {
+      var u = localStorage.getItem('user');
+      return u ? JSON.parse(u) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setUser(user) {
+    try {
+      if (user) localStorage.setItem('user', JSON.stringify(user));
+      else localStorage.removeItem('user');
+    } catch (e) {}
+  }
+
+  async function request(method, path, body, options) {
+    options = options || {};
+    var headers = Object.assign({ Accept: 'application/json' }, options.headers || {});
+    var token = getToken();
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+
+    var isForm = (typeof FormData !== 'undefined') && body instanceof FormData;
+    if (body != null && !isForm) {
+      headers['Content-Type'] = headers['Content-Type'] || 'application/json';
+    }
+
+    var res = await fetch(API_BASE + path, {
+      method: method,
+      headers: headers,
+      credentials: 'include',
+      body: body == null ? undefined : (isForm ? body : JSON.stringify(body)),
+    });
+
+    var text = await res.text();
+    var data = null;
+    try { data = text ? JSON.parse(text) : null; } catch (e) { data = { raw: text }; }
+
+    if (!res.ok) {
+      var err = new Error((data && (data.message || data.error)) || res.statusText || 'Request failed');
+      err.status = res.status;
+      err.response = { status: res.status, data: data };
+      err.data = data;
+      throw err;
+    }
+    return { data: data, status: res.status };
+  }
+
+  var api = {
+    get: function (path, options) { return request('GET', path, null, options); },
+    post: function (path, body, options) { return request('POST', path, body, options); },
+    put: function (path, body, options) { return request('PUT', path, body, options); },
+    patch: function (path, body, options) { return request('PATCH', path, body, options); },
+    delete: function (path, options) { return request('DELETE', path, null, options); },
+  };
+
+  // Backward-compatible helper used by some pages
+  async function apiLegacy(path, options) {
+    options = options || {};
+    var method = (options.method || 'GET').toUpperCase();
+    var body = options.body;
+    if (typeof body === 'string') {
+      try { body = JSON.parse(body); } catch (e) {}
+    }
+    var result = await request(method, path, body, options);
+    return result.data;
+  }
+
+  global.api = api;
+  global.SwiftPurse = {
+    API_BASE: API_BASE,
+    api: apiLegacy,
+    getToken: getToken,
+    setToken: setToken,
+    clearAuth: clearAuth,
+    getUser: getUser,
+    setUser: setUser
+  };
+})(typeof window !== 'undefined' ? window : globalThis);

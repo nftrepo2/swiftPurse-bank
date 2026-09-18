@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#fff">
+  <title>Admin Dashboard | SwiftPurse Bank</title>
+  <link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f7f7f7; }
+    #sidenav {
+      width: 250px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    #sidenav.closed { transform: translateX(-100%); }
+    #overlay { transition: opacity 0.3s ease; backdrop-filter: blur(2px); }
+    .main-wrapper { transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    @media (min-width: 768px) {
+      #sidenav { transform: translateX(0); }
+      #sidenav.closed { transform: translateX(-100%); }
+      .main-wrapper { margin-left: 250px; }
+      .main-wrapper.full { margin-left: 0; }
+    }
+    .modal { display: none; }
+    .modal.open { display: flex; }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2 rounded-lg text-sm text-white shadow-lg"></div>
+  <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
+
+  <!-- SIDEBAR / NAVBAR -->
+  <aside id="sidenav" class="fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg">
+    <div class="p-4 border-b">
+      <img src="https://swiftpursebank.com/wp-api/site/t_cbb32d3de57c298453db01621c630933.svg" alt="SwiftPurse" class="h-10">
+    </div>
+    <div class="px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Admin</div>
+    <nav class="flex-1 px-2 space-y-0.5 overflow-y-auto pb-6 text-sm">
+      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gray-100 text-gray-900 font-medium">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Dashboard
+      </a>
+      <a href="dashboard.html#users" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        Users
+      </a>
+      <a href="#" id="navNotify" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        Notify Users
+      </a>
+      <a href="#" id="navFund" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Fund User
+      </a>
+      <a href="#" data-auth-logout class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        Log Out
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen">
+    <header class="bg-white sticky top-0 z-30 border-b border-gray-100">
+      <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center gap-3">
+          <button onclick="toggleSidebar()" class="p-1.5 rounded-lg hover:bg-gray-100">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <img src="https://swiftpursebank.com/wp-api/site/t_564238e3795f75706dc155a65d045103.svg" alt="SwiftPurse" class="h-8">
+          <span class="text-sm font-semibold text-gray-700 hidden sm:inline">Admin</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="#" data-auth-logout class="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-50">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 p-4 md:p-6 max-w-6xl mx-auto w-full">
+      <div class="flex flex-wrap gap-3 justify-between mb-6">
+        <button id="btnNotify" type="button" class="px-4 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:opacity-90">Notify Users</button>
+        <button id="btnFund" type="button" class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:opacity-90">Fund User</button>
+      </div>
+
+      <form id="searchForm" class="flex gap-2 mb-6 w-full">
+        <input id="searchInput" type="search" placeholder="Search user by name, email…" class="flex-1 w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm outline-none focus:border-slate-400">
+        <button type="submit" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white text-sm font-semibold">Search</button>
+      </form>
+      <div id="searchEmpty" class="hidden text-center text-gray-500 py-8 bg-white rounded-xl border mb-6">No user found for that search.</div>
+
+      <div id="users" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-50 text-left text-gray-500">
+            <tr>
+              <th class="px-4 py-3 font-medium">Full Name</th>
+              <th class="px-4 py-3 font-medium">Email</th>
+              <th class="px-4 py-3 font-medium">Phone</th>
+              <th class="px-4 py-3 font-medium">Country</th>
+              <th class="px-4 py-3 font-medium">Verification</th>
+              <th class="px-4 py-3 font-medium">Action</th>
+            </tr>
+          </thead>
+          <tbody id="usersBody" class="divide-y divide-gray-100">
+            <tr><td colspan="6" class="px-4 py-8 text-center text-gray-400">Loading users…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="text-center text-xs text-gray-500 py-6">Copyright © 2026. All rights reserved.</footer>
+  </div>
+
+  <!-- NOTIFY MODAL -->
+  <div id="notifyModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-2xl w-full max-w-md p-5 shadow-xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-semibold text-lg">Notify Users</h2>
+        <button type="button" class="closeModal text-gray-400 hover:text-gray-700 text-xl">&times;</button>
+      </div>
+      <form id="notifyForm" class="space-y-3">
+        <div>
+          <label class="text-xs text-gray-500">Select user</label>
+          <select id="notifyUser" class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm">
+            <option value="">Select user</option>
+          </select>
+        </div>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" id="notifyAll"> Notify all users
+        </label>
+        <div>
+          <label class="text-xs text-gray-500">Title</label>
+          <input id="notifyTitle" type="text" required class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="Notification title">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Message</label>
+          <textarea id="notifyMessage" required rows="4" class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="Write message…"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-sm">Send Notification</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FUND MODAL -->
+  <div id="fundModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-2xl w-full max-w-md p-5 shadow-xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-semibold text-lg">Fund User</h2>
+        <button type="button" class="closeModal text-gray-400 hover:text-gray-700 text-xl">&times;</button>
+      </div>
+      <div class="mb-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
+        <div class="text-xs text-gray-500">Selected user balance</div>
+        <div id="fundBalance" class="text-xl font-bold text-slate-900">$0.00</div>
+      </div>
+      <form id="fundForm" class="space-y-3">
+        <div>
+          <label class="text-xs text-gray-500">Select user</label>
+          <select id="fundUser" required class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm">
+            <option value="">Select user</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Account tier (optional)</label>
+          <select id="fundTier" class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm">
+            <option value="">Keep current</option>
+            <option value="Tier 1">Tier 1</option>
+            <option value="Tier 2">Tier 2</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Credit type</label>
+          <select id="fundType" required class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm">
+            <option value="credit">Credit</option>
+            <option value="debit">Debit</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Amount</label>
+          <input id="fundAmount" type="number" min="0.01" step="0.01" required class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="0.00">
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openSidebar() {
+      const sn = document.getElementById('sidenav');
+      const mw = document.getElementById('mainWrapper');
+      const ov = document.getElementById('overlay');
+      sn.classList.remove('closed');
+      mw.classList.remove('full');
+      if (window.innerWidth < 768) {
+        ov.classList.remove('hidden');
+        requestAnimationFrame(() => ov.classList.remove('opacity-0'));
+      }
+    }
+    function closeSidebar() {
+      const sn = document.getElementById('sidenav');
+      const mw = document.getElementById('mainWrapper');
+      const ov = document.getElementById('overlay');
+      sn.classList.add('closed');
+      mw.classList.add('full');
+      ov.classList.add('opacity-0');
+      setTimeout(() => ov.classList.add('hidden'), 300);
+    }
+    function toggleSidebar() {
+      const sn = document.getElementById('sidenav');
+      if (sn.classList.contains('closed')) openSidebar();
+      else closeSidebar();
+    }
+    if (window.innerWidth < 768) {
+      document.getElementById('sidenav').classList.add('closed');
+      document.getElementById('mainWrapper').classList.add('full');
+    }
+  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+  (function () {
+    var allUsers = [];
+    function toast(msg, ok) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg ' + (ok ? 'bg-emerald-600' : 'bg-red-600');
+      el.classList.remove('hidden');
+      setTimeout(function () { el.classList.add('hidden'); }, 3500);
+    }
+    function money(n) {
+      return '$' + Number(n || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModals() { document.querySelectorAll('.modal').forEach(function (m) { m.classList.remove('open'); }); }
+    document.querySelectorAll('.closeModal').forEach(function (b) { b.addEventListener('click', closeModals); });
+    document.querySelectorAll('.modal').forEach(function (m) {
+      m.addEventListener('click', function (e) { if (e.target === m) closeModals(); });
+    });
+
+    function fillUserSelects() {
+      var opts = '<option value="">Select user</option>' + allUsers.map(function (u) {
+        return '<option value="' + u._id + '" data-balance="' + (u.balance || 0) + '">' + (u.name || 'User') + ' — ' + u.email + '</option>';
+      }).join('');
+      document.getElementById('notifyUser').innerHTML = opts;
+      document.getElementById('fundUser').innerHTML = opts;
+    }
+
+    function renderTable(users) {
+      var body = document.getElementById('usersBody');
+      var empty = document.getElementById('searchEmpty');
+      if (!users.length) {
+        body.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-400">No users found</td></tr>';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+      body.innerHTML = users.map(function (u) {
+        var name = u.name || [u.first_name, u.last_name].filter(Boolean).join(' ') || '—';
+        var status = u.verificationStatus || 'not_verified';
+        var approved = status === 'verified';
+        var blocked = u.isBlocked;
+        return '<tr data-id="' + u._id + '">' +
+          '<td class="px-4 py-3 font-medium text-gray-900">' + name + '</td>' +
+          '<td class="px-4 py-3 text-gray-600">' + (u.email || '') + '</td>' +
+          '<td class="px-4 py-3 text-gray-600">' + (u.phone || '—') + '</td>' +
+          '<td class="px-4 py-3 text-gray-600">' + (u.country || '—') + '</td>' +
+          '<td class="px-4 py-3"><span class="text-xs px-2 py-1 rounded-full ' + (approved ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700') + '">' + status + '</span></td>' +
+          '<td class="px-4 py-3"><div class="flex flex-wrap gap-2">' +
+          '<button type="button" data-action="block" class="px-2.5 py-1 rounded-lg text-xs font-semibold ' + (blocked ? 'bg-gray-200 text-gray-800' : 'bg-red-100 text-red-700') + '">' + (blocked ? 'Unblock' : 'Block') + '</button>' +
+          '<button type="button" data-action="toggle" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-100 text-blue-700">' + (approved ? 'Revoke' : 'Approve') + '</button>' +
+          '<button type="button" data-action="delete" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">Delete</button>' +
+          '</div></td></tr>';
+      }).join('');
+    }
+
+    async function loadUsers(q) {
+      var url = '/admin/users' + (q ? ('?q=' + encodeURIComponent(q)) : '');
+      var res = await api.get(url);
+      allUsers = (res.data && res.data.users) || [];
+      renderTable(allUsers);
+      fillUserSelects();
+    }
+
+    document.getElementById('btnNotify').onclick = function () { openModal('notifyModal'); };
+    document.getElementById('btnFund').onclick = function () { openModal('fundModal'); };
+    document.getElementById('navNotify').onclick = function (e) { e.preventDefault(); openModal('notifyModal'); };
+    document.getElementById('navFund').onclick = function (e) { e.preventDefault(); openModal('fundModal'); };
+
+    document.getElementById('notifyAll').addEventListener('change', function () {
+      document.getElementById('notifyUser').disabled = this.checked;
+    });
+    document.getElementById('fundUser').addEventListener('change', function () {
+      var opt = this.selectedOptions[0];
+      document.getElementById('fundBalance').textContent = money(opt ? Number(opt.getAttribute('data-balance') || 0) : 0);
+    });
+
+    document.getElementById('notifyForm').onsubmit = async function (e) {
+      e.preventDefault();
+      try {
+        var res = await api.post('/admin/notify', {
+          title: document.getElementById('notifyTitle').value.trim(),
+          message: document.getElementById('notifyMessage').value.trim(),
+          all: document.getElementById('notifyAll').checked,
+          userIds: document.getElementById('notifyAll').checked ? [] : [document.getElementById('notifyUser').value]
+        });
+        toast((res.data && res.data.message) || 'User notified', true);
+        closeModals(); this.reset();
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Failed', false);
+      }
+    };
+
+    document.getElementById('fundForm').onsubmit = async function (e) {
+      e.preventDefault();
+      try {
+        var res = await api.post('/admin/fund', {
+          userId: document.getElementById('fundUser').value,
+          amount: document.getElementById('fundAmount').value,
+          creditType: document.getElementById('fundType').value,
+          account_tier: document.getElementById('fundTier').value
+        });
+        toast((res.data && res.data.message) || 'Success', true);
+        closeModals(); this.reset();
+        document.getElementById('fundBalance').textContent = '$0.00';
+        await loadUsers(document.getElementById('searchInput').value.trim());
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Failed', false);
+      }
+    };
+
+    document.getElementById('searchForm').onsubmit = async function (e) {
+      e.preventDefault();
+      await loadUsers(document.getElementById('searchInput').value.trim());
+    };
+
+    document.getElementById('usersBody').addEventListener('click', async function (e) {
+      var btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      var tr = btn.closest('tr[data-id]');
+      if (!tr) return;
+      var id = tr.getAttribute('data-id');
+      var action = btn.getAttribute('data-action');
+      try {
+        if (action === 'block') {
+          var isUnblock = btn.textContent.trim() === 'Unblock';
+          var res = await api.post('/admin/users/' + id + (isUnblock ? '/unblock' : '/block'));
+          toast((res.data && res.data.message) || 'Done', true);
+        } else if (action === 'toggle') {
+          var approve = btn.textContent.trim() === 'Approve';
+          var res2 = await api.post('/admin/users/' + id + '/verify', { approve: approve });
+          toast((res2.data && res2.data.message) || 'Done', true);
+        } else if (action === 'delete') {
+          if (!window.confirm('Are you sure you want to delete this user?')) return;
+          var res3 = await api.delete('/admin/users/' + id);
+          toast((res3.data && res3.data.message) || 'User deleted successfully', true);
+        }
+        await loadUsers(document.getElementById('searchInput').value.trim());
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Action failed', false);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      loadUsers().catch(function (err) {
+        toast((err.data && err.data.message) || err.message || 'Failed to load users', false);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

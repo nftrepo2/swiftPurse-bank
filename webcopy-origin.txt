@@ -1,0 +1,824 @@
+Uri: https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\css2
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\css2-2
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\css2-1
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css?family=Raleway:100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic|Inter:100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=auto&ver=6.5.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\css-1
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css?family=Raleway:100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=auto&ver=6.5.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\css
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dpRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dpRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dtRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dtRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc69tRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc69tRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcB9xRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcB9xRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTccNxRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTccNxRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTch9tRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTch9tRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcPtxRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcPtxRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdtRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdtRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdxRipWA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCM3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdxRipWA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyfAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyfAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyfMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyfMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyeAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyeAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyeMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyeMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfAZ9hjQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfAZ9hjQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u-w4BMUTPHjxsIPy-v.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u-w4BMUTPHjxsIPy-v.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u8w4BMUTPHh30wWw.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u8w4BMUTPHh30wWw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u8w4BMUTPHjxswWw.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u8w4BMUTPHjxswWw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50Xew8.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u9w4BMUTPHh50Xew8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVew8.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u9w4BMUTPHh6UVew8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh7USew8.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u9w4BMUTPHh7USew8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHvxk.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6uyw4BMUTPHvxk.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI3wiPHA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u_w4BMUTPHjxsI3wiPHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wqPHA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u_w4BMUTPHjxsI5wqPHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI9w2PHA.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\lato\v25\S6u_w4BMUTPHjxsI9w2PHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pbCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pbCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVsEpbCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVsEpbCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtaorCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtaorCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtapbCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtapbCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtzpbCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtzpbCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVuEorCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVuEorCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvao7CIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvao7CIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoorCIPrQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoorCIPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4bbLDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4bbLDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4cHLDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4cHLDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4ejLDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4ejLDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4ejMDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4ejMDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4TbMDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4TbMDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4VrMDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4VrMDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjMDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjMDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/raleway/v37/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4Y_LDrMfJQ.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\raleway\v37\1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4Y_LDrMfJQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU3moJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU3moJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU3msJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU3msJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU7GsJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU7GsJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUAGwJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUAGwJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUd2wJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUd2wJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUgGsJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUgGsJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUOWwJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUOWwJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUXmsJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUXmsJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUXmwJow.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGUXmwJow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K-DQNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K-DQNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nWNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nWNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K3vXNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K3vXNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K67QNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K67QNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nQNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nQNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nXNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nXNig.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXNig.ttf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\s\worksans\v24\QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXNig.ttf
+Content Type: font/ttf
+
+Uri: https://swiftpursebank.com/
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=177
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-14.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=255
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-1.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=262
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-2.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=271
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-3.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=277
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-4.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=284
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-5.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=289
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-6.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=295
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-7.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=300
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-8.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=305
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-9.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=310
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-10.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=315
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-11.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=320
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-12.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/?p=325
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index-13.htm
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/companies_house_document.pdf
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\companies_house_document.pdf
+Content Type: application/pdf
+
+Uri: https://swiftpursebank.com/contact.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\contact.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/credit-card.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\credit-card.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/current-accounts.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\current-accounts.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/deposit.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\deposit.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/foreign-drafts.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\foreign-drafts.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/img/fav.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\img\fav.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/img/logo.svg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\img\logo.svg
+Content Type: image/svg+xml
+
+Uri: https://swiftpursebank.com/index.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\index.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/interest-checking.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\interest-checking.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/invest-benefits.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\invest-benefits.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/money-market-account.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\money-market-account.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/mortgages.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\mortgages.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/personal-insurance.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\personal-insurance.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/personal-loans.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\personal-loans.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/savings-account.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\savings-account.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/small-business.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\small-business.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/tele-banking.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\tele-banking.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/terms.php
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\terms.php.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.15.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\css\frontend-lite.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\css\widget-nav-menu.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.15.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\js\elements-handlers.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.15.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\js\frontend.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.15.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\js\webpack-pro.runtime.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\lib\smartmenus\jquery.smartmenus.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.15.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor-pro\assets\lib\sticky\jquery.sticky.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\css\frontend-lite.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\css\widget-icon-box.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\css\widget-icon-list.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\js\frontend-modules.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\js\frontend.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\js\webpack.runtime.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.21.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\eicons\css\elementor-icons.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.21.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\eicons\fonts\eicons.ttf
+Content Type: font/ttf
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.21.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\eicons\fonts\eicons.woff2
+Content Type: font/woff2
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.21.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\eicons\fonts\eicons.woff
+Content Type: font/woff
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\all.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\font-awesome.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\fontawesome.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=5.15.3
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\regular.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\solid.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\css\v4-shims.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.15.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\js\v4-shims.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.woff2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\webfonts\fa-regular-400.woff2
+Content Type: font/woff2
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\font-awesome\webfonts\fa-solid-900.woff2
+Content Type: font/woff2
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\swiper\css\swiper.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\elementor\assets\lib\waypoints\waypoints.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=5.8.18
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\essential-addons-for-elementor-lite\assets\front-end\css\view\general.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=5.8.18
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\essential-addons-for-elementor-lite\assets\front-end\js\view\general.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/google-language-translator/css/style.css?ver=6.0.19
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\google-language-translator\css\style.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/google-language-translator/css/toolbar.css?ver=6.0.19
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\google-language-translator\css\toolbar.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/google-language-translator/js/scripts.js?ver=6.0.19
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\google-language-translator\js\scripts.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/happy-elementor-addons-pro/assets/js/happy-addons-pro.js?ver=2.8.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\happy-elementor-addons-pro\assets\js\happy-addons-pro.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/plugins/happy-elementor-addons/assets/fonts/happy-icons.woff2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\happy-elementor-addons\assets\fonts\happy-icons.woff2
+Content Type: font/woff2
+
+Uri: https://swiftpursebank.com/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=3.8.6
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\happy-elementor-addons\assets\fonts\style.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=3.8.6
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\plugins\happy-elementor-addons\assets\js\happy-addons.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=3.8.5
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\themes\astra\assets\css\minified\main.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/themes/astra/assets/js/minified/frontend.min.js?ver=3.8.5
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\themes\astra\assets\js\minified\frontend.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/07/home-03-desktop-orange-2x-scaled.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\07\home-03-desktop-orange-2x-scaled.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/07/opportunity_calling.webp
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\07\opportunity_calling.webp
+Content Type: image/webp
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/all.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\all.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/cc.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\cc.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/corporate-banking-slider_1.jpeg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\corporate-banking-slider_1.jpeg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/d-insurance.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\d-insurance.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/inner_page_banner.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\inner_page_banner.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/personal-banking-slider_1.jpeg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\personal-banking-slider_1.jpeg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/ploan1.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\ploan1.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2022/08/ploans.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2022\08\ploans.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2023/08/collab-compressed-scaled.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2023\08\collab-compressed-scaled.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2023/08/solutions-business-bg.png
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2023\08\solutions-business-bg.png
+Content Type: image/png
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2023/11/banner1.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2023\11\banner1.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2023/11/banner2.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2023\11\banner2.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/2023/11/banner3.jpg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\2023\11\banner3.jpg
+Content Type: image/jpeg
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/global.css?ver=1700519920
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\global.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-10.css?ver=1700519920
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-10.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-132.css?ver=1700519921
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-132.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-177.css?ver=1700911341
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-177.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-255.css?ver=1702334058
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-255.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-262.css?ver=1701375870
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-262.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-271.css?ver=1702782748
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-271.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-277.css?ver=1702650157
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-277.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-284.css?ver=1702377947
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-284.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-289.css?ver=1702343371
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-289.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-295.css?ver=1702434902
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-295.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-300.css?ver=1702363629
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-300.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-305.css?ver=1702403433
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-305.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-310.css?ver=1703959467
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-310.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-315.css?ver=1703533673
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-315.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-320.css?ver=1702396313
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-320.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-325.css?ver=1702415342
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-325.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-56.css?ver=1700519921
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-56.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/elementor/css/post-6.css?ver=1700519920
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\elementor\css\post-6.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-content/uploads/happyaddons/css/ha-10.css?ver=3.8.6.1699197869
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-content\uploads\happyaddons\css\ha-10.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-includes/css/dist/block-library/style.min.css?ver=6.5.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\css\dist\block-library\style.min.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\dist\hooks.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\dist\i18n.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\dist\vendor\regenerator-runtime.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\dist\vendor\wp-polyfill-inert.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\dist\vendor\wp-polyfill.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\jquery\jquery-migrate.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\jquery\jquery.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-includes\js\jquery\ui\core.min.js
+Content Type: text/javascript
+
+Uri: https://swiftpursebank.com/wp-user/account/login
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\account\login.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/wp-user/account/signup
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\account\signup.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/wp-user/b/loader.svg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\b\loader.svg
+Content Type: image/svg+xml
+
+Uri: https://swiftpursebank.com/wp-user/l.css
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\l.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-user/logo.svg
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\logo.svg.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/wp-user/manifest.json
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\manifest.json
+Content Type: application/json
+
+Uri: https://swiftpursebank.com/wp-user/static/css/%23b
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\static\css\#b.html
+Content Type: text/html
+
+Uri: https://swiftpursebank.com/wp-user/static/css/main.c0006301.css
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\static\css\main.c0006301.css
+Content Type: text/css
+
+Uri: https://swiftpursebank.com/wp-user/static/js/main.a1e1d9a9.js
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\wp-user\static\js\main.a1e1d9a9.js
+Content Type: text/javascript
+
+Uri: https://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\translate_a\element.js
+Content Type: text/javascript
+
+Uri: https://unpkg.com/akar-icons-fonts@1.1.22/src/index.js
+File Name: C:\Downloaded Web Sites\swiftpursebank.com\akar-icons-fonts@1.1.22\src\index.js
+Content Type: text/javascript
+

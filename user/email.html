@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Email Verification | SwiftPurse Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#fff;min-height:100vh;color:#19202F}
+.wrap{max-width:420px;margin:0 auto;padding:1.25rem 1.5rem 2rem;min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem}
+.back{font-size:1.35rem;background:none;border:none;cursor:pointer}
+.sign-in{border:1px solid #ddd;border-radius:999px;padding:.45rem 1.1rem;font-size:.9rem;text-decoration:none;color:#19202F;font-weight:500}
+h1{font-size:1.35rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem}
+.sub{color:#6b7280;font-size:.9rem;margin-bottom:1.5rem}
+.field input{width:100%;padding:.9rem 1rem;border:1px solid #e5e7eb;border-radius:999px;font-size:.95rem;outline:none;margin-bottom:1rem}
+.field input:focus{border-color:#3498db}
+.btn{width:100%;padding:.95rem;border:none;border-radius:999px;font-size:1rem;font-weight:600;cursor:pointer;background:#19202F;color:#fff}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.hint{text-align:center;color:#6b7280;font-size:.85rem;margin-top:1.25rem;line-height:1.5}
+.resend{color:#3498db;cursor:pointer;font-weight:600;text-decoration:underline}
+.resend.hidden{display:none}
+.toast{position:fixed;top:1rem;left:50%;transform:translateX(-50%);padding:.75rem 1.1rem;border-radius:10px;font-size:.9rem;z-index:9999;display:none}
+.toast.error{background:#dc2626;color:#fff}.toast.success{background:#16a34a;color:#fff}.toast.show{display:block}
+.footer{margin-top:auto;padding-top:2rem;text-align:center;color:#9ca3af;font-size:.8rem}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="wrap">
+  <div class="top">
+    <button class="back" onclick="history.back()">←</button>
+    <a class="sign-in" href="../login.html">Sign In</a>
+  </div>
+  <h1>Email Verification 🔒</h1>
+  <p class="sub">we have sent code your mail</p>
+  <form id="form">
+    <div class="field"><input type="text" id="code" name="ver_code" placeholder="Enter Code" autocomplete="one-time-code"></div>
+    <button type="submit" class="btn" id="btnConfirm">Confirm Code</button>
+  </form>
+  <div class="hint">
+    Didn't receive it? Check your spam or junk folder.<br>
+    Still no code? <span id="countdownWrap">Click "<span id="countdown">2:00</span>"</span>
+    <span class="resend hidden" id="resendBtn">Resend code</span>
+  </div>
+  <div class="footer">Copyright © 2026 All rights reserved.</div>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var email = params.get('email') || '';
+  var userId = params.get('id') || '';
+  var secondsLeft = 120;
+  var timer = null;
+
+  function toast(msg, type) {
+    var el = document.getElementById('toast');
+    el.textContent = msg; el.className = 'toast ' + (type || 'error') + ' show';
+    setTimeout(function () { el.classList.remove('show'); }, 4000);
+  }
+
+  function formatTime(s) {
+    var m = Math.floor(s / 60);
+    var sec = s % 60;
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  function startCountdown() {
+    secondsLeft = 120;
+    document.getElementById('countdownWrap').style.display = 'inline';
+    document.getElementById('resendBtn').classList.add('hidden');
+    document.getElementById('countdown').textContent = formatTime(secondsLeft);
+    clearInterval(timer);
+    timer = setInterval(function () {
+      secondsLeft--;
+      document.getElementById('countdown').textContent = formatTime(Math.max(0, secondsLeft));
+      if (secondsLeft <= 0) {
+        clearInterval(timer);
+        document.getElementById('countdownWrap').style.display = 'none';
+        document.getElementById('resendBtn').classList.remove('hidden');
+      }
+    }, 1000);
+  }
+  startCountdown();
+
+  document.getElementById('resendBtn').onclick = async function () {
+    try {
+      await SwiftPurse.api('/auth/resend-verification', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, id: userId })
+      });
+      toast('Verification code sent', 'success');
+      startCountdown();
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Failed to resend');
+    }
+  };
+
+  document.getElementById('form').onsubmit = async function (e) {
+    e.preventDefault();
+    var code = document.getElementById('code').value.trim();
+    if (!code) { toast('Please enter the verification code'); return; }
+    var btn = document.getElementById('btnConfirm');
+    btn.disabled = true; btn.textContent = 'Verifying...';
+    try {
+      var data = await SwiftPurse.api('/auth/verify-email', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, id: userId, code: code })
+      });
+      if (data.token) SwiftPurse.setToken(data.token);
+      if (data.user) SwiftPurse.setUser(data.user);
+      toast('Email verified successfully', 'success');
+      setTimeout(function () { window.location.href = 'kyc-form.html'; }, 1000);
+    } catch (err) {
+      toast((err.data && err.data.message) || err.message || 'Invalid code');
+      btn.disabled = false; btn.textContent = 'Confirm Code';
+    }
+  };
+})();
+</script>
+</body>
+</html>
