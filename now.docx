@@ -1,6 +1,6 @@
 
 
-//SwiftPurse\frontend\user\dashboard.html
+//SwiftPurse\frontend\user\send.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,6 @@
   <link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
     body { font-family: 'Inter', sans-serif; background: #f7f7f7; }
     #sidenav {
@@ -27,7 +26,6 @@
     .main-wrapper {
       transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    /* Desktop behaviour */
     @media (min-width: 768px) {
       #sidenav { transform: translateX(0); }
       #sidenav.closed { transform: translateX(-100%); }
@@ -35,31 +33,30 @@
       .main-wrapper.full { margin-left: 0; }
     }
   </style>
-
 </head>
 <body class="min-h-screen overflow-x-hidden">
   <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
 
   <!-- SIDEBAR -->
-  <aside id="sidenav" class="fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg ">
+  <aside id="sidenav" class="fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg closed">
     <div class="p-4 border-b">
       <img src="https://swiftpursebank.com/wp-api/site/t_cbb32d3de57c298453db01621c630933.svg" alt="SwiftPurse" class="h-10">
     </div>
     <div class="px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">General</div>
     <nav class="flex-1 px-2 space-y-0.5 overflow-y-auto pb-6 text-sm">
-      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_DASH bg-gray-100 text-gray-900 font-medium">
+      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
         Dashboard
       </a>
-      <a href="add-funds.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="add-funds.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
         Add Funds
       </a>
-      <a href="make-payment.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="make-payment.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
         Make Payment
       </a>
-      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_SEND bg-gray-100 text-gray-900 font-medium">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
         Bank Transfer
       </a>
@@ -67,11 +64,11 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         Loan <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
         Fixed Deposit
       </a>
-      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
         Notifications <span id="notifBadge" class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full hidden">0</span>
       </a>
@@ -79,7 +76,7 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
         Credit Card <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
         Upgrade Account
       </a>
@@ -91,15 +88,15 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
         Pay Bills <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         Statements & Report
       </a>
-      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Settings
       </a>
-      <a href="#" data-auth-logout class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a data-auth-logout href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
         Log Out
       </a>
@@ -107,7 +104,7 @@
   </aside>
 
   <!-- MAIN -->
-  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen">
+  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen full">
     <header class="bg-white sticky top-0 z-30 border-b border-gray-100">
       <div class="flex items-center justify-between px-4 py-3">
         <div class="flex items-center gap-3">
@@ -121,104 +118,106 @@
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </a>
           <button onclick="toggleProfile()" class="focus:outline-none">
-            <img id="headerAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
+            <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
           </button>
-          <!-- Profile dropdown -->
           <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
             <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
-              <img id="menuAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-8 h-8 rounded-full object-cover">
+              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
               <div>
-                <div class="text-sm font-medium text-gray-900"><span class="userDisplayName">User</span></div>
-                <div class="text-xs text-gray-500 userTier">Tier 1</div>
+                <div class="text-sm font-medium text-gray-900">Gomez Maria</div>
+                <div class="text-xs text-gray-500">Tier 1</div>
               </div>
             </div>
             <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
-            <a href="profile.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile</a>
             <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings</a>
-            <a href="#" data-auth-logout class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout</a>
+            <a data-auth-logout href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout</a>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="flex-1 p-4 md:p-6 max-w-3xl mx-auto w-full">
-      <!-- Balance Card -->
-      <div class="rounded-2xl p-6 text-white relative overflow-hidden mb-6" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
-        <div class="absolute inset-0 opacity-20" style="background-image:url('/wp-user/i/Untitled.png');background-size:cover;background-position:center;"></div>
-        <div class="relative z-10">
-          <div class="flex justify-between items-start mb-1">
-            <span class="text-sm text-slate-300">Available Balance</span>
-            <img src="/wp-user/i/logo.svg" alt="" class="h-6 opacity-80">
+    <main class="flex-1 p-4 md:p-6 max-w-lg mx-auto w-full">
+      <h1 class="text-xl font-semibold text-gray-800 mb-6">Send</h1>
+
+      <form method="post" action="/wp-user/dashboard/send?index" class="bg-white rounded-2xl shadow-sm p-5 mb-6">
+        <input type="hidden" name="newtrs" value="newtrs">
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Bank*</label>
+          <input type="text" name="bank" placeholder="Enter Bank" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Swift Code *</label>
+            <input type="text" name="swift" placeholder="Enter Swift Code" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
           </div>
-          <div class="text-3xl font-bold tracking-tight mb-6"><span id="balAmount">$0.00</span></div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Currency *</label>
+            <input type="text" name="currency" placeholder="Enter Currency" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Routing Number *</label>
+            <input type="text" name="routing" placeholder="Enter Routing Number" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Country *</label>
+            <input type="text" name="country" placeholder="Enter Country" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Account Number *</label>
+          <input type="text" name="act_no" placeholder="Enter Account Number" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Account Holder Name *</label>
+          <input type="text" name="act_hold_name" placeholder="Enter Account Holder Name" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Amount *</label>
+          <div class="relative">
+            <input type="text" name="amount" placeholder="Enter Amount" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-16 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+            <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-xs font-medium text-gray-700 px-3 py-1.5 rounded-full shadow-sm border border-gray-200">Max</button>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Note *</label>
+          <textarea name="note" rows="3" placeholder="Enter Note" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300 resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800 transition">Submit Transfer</button>
+      </form>
+
+      <!-- Recent transfer card -->
+      <div class="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        </div>
+        <div class="flex-1 min-w-0">
           <div class="flex justify-between text-sm">
             <div>
-              <div class="text-slate-400 text-xs">Account Number</div>
-              <div class="font-medium"><span id="acctNo">—</span></div>
+              <div class="text-xs text-gray-500">Amount</div>
+              <div class="font-medium text-gray-900">$1,000.00</div>
             </div>
-            <div class="text-right">
-              <div class="text-slate-400 text-xs">Account Status</div>
-              <div class="font-medium" id="acctTier">Tier 1</div>
+            <div>
+              <div class="text-xs text-gray-500">Type</div>
+              <div class="font-medium text-gray-900">Bank Transfer</div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500">Date</div>
+              <div class="font-medium text-gray-900">18/09/2026</div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="grid grid-cols-4 gap-3 mb-6">
-        <a href="send.html" class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white shadow">
-            <img src="/wp-user/i/img.svg" >
-          </div>
-          <span class="text-xs text-gray-600">Send</span>
-        </a>
-        <a href="add-funds.html?view=institutional" class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white shadow">
-            <img src="/wp-user/i/img2.svg" >
-          </div>
-          <span class="text-xs text-gray-600">Receive</span>
-        </a>
-        <a href="#" class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white shadow">
-            <img src="/wp-user/i/img3.svg" >
-          </div>
-          <span class="text-xs text-gray-600">Loan</span>
-        </a>
-        <a href="add-funds.html" class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white shadow">
-            <img src="/wp-user/i/img4.svg" >
-          </div>
-          <span class="text-xs text-gray-600">Topup</span>
-        </a>
-      </div>
-
-      <!-- Credit / Debit cards -->
-      <div class="grid grid-cols-2 gap-3 mb-6">
-        <div class="bg-white rounded-2xl p-4 shadow-sm flex justify-between items-center">
-          <div>
-            <div class="text-xs text-gray-500 mb-1">Total Credit</div>
-            <div class="text-lg font-semibold text-green-600">+<span id="totalCredit">$0.00</span></div>
-          </div>
-          <img src="/wp-user/i/c2.svg" alt="" class="h-8 opacity-80">
-        </div>
-        <div class="bg-white rounded-2xl p-4 shadow-sm flex justify-between items-center">
-          <div>
-            <div class="text-xs text-gray-500 mb-1">Total Debit</div>
-            <div class="text-lg font-semibold text-red-500">-<span id="totalDebit">$0.00</span></div>
-          </div>
-          <img src="/wp-user/i/d.svg" alt="" class="h-8 opacity-80">
-        </div>
-      </div>
-
-      <!-- Recent Transactions -->
-      <div class="bg-white rounded-2xl p-4 shadow-sm">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="font-semibold text-gray-800">Recent Transactions</h2>
-          <a href="statements.html" class="text-gray-400 text-lg leading-none" title="View all">•••</a>
-        </div>
-        <div id="txList" class="space-y-3">
-          <div class="text-sm text-gray-500 p-3 text-center">Loading transactions…</div>
-        </div>
+        <span class="text-xs font-medium text-yellow-700 bg-yellow-100 px-2.5 py-1 rounded-full shrink-0">pending</span>
       </div>
     </main>
 
@@ -234,7 +233,6 @@
       const ov = document.getElementById('overlay');
       sn.classList.remove('closed');
       mw.classList.remove('full');
-      // Only show overlay on mobile
       if (window.innerWidth < 768) {
         ov.classList.remove('hidden');
         requestAnimationFrame(() => ov.classList.remove('opacity-0'));
@@ -257,18 +255,13 @@
     function toggleProfile() {
       document.getElementById('profileMenu').classList.toggle('hidden');
     }
-    // Close sidebar when clicking the overlay (mobile)
     document.getElementById('overlay').addEventListener('click', closeSidebar);
-
-    // Close profile dropdown when clicking outside
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('profileMenu');
       if (!menu) return;
       const btn = e.target.closest('button[onclick="toggleProfile()"]');
       if (!menu.contains(e.target) && !btn) menu.classList.add('hidden');
     });
-
-    // On mobile, force sidebar closed on page load so state is consistent
     if (window.innerWidth < 768) {
       document.getElementById('sidenav').classList.add('closed');
       document.getElementById('mainWrapper').classList.add('full');
@@ -287,96 +280,6 @@
 
 <script src="../js/config.js"></script>
 <script src="../js/auth.js"></script>
-<script>
-(function () {
-  function money(n) {
-    var v = Number(n || 0);
-    return '$' + v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-  function fmtDate(d) {
-    try {
-      return new Date(d).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
-    } catch (e) { return ''; }
-  }
-  async function loadDashboard() {
-    try {
-      var res = await api.get('/user/dashboard');
-      var data = res.data || {};
-      var user = data.user || {};
-      var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'User';
-      document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
-      document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = user.account_tier || 'Tier 1'; });
-
-      var bal = document.getElementById('balAmount');
-      if (bal) bal.textContent = money(user.balance);
-      var an = document.getElementById('acctNo');
-      if (an) an.textContent = user.account_no || '—';
-      var tier = document.getElementById('acctTier');
-      if (tier) tier.textContent = user.account_tier || 'Tier 1';
-
-      // Profile images (header + dropdown)
-      if (user.image) {
-        var headerAvatar = document.getElementById('headerAvatar');
-        var menuAvatar = document.getElementById('menuAvatar');
-        if (headerAvatar) headerAvatar.src = user.image;
-        if (menuAvatar) menuAvatar.src = user.image;
-        document.querySelectorAll('img[alt="User"]').forEach(function (img) { img.src = user.image; });
-      }
-
-      var badge = document.getElementById('notifBadge');
-      if (badge) {
-        if (data.unreadCount > 0) {
-          badge.textContent = data.unreadCount;
-          badge.classList.remove('hidden');
-        } else {
-          badge.classList.add('hidden');
-        }
-      }
-
-      // Totals from transactions
-      var txs = Array.isArray(data.transactions) ? data.transactions : [];
-      var creditSum = 0, debitSum = 0;
-      txs.forEach(function (t) {
-        var amt = Number(t.amount || 0);
-        if (t.type === 'credit' || t.type === 'deposit') creditSum += amt;
-        else debitSum += amt;
-      });
-      var tc = document.getElementById('totalCredit');
-      var td = document.getElementById('totalDebit');
-      if (tc) tc.textContent = money(creditSum);
-      if (td) td.textContent = money(debitSum);
-
-      // Render inside Recent Transactions (#txList)
-      var list = document.getElementById('txList');
-      if (list) {
-        if (!txs.length) {
-          list.innerHTML = '<div class="text-sm text-gray-500 p-3 text-center">No transactions yet</div>';
-        } else {
-          list.innerHTML = txs.map(function (t) {
-            var credit = t.type === 'credit' || t.type === 'deposit';
-            var amt = (credit ? '+$ ' : '-$ ') + Number(t.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            var color = credit ? 'text-green-600' : 'text-red-500';
-            var badgeCls = t.status === 'Successful' ? 'bg-green-100 text-green-700' : (t.status === 'In Progress' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600');
-            var icon = credit ? '/wp-user/i/c3.svg' : '/wp-user/i/d3.svg';
-            return '<a href="statements.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">' +
-              '<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">' +
-              '<img src="' + icon + '" alt="" class="w-5 h-5" onerror="this.style.display=\'none\'"></div><div>' +
-              '<div class="font-medium text-gray-900 text-sm">' + (t.title || 'INWARD TRANSFER') + '</div>' +
-              '<div class="text-xs text-gray-500">' + fmtDate(t.createdAt) + '</div></div></div>' +
-              '<div class="text-right"><div class="font-medium ' + color + ' text-sm">' + amt + '</div>' +
-              '<span class="text-[10px] ' + badgeCls + ' px-2 py-0.5 rounded-full">' + (t.status || 'Successful') + '</span></div></a>';
-          }).join('');
-        }
-      }
-    } catch (err) {
-      console.error(err);
-      var list = document.getElementById('txList');
-      if (list) list.innerHTML = '<div class="text-sm text-gray-500 p-3 text-center">No transactions yet</div>';
-    }
-  }
-  document.addEventListener('DOMContentLoaded', loadDashboard);
-})();
-</script>
 
 </body>
 </html>

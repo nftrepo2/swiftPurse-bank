@@ -1,15 +1,8 @@
-
-//SwiftPurse\frontend\user\add-funds.html
-when the payment method of Institutional  Transfer is clicked  the Institutional  Transfer card appears and replaces all the page content but if the payment method of crypto deposit the crypto deposit card appears and replaces all the page content
+//SwiftPurse\frontend\user\send.html
+-when the whole transfer form fields are filled and submitted 
 -in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
 
-//Institutional  Transfer
-in this card all the user dynamic indicated details in the card should be displayed 
--the Swift Code, Routing Number values should be left as it is  
 
-
-//crypto deposit
--in this card when the form is filled and subimtted successfully it redirect to same page card and  displays payment pending 
 -user recieves this notification below in it's dashboard notifications page
 Title: Deposit Submitted
 Message: Your deposit of $50(dynamic based on amount)is under review 
@@ -38,31 +31,57 @@ try {
 
 //
 
--then the deposit history template below appears, displaying the dynamic data of the deposit and it's status 
-<p>Crypto Transactions</p>
-<div class="trs_trsr__Eo7Af"><div class="trs_ic__zendW"></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Amount</div><div class="trs_s__eP7Ak">$50.00</div></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Type</div><div class="trs_s__eP7Ak">Bitcoin</div></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Date</div><div class="trs_s__eP7Ak">19/09/2026</div></div><div class="trs_but__G1IrQ trs_pending__qqXtx"> pending </div></div>
--if the deposit is approved then the amount of the approved deposit is added to the user balance 
 
 
-//SwiftPurse\frontend\user\make-payment.html
-when the the  crypto deposit is clicked the  crypto deposit card appears and replaces all the page content it's form work same way as already explained above because there the same 
--in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
+//transfer email template
+<div class="   "><div class="aHl" id="avWBGd-17"></div><div id=":91" tabindex="-1"></div><div class="ii gt" jslog="20277; u014N:xr6bB; 1:WyIjdGhyZWFkLWY6MTg3NjY1NTE2ODAwMDg4NDEyMSJd; 4:WyIjbXNnLWY6MTg3NjY1NTE2ODAwMDg4NDEyMSIsbnVsbCxudWxsLG51bGwsMSwwLFsxLDAsMF0sMTQ4LDEwMDMsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDEsbnVsbCxudWxsLFswXSxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwwLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxbMCwxXSwwXQ.." id=":8t"><div class="a3s aiL " id=":8s"><div id="avWBGd-20"><u></u>
+<div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"> <tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff;border-bottom:1px solid transparent;border-left:1px solid transparent;border-radius:0;border-right:1px solid transparent;border-top:1px solid transparent;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;background-color:#eff1ff;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" bgcolor="#eff1ff" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><div style="box-sizing:border-box;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;text-align:center" align="center"><div style="display:none;max-height:0px;overflow:hidden"> </div></div></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff;border-bottom:1px solid transparent;border-left:1px solid transparent;border-radius:0;border-right:1px solid transparent;border-top:1px solid transparent;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;background-color:#eff1ff;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" bgcolor="#eff1ff" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:30px;padding-top:30px;width:100%;padding-right:0;padding-left:0" width="100%"><div align="center" style="box-sizing:border-box;line-height:10px"><div style="box-sizing:border-box;max-width:200.6px"><a href="#m_7968352123809148647_" style="box-sizing:border-box;outline:0"><img src="https://ci3.googleusercontent.com/meips/ADKq_Na66Eqf61ovhQLAMrZXeO-xcS_R2ig6x5MzQhlLZaXUhKSQZuI6eMGIA2W8t_RHy6xAcpTmT1S2gPJV=s0-d-e1-ft#https://swiftpursebank.com/i/logo.png" style="box-sizing:border-box;display:block;height:auto;border:0;width:100%" width="200.6" alt="SwiftPurse Bank Logo-purple" title="SwiftPurse Bank Logo-purple" class="CToWUd" data-bit="iit"></a></div></div></td></tr></tbody></table></td> </tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;padding-bottom:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;width:100%" width="100%"><div align="center" style="box-sizing:border-box;line-height:10px"><div style="box-sizing:border-box;max-width:590px"> <a href="#m_7968352123809148647_" style="box-sizing:border-box;outline:0"><img src="https://ci3.googleusercontent.com/meips/ADKq_NbRb3HlgQ4tR9gUCCqSwK7CBhoaKUITa1oj3Os1H5C06zY2nBFPzgwWLWMS8guNvnobIEccrL_31UjXfw=s0-d-e1-ft#https://swiftpursebank.com/i/dontu.png" style="box-sizing:border-box;display:block;height:auto;border:0;width:100%" width="590" alt="Don't You Want Instant Payments?" title="Don't You Want Instant Payments?" class="CToWUd" data-bit="iit"></a></div></div></td></tr></tbody></table>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;word-break:break-word"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:15px"><div style="box-sizing:border-box;font-family:sans-serif"><div style="box-sizing:border-box;font-size:12px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;color:#000;line-height:1.5">
+	    
+	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">
+	        We hope this message finds you well. This is to inform you that you have initiated a bank transfer request. Below are the details of the recent transaction:
+	        </p>
+	        
+	        
+	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px"> 
+	        <br style="box-sizing:border-box">Bank Name: Test Bank US <br style="box-sizing:border-box">SWIFT Code: TESTUS33XXX<br style="box-sizing:border-box">Country: United States<br style="box-sizing:border-box">Account Number: 4532 9810 6742<br style="box-sizing:border-box">Account Holder Name: John Doe<br style="box-sizing:border-box">Amount Transferred: 1,000.00<br style="box-sizing:border-box">Transferred Currency: USD<br style="box-sizing:border-box">Date and time: 09/18/2026 08:50<br style="box-sizing:border-box">Current Account Balance: 1,000.00<br style="box-sizing:border-box">Transaction Status: <span style="color:yellow">Processing</span> <br style="box-sizing:border-box">Transaction ID: 05129407942 <br style="box-sizing:border-box">
+	        <br style="box-sizing:border-box">
+	        <br style="box-sizing:border-box"></p>
+	 
+	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">
+	        For any questions or assistance regarding this transaction, 
+	        please contact SwiftPurse Bank's Customer Support at <a href="mailto:support@swiftpursebank.com" target="_blank">support@swiftpursebank.com</a>.  
 
-//SwiftPurse\frontend\user\dashboard.html
--in the <!-- Quick Actions --> section when the Receive button is clicked it redirects to add.html page and displays the Institutional  Transfer directly
--while the send button leads to send.html page
+	<br style="box-sizing:border-box">
+<strong>Thank you for banking with SwiftPurse Bank.</strong>
+	        </p>
+	         
+	
+	</div></div></td></tr></tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:15px;padding-top:20px;text-align:center" align="center"><div style="box-sizing:border-box">
+	
+	</div></td></tr></tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;word-break:break-word"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:15px"><div style="box-sizing:border-box;font-family:sans-serif"><div style="box-sizing:border-box;font-size:12px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;color:#000;line-height:1.5"><p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">Love,<br style="box-sizing:border-box"><br style="box-sizing:border-box">The SwiftPurse Bank Team</p></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><div style="box-sizing:border-box;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;text-align:center" align="center"><table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%"> <tbody> <tr> <td> <table role="presentation" style="color:#333;width:590px" align="center" border="0" cellpadding="0" cellspacing="0" width="590"> <tbody> <tr> <td style="font-weight:400;text-align:left;vertical-align:top;padding-top:5px;padding-bottom:25px;background-color:#fff;border:0" width="100%"> <table role="presentation" style="word-break:break-word" border="0" cellpadding="30" cellspacing="0" width="100%"> <tbody> <tr> <td style="margin-top:0"> 
 
+<div style="padding-top:11.6px;margin-bottom:16px;border-top:1px solid #e3e3e3">
 
+<div style="color:#979797;line-height:1.2;font-family:'Mulish, sans-serif'">
 
+<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
+<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
+<p style="margin:0;font-family:Mulish,sans-serif;font-size:12px">
+2026 SwiftPurse Bank . All rights reserved.</p> 
+<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
+<p style="margin:0;font-family:Mulish,sans-serif;font-size:12px"><span style="line-height:1.6">
+UK banking services offered by SwiftPurse Bank (RC796975) with registered address at 
+<a href="#m_7968352123809148647_">Head office: 21 Lombard St, city of london,London Ec3v 9AH , UK.</a>
+Clients' money is safeguarded with reputable UK and EU banks. Financial Services Compensation Scheme (FSCS) does not apply.</span></p> 
+<p style="padding-top:25px"><img style="display:block;width:20%;min-width:80px" title="SwiftPurse Bank logo" src="https://ci3.googleusercontent.com/meips/ADKq_Na66Eqf61ovhQLAMrZXeO-xcS_R2ig6x5MzQhlLZaXUhKSQZuI6eMGIA2W8t_RHy6xAcpTmT1S2gPJV=s0-d-e1-ft#https://swiftpursebank.com/i/logo.png" alt="SwiftPurse Bank logo" class="CToWUd" data-bit="iit"></p> </div>
+</div></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table></div>
 
+</td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table><div class="yj6qo"></div><div class="adL">
+</div></div><div class="adL">
 
-
-
-
-
-
-
-
+</div></div></div></div><div class="WhmR8e" data-hash="0" id="avWBGd-21"></div></div>
 
 
 
