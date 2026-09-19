@@ -1,7 +1,56 @@
 
+//SwiftPurse\frontend\user\add-funds.html
+when the payment method of Institutional  Transfer is clicked  the Institutional  Transfer card appears and replaces all the page content but if the payment method of crypto deposit the crypto deposit card appears and replaces all the page content
+-in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
+
+//Institutional  Transfer
+in this card all the user dynamic indicated details in the card should be displayed 
+-the Swift Code, Routing Number values should be left as it is  
 
 
+//crypto deposit
+-in this card when the form is filled and subimtted successfully it redirect to same page card and  displays payment pending 
+-user recieves this notification below in it's dashboard notifications page
+Title: Deposit Submitted
+Message: Your deposit of $50(dynamic based on amount)is under review 
+Time: 21 hours ago(dynamic)
+icon: bell icon 
+link named view details leads to the  /user/notifications.html page where all history are displayed 
 
+and this message notifcation should also be pushed to user screen using this dynamic snipt of code according to the event that occurred
+
+{/* For example, after a successful deposit, trade, withdrawal, or admin action, import the helper in that backend route:
+
+const { sendPushToUser } = require('../utils/pushNotifications');
+
+Then call it after the database operation succeeds:
+
+try {
+  await sendPushToUser(req.user, {
+    title: 'Deposit confirmed',
+    body: 'Your deposit has been successfully processed.',
+    url: '/user/dashboard.html',
+    tag: 'deposit-confirmed',
+  });
+} catch (error) {
+  console.error('Push notification failed:', error.message);
+} */}
+
+//
+
+-then the deposit history template below appears, displaying the dynamic data of the deposit and it's status 
+<p>Crypto Transactions</p>
+<div class="trs_trsr__Eo7Af"><div class="trs_ic__zendW"></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Amount</div><div class="trs_s__eP7Ak">$50.00</div></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Type</div><div class="trs_s__eP7Ak">Bitcoin</div></div><div class="trs_col__Y8s3t"><div class="trs_h__1i5OA">Date</div><div class="trs_s__eP7Ak">19/09/2026</div></div><div class="trs_but__G1IrQ trs_pending__qqXtx"> pending </div></div>
+-if the deposit is approved then the amount of the approved deposit is added to the user balance 
+
+
+//SwiftPurse\frontend\user\make-payment.html
+when the the  crypto deposit is clicked the  crypto deposit card appears and replaces all the page content it's form work same way as already explained above because there the same 
+-in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
+
+//SwiftPurse\frontend\user\dashboard.html
+-in the <!-- Quick Actions --> section when the Receive button is clicked it redirects to add.html page and displays the Institutional  Transfer directly
+-while the send button leads to send.html page
 
 
 

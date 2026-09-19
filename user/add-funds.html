@@ -114,19 +114,19 @@
           <img src="https://swiftpursebank.com/wp-api/site/t_564238e3795f75706dc155a65d045103.svg" alt="SwiftPurse" class="h-8">
         </div>
         <div class="flex items-center gap-3 relative">
-          <a href="#" class="p-1.5 rounded-full hover:bg-gray-100">
+          <a href="notifications.html" class="p-1.5 rounded-full hover:bg-gray-100">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </a>
           <button onclick="toggleProfile()" class="focus:outline-none">
-            <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
+            <img id="headerAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
           </button>
           <!-- Profile dropdown -->
           <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
             <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
-              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
+              <img id="menuAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-8 h-8 rounded-full object-cover">
               <div>
-                <div class="text-sm font-medium text-gray-900">Gomez Maria</div>
-                <div class="text-xs text-gray-500">Tier 1</div>
+                <div class="text-sm font-medium text-gray-900 userDisplayName">User</div>
+                <div class="text-xs text-gray-500 userTier">Tier 1</div>
               </div>
             </div>
             <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
@@ -139,85 +139,167 @@
     </header>
 
     
+    
     <main class="flex-1 p-4 max-w-lg mx-auto w-full">
-      <h1 class="text-xl font-semibold text-gray-800 mb-6">Add funds</h1>
-      <div class="space-y-3">
+      <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2 rounded-lg text-sm text-white shadow-lg"></div>
 
-        <a href="#" class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm">
-          <div class="flex items-center gap-3 min-w-0 flex-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+      <!-- METHOD LIST -->
+      <div id="viewMethods">
+        <h1 class="text-xl font-semibold text-gray-800 mb-6">Add funds</h1>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm opacity-70 cursor-not-allowed">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="font-medium text-gray-900">Bank Transfer</div>
+                <div class="text-sm text-gray-500 truncate">From Bank App Or Internet Banking.</div>
+              </div>
             </div>
-            <div class="min-w-0">
-              <div class="font-medium text-gray-900">Bank Transfer</div>
-              <div class="text-sm text-gray-500 truncate">From Bank App Or Internet Banking.</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
             <span class="text-xs text-red-500 text-right leading-tight">Not available<br class="sm:hidden"> for your region</span>
-            <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </div>
-        </a>
 
-        <a href="#" class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm">
-          <div class="flex items-center gap-3 min-w-0 flex-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          <div class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm opacity-70 cursor-not-allowed">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="font-medium text-gray-900">Card</div>
+                <div class="text-sm text-gray-500 truncate">Add Money With A Debit/Credit Card</div>
+              </div>
             </div>
-            <div class="min-w-0">
-              <div class="font-medium text-gray-900">Card</div>
-              <div class="text-sm text-gray-500 truncate">Add Money With A Debit/Credit Card</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
             <span class="text-xs text-red-500 text-right leading-tight">Not available<br class="sm:hidden"> for your region</span>
-            <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </div>
-        </a>
 
-        <a href="#" class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm">
-          <div class="flex items-center gap-3 min-w-0 flex-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <button type="button" id="btnInstitutional" class="w-full flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm hover:bg-gray-50 text-left">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="font-medium text-gray-900">Institutional Transfer</div>
+                <div class="text-sm text-gray-500 truncate">Receive Cash From Limited Institutes</div>
+              </div>
             </div>
-            <div class="min-w-0">
-              <div class="font-medium text-gray-900">Cash Deposit</div>
-              <div class="text-sm text-gray-500 truncate">Deposit Cash From Your Local Bank</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="text-xs text-red-500 text-right leading-tight">Not available<br class="sm:hidden"> for your region</span>
             <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
-        </a>
+          </button>
 
-        <a href="#" class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm">
-          <div class="flex items-center gap-3 min-w-0 flex-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <button type="button" id="btnCrypto" class="w-full flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm hover:bg-gray-50 text-left">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="font-medium text-gray-900">Crypto Deposit</div>
+                <div class="text-sm text-gray-500 truncate">Make Payments Swiftly With Crypto Currency</div>
+              </div>
             </div>
-            <div class="min-w-0">
-              <div class="font-medium text-gray-900">Institutional Transfer</div>
-              <div class="text-sm text-gray-500 truncate">Receive Cash From Limited Institutes</div>
+            <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- INSTITUTIONAL TRANSFER -->
+      <div id="viewInstitutional" class="hidden">
+        <button type="button" class="backToMethods text-sm text-gray-500 mb-3 hover:text-gray-800">← Back</button>
+        <h1 class="text-xl font-semibold text-gray-800 mb-4">Your Details</h1>
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div class="bg-slate-900 text-white px-5 py-4 font-semibold">Your Details</div>
+          <div class="p-5 space-y-4">
+            <div>
+              <div class="text-xs text-gray-500 mb-1">Your Username</div>
+              <div class="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+                <span id="instUsername" class="flex-1 text-sm font-medium text-gray-800">—</span>
+                <button type="button" data-copy="instUsername" class="text-xs text-gray-500 hover:text-gray-800">Copy</button>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500 mb-1">Your Account Number</div>
+              <div class="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+                <span id="instAcct" class="flex-1 text-sm font-medium text-gray-800">—</span>
+                <button type="button" data-copy="instAcct" class="text-xs text-gray-500 hover:text-gray-800">Copy</button>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500 mb-1">Swift Code</div>
+              <div class="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+                <span id="instSwift" class="flex-1 text-sm font-medium text-gray-800">n/a</span>
+                <button type="button" data-copy="instSwift" class="text-xs text-gray-500 hover:text-gray-800">Copy</button>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500 mb-1">Routing Number</div>
+              <div class="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+                <span id="instRouting" class="flex-1 text-sm font-medium text-gray-800">n/a</span>
+                <button type="button" data-copy="instRouting" class="text-xs text-gray-500 hover:text-gray-800">Copy</button>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500 mb-1">Country</div>
+              <div class="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+                <span id="instCountry" class="flex-1 text-sm font-medium text-gray-800">—</span>
+                <button type="button" data-copy="instCountry" class="text-xs text-gray-500 hover:text-gray-800">Copy</button>
+              </div>
             </div>
           </div>
-          <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#" class="flex items-center justify-between gap-3 bg-white rounded-2xl p-4 shadow-sm">
-          <div class="flex items-center gap-3 min-w-0 flex-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <div class="min-w-0">
-              <div class="font-medium text-gray-900">Crypto Deposit</div>
-              <div class="text-sm text-gray-500 truncate">Make Payments Swiftly With Crypto Currency</div>
-            </div>
+        </div>
+      </div>
+
+      <!-- CRYPTO DEPOSIT -->
+      <div id="viewCrypto" class="hidden">
+        <button type="button" class="backToMethods text-sm text-gray-500 mb-3 hover:text-gray-800">← Back</button>
+        <div class="mb-1 text-sm font-semibold text-gray-800">Crypto Deposit</div>
+        <div class="text-xs text-gray-500 mb-4">Deposit into your accounts</div>
+        <div class="text-sm font-medium text-gray-700 mb-2">Methods</div>
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
+          <div class="bg-slate-900 text-white px-5 py-4 font-semibold">Deposit method</div>
+          <div class="p-5">
+            <p class="text-xs text-gray-500 mb-4">To deposit, choose the payment method panel and make the payment to the displayed address. After payment has been made, come back to fill this form.</p>
+            <form id="cryptoForm" class="space-y-4">
+              <div>
+                <label class="text-xs text-gray-500">Type</label>
+                <select id="cryptoType" class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm">
+                  <option value="Bitcoin">Bitcoin</option>
+                  <option value="Ethereum">Ethereum</option>
+                  <option value="USDT">USDT</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-500">Address:</label>
+                <div class="flex items-center gap-2 mt-1 bg-gray-100 rounded-xl px-3 py-2.5">
+                  <span id="cryptoAddress" class="flex-1 text-xs font-medium text-gray-800 break-all">—</span>
+                  <button type="button" data-copy="cryptoAddress" class="text-xs text-gray-500 hover:text-gray-800 shrink-0">Copy</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-500">Amount:</label>
+                <input id="cryptoAmount" type="number" min="0.01" step="0.01" required class="w-full mt-1 px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-500">Payment Proof:</label>
+                <label class="mt-1 flex flex-col items-center justify-center border-2 border-dashed border-gray-200 rounded-xl p-6 cursor-pointer hover:bg-gray-50">
+                  <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                  <span class="text-sm text-blue-600 font-medium">Click To Upload</span>
+                  <span class="text-[10px] text-gray-400 mt-1">SVG, PNG, JPG or GIF (max. 800x400px)</span>
+                  <input id="cryptoProof" type="file" accept="image/*" class="hidden">
+                </label>
+                <div id="proofName" class="text-xs text-gray-500 mt-1 hidden"></div>
+              </div>
+              <button type="submit" id="btnSubmitDeposit" class="w-full py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:opacity-90">Submit Deposit</button>
+            </form>
           </div>
-          <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
+        </div>
+
+        <div class="text-sm font-medium text-gray-700 mb-2">Crypto Transactions</div>
+        <div id="cryptoTxList" class="space-y-2">
+          <div class="text-sm text-gray-400 text-center py-4">No crypto deposits yet</div>
+        </div>
       </div>
     </main>
-<footer class="text-center text-xs text-gray-500 py-6">
+
+    <footer class="text-center text-xs text-gray-500 py-6">
       Copyright © 2026. All rights reserved.
     </footer>
   </div>
@@ -229,8 +311,10 @@
       const ov = document.getElementById('overlay');
       sn.classList.remove('closed');
       mw.classList.remove('full');
-      ov.classList.remove('hidden');
-      requestAnimationFrame(() => ov.classList.remove('opacity-0'));
+      if (window.innerWidth < 768) {
+        ov.classList.remove('hidden');
+        requestAnimationFrame(() => ov.classList.remove('opacity-0'));
+      }
     }
     function closeSidebar() {
       const sn = document.getElementById('sidenav');
@@ -249,26 +333,172 @@
     function toggleProfile() {
       document.getElementById('profileMenu').classList.toggle('hidden');
     }
+    document.getElementById('overlay').addEventListener('click', closeSidebar);
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('profileMenu');
       if (!menu) return;
       const btn = e.target.closest('button[onclick="toggleProfile()"]');
       if (!menu.contains(e.target) && !btn) menu.classList.add('hidden');
     });
+    if (window.innerWidth < 768) {
+      document.getElementById('sidenav').classList.add('closed');
+      document.getElementById('mainWrapper').classList.add('full');
+    }
   </script>
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = '0acec184ba638708391cb26d405f0f81a1ac24bc';
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      c.type='text/javascript';c.charset='utf-8';c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+  (function () {
+    var addresses = { Bitcoin: 'bc1qjgpnpy95wdwek8sqzof07mcsdsh0s7szawq', Ethereum: '', USDT: '' };
+
+    function toast(msg, ok) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg ' + (ok ? 'bg-emerald-600' : 'bg-red-600');
+      el.classList.remove('hidden');
+      setTimeout(function () { el.classList.add('hidden'); }, 3200);
+    }
+
+    function showView(name) {
+      document.getElementById('viewMethods').classList.toggle('hidden', name !== 'methods');
+      document.getElementById('viewInstitutional').classList.toggle('hidden', name !== 'institutional');
+      document.getElementById('viewCrypto').classList.toggle('hidden', name !== 'crypto');
+    }
+
+    function fmtDate(d) {
+      try {
+        var x = new Date(d);
+        var dd = String(x.getDate()).padStart(2, '0');
+        var mm = String(x.getMonth() + 1).padStart(2, '0');
+        var yyyy = x.getFullYear();
+        return dd + '/' + mm + '/' + yyyy;
+      } catch (e) { return ''; }
+    }
+
+    async function loadUserDetails() {
+      try {
+        var res = await api.get('/auth/me');
+        var user = (res && res.data) || {};
+        if (user.user) user = user.user;
+        var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'User';
+        document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
+        document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = user.account_tier || 'Tier 1'; });
+        if (user.image) {
+          document.querySelectorAll('#headerAvatar, #menuAvatar, img[alt="User"]').forEach(function (img) { img.src = user.image; });
+        }
+        document.getElementById('instUsername').textContent = user.username || user.email || '—';
+        document.getElementById('instAcct').textContent = user.account_no || '—';
+        document.getElementById('instCountry').textContent = user.country || '—';
+        // Swift / routing stay n/a
+      } catch (e) {}
+    }
+
+    async function loadAddresses() {
+      try {
+        var res = await api.get('/user/deposit/addresses');
+        if (res.data && res.data.addresses) addresses = res.data.addresses;
+      } catch (e) {}
+      updateAddress();
+    }
+
+    function updateAddress() {
+      var type = document.getElementById('cryptoType').value;
+      document.getElementById('cryptoAddress').textContent = addresses[type] || '—';
+    }
+
+    async function loadCryptoTx() {
+      var list = document.getElementById('cryptoTxList');
+      try {
+        var res = await api.get('/user/deposit/crypto');
+        var items = (res.data && res.data.deposits) || [];
+        if (!items.length) {
+          list.innerHTML = '<div class="text-sm text-gray-400 text-center py-4">No crypto deposits yet</div>';
+          return;
+        }
+        list.innerHTML = items.map(function (d) {
+          var status = String(d.status || 'pending');
+          var pending = status.toLowerCase() === 'pending';
+          var badge = pending
+            ? 'bg-amber-100 text-amber-700'
+            : (status.toLowerCase() === 'approved' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600');
+          return '<div class="bg-white rounded-2xl p-3 shadow-sm flex items-center gap-3">' +
+            '<div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-sm">₿</div>' +
+            '<div class="flex-1 grid grid-cols-3 gap-2 text-center min-w-0">' +
+            '<div><div class="text-[10px] text-gray-400">Amount</div><div class="text-xs font-semibold">$' + Number(d.amount || 0).toFixed(2) + '</div></div>' +
+            '<div><div class="text-[10px] text-gray-400">Type</div><div class="text-xs font-semibold truncate">' + (d.crypto_type || 'Bitcoin') + '</div></div>' +
+            '<div><div class="text-[10px] text-gray-400">Date</div><div class="text-xs font-semibold">' + fmtDate(d.createdAt) + '</div></div>' +
+            '</div>' +
+            '<span class="text-[10px] px-2 py-1 rounded-full font-medium shrink-0 ' + badge + '">' + status + '</span></div>';
+        }).join('');
+      } catch (e) {
+        list.innerHTML = '<div class="text-sm text-gray-400 text-center py-4">No crypto deposits yet</div>';
+      }
+    }
+
+    document.getElementById('btnInstitutional').onclick = function () { showView('institutional'); };
+    document.getElementById('btnCrypto').onclick = function () {
+      showView('crypto');
+      loadCryptoTx();
+    };
+    document.querySelectorAll('.backToMethods').forEach(function (b) {
+      b.onclick = function () { showView('methods'); };
+    });
+    document.getElementById('cryptoType').onchange = updateAddress;
+
+    document.getElementById('cryptoProof').onchange = function () {
+      var f = this.files && this.files[0];
+      var el = document.getElementById('proofName');
+      if (f) { el.textContent = f.name; el.classList.remove('hidden'); }
+      else { el.classList.add('hidden'); }
+    };
+
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-copy');
+        var text = (document.getElementById(id) || {}).textContent || '';
+        if (navigator.clipboard) navigator.clipboard.writeText(text.trim());
+        toast('Copied', true);
+      });
+    });
+
+    document.getElementById('cryptoForm').onsubmit = async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('btnSubmitDeposit');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      try {
+        var fd = new FormData();
+        fd.append('amount', document.getElementById('cryptoAmount').value);
+        fd.append('crypto_type', document.getElementById('cryptoType').value);
+        fd.append('type', document.getElementById('cryptoType').value);
+        fd.append('address', document.getElementById('cryptoAddress').textContent.trim());
+        var file = document.getElementById('cryptoProof').files[0];
+        if (file) fd.append('proof', file);
+
+        var res = await api.post('/user/deposit/crypto', fd);
+        toast((res.data && res.data.message) || 'Payment pending', true);
+        document.getElementById('cryptoForm').reset();
+        document.getElementById('proofName').classList.add('hidden');
+        updateAddress();
+        await loadCryptoTx();
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Submit failed', false);
+      }
+      btn.disabled = false;
+      btn.textContent = 'Submit Deposit';
+    };
+
+    // Deep link: ?view=institutional | crypto
+    document.addEventListener('DOMContentLoaded', async function () {
+      await loadUserDetails();
+      await loadAddresses();
+      var params = new URLSearchParams(window.location.search);
+      var view = params.get('view') || params.get('method');
+      if (view === 'institutional' || view === 'it') showView('institutional');
+      else if (view === 'crypto') { showView('crypto'); loadCryptoTx(); }
+      else showView('methods');
+    });
+  })();
   </script>
-
-<script src="../js/config.js"></script>
-<script src="../js/auth.js"></script>
-
 </body>
 </html>
