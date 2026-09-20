@@ -20,21 +20,8 @@
       .main-wrapper { margin-left: 250px; }
       .main-wrapper.full { margin-left: 0; }
     }
-    .plastic-visa {
-      background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 45%, #0f172a 100%);
-    }
-    .plastic-mc {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #111827 100%);
-    }
-    .chip {
-      width: 42px; height: 32px; border-radius: 6px;
-      background: linear-gradient(135deg, #fbbf24, #d97706);
-      position: relative;
-    }
-    .chip::after {
-      content: ''; position: absolute; inset: 4px;
-      border: 1px solid rgba(0,0,0,.15); border-radius: 3px;
-    }
+    .type-card { transition: box-shadow .15s, border-color .15s, transform .15s; }
+    .type-card.selected { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.25); }
   </style>
 </head>
 <body class="min-h-screen overflow-x-hidden">
@@ -139,33 +126,41 @@
       </div>
     </header>
 
-    <main class="flex-1 p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <main class="flex-1 p-4 md:p-6 max-w-3xl mx-auto w-full">
       <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2 rounded-lg text-sm text-white shadow-lg"></div>
-      <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
-        <div>
-          <h1 class="text-xl font-semibold text-gray-900">My Cards</h1>
-          <p class="text-sm text-gray-500">Manage your virtual and physical debit cards</p>
-        </div>
-        <a href="apply-card.html" class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2.5 rounded-full shadow-sm">
-          <span class="text-lg leading-none">+</span> Apply for Card
+
+      <div class="mb-6">
+        <a href="credit-card.html" class="text-sm text-gray-600 hover:text-gray-900 inline-flex items-center gap-1 mb-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Back to Cards
         </a>
+        <h1 class="text-xl font-semibold text-gray-800">Apply for a Card</h1>
+        <p class="text-sm text-gray-500 mt-1">Choose a card type and fill in your details.</p>
       </div>
 
-      <div id="cardsList" class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
-        <div class="text-sm text-gray-400 text-center py-10 md:col-span-2">Loading cards…</div>
+      <div class="mb-2 text-[11px] font-semibold tracking-wider text-gray-400 uppercase">Select a card type</div>
+      <div id="typeGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <div class="text-sm text-gray-400 py-6 text-center col-span-full">Loading card types…</div>
       </div>
 
-      <!-- Details modal -->
-      <div id="detailModal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/40" id="detailBackdrop"></div>
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-md bg-white rounded-2xl shadow-xl p-5">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="font-semibold text-gray-900">Card Details</h2>
-            <button type="button" id="closeDetail" class="text-gray-400 hover:text-gray-700 text-xl leading-none">&times;</button>
-          </div>
-          <div id="detailBody" class="space-y-2 text-sm"></div>
+      <form id="applyForm" class="hidden bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
+        <input type="hidden" id="cardType" name="card_type_id" value="">
+        <div class="bg-slate-50 rounded-xl p-3 text-sm">
+          <div class="text-xs text-gray-500">Selected type</div>
+          <div id="selectedTypeLabel" class="font-semibold text-gray-900">—</div>
+          <div id="typeMeta" class="text-xs text-gray-500 mt-1"></div>
         </div>
-      </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Card Holder Name *</label>
+          <input id="cardHolder" name="card_holder" required class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300" placeholder="Full name on card">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Shipping Address</label>
+          <textarea id="shipAddr" name="shipping_address" rows="3" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300 resize-none" placeholder="Street, city, country"></textarea>
+        </div>
+        <button type="submit" id="btnApply" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800">Submit Application</button>
+      </form>
+
     </main>
     <footer class="text-center text-xs text-gray-500 py-6">Copyright © 2026. All rights reserved.</footer>
   </div>
@@ -181,111 +176,108 @@
   </script>
   <script src="../js/config.js"></script>
   <script src="../js/auth.js"></script>
-  <script>
-  (function(){
-    var cache = {};
-    function mask(num){
-      num = String(num||'');
-      if (!num || num.length < 4) return '•••• •••• •••• ••••';
-      var last = num.slice(-4);
-      return '•••• •••• •••• ' + last;
-    }
-    function networkLabel(n){
-      n = String(n||'').toLowerCase();
-      if (n.indexOf('master')>=0) return 'mastercard';
-      return 'visa';
-    }
-    function statusPill(st){
-      st = String(st||'pending').toLowerCase();
-      if (st==='active') return '<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Active</span>';
-      if (st==='pending') return '<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-200 border border-yellow-400/30">Pending</span>';
-      if (st==='frozen') return '<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-200 border border-sky-400/30">Frozen</span>';
-      if (st==='rejected') return '<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-red-500/25 text-red-200 border border-red-400/30">Rejected</span>';
-      return '<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-white/80">'+st+'</span>';
-    }
-    function brandMark(net){
-      if (networkLabel(net)==='mastercard') {
-        return '<div class="flex items-center -space-x-2"><span class="w-7 h-7 rounded-full bg-red-500/90"></span><span class="w-7 h-7 rounded-full bg-amber-400/90"></span></div>';
+
+<script>
+(function(){
+  var types = [];
+  function toast(msg, ok) {
+    var el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg ' + (ok ? 'bg-emerald-600' : 'bg-red-600');
+    el.classList.remove('hidden');
+    setTimeout(function () { el.classList.add('hidden'); }, 3200);
+  }
+  async function loadProfile() {
+    try {
+      var res = await api.get('/auth/me');
+      var me = res.data || {};
+      if (me.user) me = me.user;
+      var name = me.name || [me.first_name, me.last_name].filter(Boolean).join(' ') || 'User';
+      document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
+      document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = me.account_tier || 'Tier 1'; });
+      if (me.image) {
+        document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function (img) { img.src = me.image; });
       }
-      return '<div class="font-bold tracking-widest text-white/95 text-lg italic">VISA</div>';
-    }
-    async function loadProfile(){
-      try{
-        var res=await api.get('/auth/me');
-        var me=res.data||{}; if(me.user)me=me.user;
-        var name=me.name||[me.first_name,me.last_name].filter(Boolean).join(' ')||'User';
-        document.querySelectorAll('.userDisplayName').forEach(function(el){el.textContent=name;});
-        document.querySelectorAll('.userTier').forEach(function(el){el.textContent=me.account_tier||'Tier 1';});
-        if(me.image){document.querySelectorAll('#headerAvatar,#menuAvatar').forEach(function(img){img.src=me.image;});}
-      }catch(e){}
-    }
-    function renderCard(c){
-      var t = c.card_type_id || {};
-      var net = t.network || 'Visa';
-      var isMc = networkLabel(net)==='mastercard';
-      var exp = (c.expiry_month && c.expiry_year)
-        ? (String(c.expiry_month).padStart(2,'0') + '/' + String(c.expiry_year).slice(-2))
-        : '••/••';
-      var cls = isMc ? 'plastic-mc' : 'plastic-visa';
-      return '<div class="flex flex-col gap-3">'+
-        '<div class="'+cls+' text-white rounded-2xl p-5 shadow-lg min-h-[190px] flex flex-col justify-between relative overflow-hidden">'+
-          '<div class="flex items-start justify-between">'+
-            '<div class="chip"></div>'+
-            brandMark(net)+
-          '</div>'+
-          '<div class="tracking-[0.18em] text-base md:text-lg font-medium mt-6 mb-4">'+mask(c.card_number)+'</div>'+
-          '<div class="flex items-end justify-between gap-3">'+
-            '<div><div class="text-[10px] uppercase text-white/60 tracking-wide">Card Holder</div>'+
-            '<div class="text-sm font-medium uppercase">'+(c.card_holder||'—')+'</div>'+
-            '<div class="mt-2">'+statusPill(c.status)+'</div></div>'+
-            '<div class="text-right"><div class="text-[10px] uppercase text-white/60 tracking-wide">Expires</div>'+
-            '<div class="text-sm font-medium">'+exp+'</div></div>'+
-          '</div>'+
-        '</div>'+
-        '</div>';
-    }
-    async function loadCards(){
-      var list=document.getElementById('cardsList');
-      try{
-        var res=await api.get('/user/cards');
-        var cards=(res.data&&res.data.cards)||[];
-        cards.forEach(function(c){ cache[c._id]=c; });
-        if(!cards.length){
-          list.innerHTML='<div class="md:col-span-2 bg-white rounded-2xl border border-gray-100 p-10 text-center">'+
-            '<div class="text-lg font-medium text-gray-800 mb-2">No cards yet</div>'+
-            '<p class="text-sm text-gray-500 mb-4">Apply for a virtual or physical debit card to get started.</p>'+
-            '<a href="apply-card.html" class="inline-flex items-center gap-1 bg-blue-600 text-white text-sm px-5 py-2.5 rounded-full">+ Apply for Card</a></div>';
-          return;
-        }
-        list.innerHTML = cards.map(renderCard).join('');
-      }catch(e){
-        list.innerHTML='<div class="md:col-span-2 text-sm text-red-500 text-center py-8">Failed to load cards</div>';
-      }
-    }
-    document.getElementById('cardsList').addEventListener('click', function(e){
-      var btn = e.target.closest('[data-view]');
-      if (!btn) return;
-      var c = cache[btn.getAttribute('data-view')];
-      if (!c) return;
-      var t = c.card_type_id || {};
-      var exp = (c.expiry_month && c.expiry_year)
-        ? (String(c.expiry_month).padStart(2,'0') + '/' + c.expiry_year)
-        : '—';
-      document.getElementById('detailBody').innerHTML =
-        '<div class="flex justify-between"><span class="text-gray-500">Product</span><span class="font-medium">'+(t.name||'—')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Network</span><span class="font-medium">'+(t.network||'—')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Type</span><span class="font-medium">'+(t.type||'—')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Holder</span><span class="font-medium">'+(c.card_holder||'—')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Number</span><span class="font-medium">'+(c.card_number?mask(c.card_number):'Not issued')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">CVV</span><span class="font-medium">'+(c.status==='active'&&c.cvv?c.cvv:'•••')+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Expiry</span><span class="font-medium">'+exp+'</span></div>'+
-        '<div class="flex justify-between"><span class="text-gray-500">Status</span><span class="font-medium capitalize">'+String(c.status||'')+'</span></div>';
-      document.getElementById('detailModal').classList.remove('hidden');
+      var holder = document.getElementById('cardHolder');
+      if (holder && name && name !== 'User') holder.value = name;
+    } catch (e) {}
+  }
+  function selectType(id) {
+    document.getElementById('cardType').value = id;
+    var t = types.find(function (x) { return String(x._id) === String(id); });
+    document.querySelectorAll('[data-type-card]').forEach(function (el) {
+      var on = String(el.getAttribute('data-type-card')) === String(id);
+      el.classList.toggle('ring-2', on);
+      el.classList.toggle('ring-slate-900', on);
+      el.classList.toggle('border-slate-900', on);
     });
-    document.getElementById('closeDetail').onclick = function(){ document.getElementById('detailModal').classList.add('hidden'); };
-    document.getElementById('detailBackdrop').onclick = function(){ document.getElementById('detailModal').classList.add('hidden'); };
-    document.addEventListener('DOMContentLoaded', async function(){ await loadProfile(); await loadCards(); });
-  })();
-  </script>
+    if (t) {
+      document.getElementById('selectedTypeLabel').textContent = t.name || '';
+      document.getElementById('typeMeta').textContent =
+        (t.network || '') + ' · ' + (t.type || '') + ' · Fee: $' + Number(t.fee || 0).toFixed(2) +
+        (t.description ? (' — ' + t.description) : '');
+    }
+    document.getElementById('applyForm').classList.remove('hidden');
+  }
+  async function loadTypes() {
+    var grid = document.getElementById('typeGrid');
+    try {
+      var res = await api.get('/user/card-types');
+      types = (res.data && res.data.cardTypes) || [];
+      if (!types.length) {
+        grid.innerHTML = '<div class="text-sm text-gray-400 py-6 text-center col-span-full">No card types available</div>';
+        return;
+      }
+      grid.innerHTML = types.map(function (t) {
+        var fee = Number(t.fee || 0);
+        var feeLabel = fee <= 0 ? 'Free' : ('$' + fee.toFixed(2) + ' fee');
+        var feeCls = fee <= 0 ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700';
+        return '<button type="button" data-type-card="' + t._id + '" class="text-left bg-white border border-gray-200 rounded-2xl p-4 hover:border-slate-400 transition shadow-sm">' +
+          '<div class="flex items-start justify-between gap-2 mb-2">' +
+          '<div class="font-semibold text-gray-900 capitalize">' + (t.name || 'Card') + '</div>' +
+          '<span class="text-[11px] font-medium px-2 py-0.5 rounded-full ' + feeCls + '">' + feeLabel + '</span></div>' +
+          '<div class="text-xs text-gray-500 mb-2">' + (t.network || '') + ' · ' + (t.type || '') + '</div>' +
+          '<div class="text-xs text-gray-500 leading-relaxed">' + (t.description || 'Card details delivered after approval.') + '</div>' +
+          '</button>';
+      }).join('');
+      grid.querySelectorAll('[data-type-card]').forEach(function (btn) {
+        btn.addEventListener('click', function () { selectType(btn.getAttribute('data-type-card')); });
+      });
+    } catch (e) {
+      grid.innerHTML = '<div class="text-sm text-red-500 py-6 text-center col-span-full">Failed to load types</div>';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', async function () {
+    await loadProfile();
+    await loadTypes();
+    var form = document.getElementById('applyForm');
+    if (!form) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!document.getElementById('cardType').value) {
+        toast('Select a card type first', false);
+        return;
+      }
+      var btn = document.getElementById('btnApply');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      try {
+        var res = await api.post('/user/cards', {
+          card_type_id: document.getElementById('cardType').value,
+          card_holder: document.getElementById('cardHolder').value,
+          shipping_address: document.getElementById('shipAddr').value
+        });
+        toast((res.data && res.data.message) || 'Application submitted', true);
+        setTimeout(function () { location.href = 'credit-card.html'; }, 900);
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Application failed', false);
+        btn.disabled = false;
+        btn.textContent = 'Submit Application';
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

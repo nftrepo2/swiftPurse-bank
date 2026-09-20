@@ -16,8 +16,8 @@
       will-change: transform;
     }
     #sidenav.closed { transform: translateX(-100%); }
-    #overlay { 
-      transition: opacity 0.3s ease; 
+    #overlay {
+      transition: opacity 0.3s ease;
       backdrop-filter: blur(2px);
     }
     .main-wrapper {
@@ -65,9 +65,9 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
         Fixed Deposit
       </a>
-      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_NOTIF bg-gray-100 text-gray-900 font-medium">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-        Notifications <span class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+        Notifications <span id="notifBadge" class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full hidden">0</span>
       </a>
       <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
@@ -93,7 +93,7 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Settings
       </a>
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="#" data-auth-logout class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
         Log Out
       </a>
@@ -115,37 +115,28 @@
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </a>
           <button onclick="toggleProfile()" class="focus:outline-none">
-            <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
+            <img id="headerAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
           </button>
           <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
             <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
-              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
+              <img id="menuAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
               <div>
-                <div class="text-sm font-medium text-gray-900">Gomez Maria</div>
-                <div class="text-xs text-gray-500">Tier 1</div>
+                <div class="text-sm font-medium text-gray-900 userDisplayName">User</div>
+                <div class="text-xs text-gray-500 userTier">Tier 1</div>
               </div>
             </div>
-            <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home
-            </a>
-            <a href="profile.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile
-            </a>
-            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings
-            </a>
-            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout
-            </a>
+            <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Settings</a>
+            <a href="#" data-auth-logout class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Logout</a>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- HOST DIV – put any page content inside this div -->
-    <div id="page-content" class="flex-1 p-4 md:p-6 max-w-lg mx-auto w-full">
-      <!-- Your content goes here -->
-    </div>
+    <main class="flex-1 p-4 md:p-6 max-w-2xl mx-auto w-full">
+      <!-- Page content host (empty template) -->
+      <div id="pageContent"></div>
+    </main>
 
     <footer class="text-center text-xs text-gray-500 py-6">
       Copyright © 2026. All rights reserved.
@@ -193,15 +184,33 @@
       document.getElementById('mainWrapper').classList.add('full');
     }
   </script>
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = '0acec184ba638708391cb26d405f0f81a1ac24bc';
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      c.type='text/javascript';c.charset='utf-8';c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
-  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+  async function loadPageShell() {
+    try {
+      var me = null;
+      try {
+        var meRes = await api.get('/auth/me');
+        me = meRes.data;
+        if (me && me.user) me = me.user;
+      } catch (_) {}
+      if (me) {
+        var name = me.name || [me.first_name, me.last_name].filter(Boolean).join(' ') || 'User';
+        document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
+        document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = me.account_tier || 'Tier 1'; });
+        if (me.image) {
+          var a1 = document.getElementById('headerAvatar');
+          var a2 = document.getElementById('menuAvatar');
+          if (a1) a1.src = me.image;
+          if (a2) a2.src = me.image;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadPageShell);
+</script>
 </body>
 </html>

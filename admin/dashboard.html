@@ -55,6 +55,10 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         Verifications
       </a>
+      <a href="#cards" id="navCards" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        Cards
+      </a>
       <a href="#transfers" id="navTransfers" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
         Transfers
@@ -195,6 +199,70 @@
           </table>
         </div>
       </div>
+    
+      <!-- CARDS SECTION -->
+      <div id="sectionCards" class="hidden">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h2 class="text-lg font-semibold text-gray-800">Cards</h2>
+          <div class="flex gap-2 text-xs">
+            <span id="cardStatPending" class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700">Pending: 0</span>
+            <span id="cardStatActive" class="px-2 py-1 rounded-full bg-green-100 text-green-700">Active: 0</span>
+            <span id="cardStatFrozen" class="px-2 py-1 rounded-full bg-blue-100 text-blue-700">Frozen: 0</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-6">
+          <h3 class="font-medium text-gray-800 mb-3">Create Card Type</h3>
+          <form id="cardTypeForm" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <input name="name" required placeholder="Name (e.g. Classic Visa)" class="bg-gray-100 rounded-xl px-3 py-2 text-sm">
+            <select name="type" required class="bg-gray-100 rounded-xl px-3 py-2 text-sm">
+              <option value="">Select type</option>
+              <option value="Physical">Physical</option>
+              <option value="Virtual">Virtual</option>
+            </select>
+            <select name="network" required class="bg-gray-100 rounded-xl px-3 py-2 text-sm">
+              <option value="">Select network</option>
+              <option value="Visa">Visa</option>
+              <option value="Mastercard">Mastercard</option>
+            </select>
+            <input name="fee" type="number" step="0.01" placeholder="Fee" class="bg-gray-100 rounded-xl px-3 py-2 text-sm">
+            <input name="delivery_days" type="number" placeholder="Delivery days" class="bg-gray-100 rounded-xl px-3 py-2 text-sm">
+            <input name="description" placeholder="Description" class="bg-gray-100 rounded-xl px-3 py-2 text-sm md:col-span-2">
+            <button type="submit" class="bg-slate-900 text-white rounded-xl px-4 py-2 text-sm font-medium">Add Type</button>
+          </form>
+          <div class="overflow-x-auto mt-4">
+            <table class="min-w-full text-sm">
+              <thead class="bg-gray-50 text-left text-gray-500"><tr>
+                <th class="px-3 py-2">Name</th><th class="px-3 py-2">Type</th><th class="px-3 py-2">Network</th>
+                <th class="px-3 py-2">Fee</th><th class="px-3 py-2">Active</th><th class="px-3 py-2">Action</th>
+              </tr></thead>
+              <tbody id="cardTypesBody" class="divide-y divide-gray-100">
+                <tr><td colspan="6" class="px-3 py-4 text-center text-gray-400">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead class="bg-gray-50 text-left text-gray-500">
+              <tr>
+                <th class="px-4 py-3 font-medium">User</th>
+                <th class="px-4 py-3 font-medium">Card Type</th>
+                <th class="px-4 py-3 font-medium">Holder</th>
+                <th class="px-4 py-3 font-medium">Number</th>
+                <th class="px-4 py-3 font-medium">Status</th>
+                <th class="px-4 py-3 font-medium">Date</th>
+                <th class="px-4 py-3 font-medium">Action</th>
+              </tr>
+            </thead>
+            <tbody id="cardsBody" class="divide-y divide-gray-100">
+              <tr><td colspan="7" class="px-4 py-8 text-center text-gray-400">Loading cards…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </main>
 
     <footer class="text-center text-xs text-gray-500 py-6">Copyright © 2026. All rights reserved.</footer>
@@ -497,8 +565,10 @@
       if (deps) deps.classList.toggle('hidden', name !== 'deposits');
       if (vers) vers.classList.toggle('hidden', name !== 'verifications');
       if (trs) trs.classList.toggle('hidden', name !== 'transfers');
+      var cards = document.getElementById('sectionCards');
+      if (cards) cards.classList.toggle('hidden', name !== 'cards');
       var searchForm = document.getElementById('searchForm');
-      if (searchForm) searchForm.classList.toggle('hidden', name === 'deposits' || name === 'verifications' || name === 'transfers');
+      if (searchForm) searchForm.classList.toggle('hidden', name === 'deposits' || name === 'verifications' || name === 'cards' || name === 'transfers' || name === 'cards');
     }
 
     async function loadTransfers() {
@@ -673,11 +743,169 @@
     });
 
 
+    
+    async function loadCardsAdmin() {
+      var body = document.getElementById('cardsBody');
+      var typesBody = document.getElementById('cardTypesBody');
+      try {
+        var res = await api.get('/admin/cards');
+        var data = res.data || {};
+        var list = data.cards || [];
+        var types = data.types || [];
+        var stats = data.stats || {};
+        var sp = document.getElementById('cardStatPending');
+        var sa = document.getElementById('cardStatActive');
+        var sf = document.getElementById('cardStatFrozen');
+        if (sp) sp.textContent = 'Pending: ' + (stats.pending || 0);
+        if (sa) sa.textContent = 'Active: ' + (stats.active || 0);
+        if (sf) sf.textContent = 'Frozen: ' + (stats.frozen || 0);
+
+        if (typesBody) {
+          if (!types.length) typesBody.innerHTML = '<tr><td colspan="6" class="px-3 py-4 text-center text-gray-400">No card types</td></tr>';
+          else typesBody.innerHTML = types.map(function(t){
+            return '<tr data-type-id="'+t._id+'">'+
+              '<td class="px-3 py-2 font-medium">'+ (t.name||'') +'</td>'+
+              '<td class="px-3 py-2">'+ (t.type||'') +'</td>'+
+              '<td class="px-3 py-2">'+ (t.network||'') +'</td>'+
+              '<td class="px-3 py-2">$'+ Number(t.fee||0).toFixed(2) +'</td>'+
+              '<td class="px-3 py-2">'+ (t.is_active?'Yes':'No') +'</td>'+
+              '<td class="px-3 py-2"><div class="flex flex-wrap gap-1">'+
+              '<button type="button" data-type-action="toggle" class="px-2 py-1 rounded text-xs bg-amber-100 text-amber-700">Toggle</button>'+
+              '<button type="button" data-type-action="delete" class="px-2 py-1 rounded text-xs bg-red-100 text-red-700">Delete</button>'+
+              '</div></td></tr>';
+          }).join('');
+        }
+
+        if (!list.length) {
+          body.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-400">No card applications</td></tr>';
+          return;
+        }
+        body.innerHTML = list.map(function(c){
+          var u = c.user_id || {};
+          var full = u.name || [u.first_name,u.last_name].filter(Boolean).join(' ') || '—';
+          var t = c.card_type_id || {};
+          var st = String(c.status||'pending');
+          var badge = st==='active'?'bg-green-100 text-green-700':(st==='pending'?'bg-yellow-100 text-yellow-700':(st==='frozen'?'bg-blue-100 text-blue-700':'bg-red-100 text-red-700'));
+          var num = c.card_number ? (String(c.card_number).slice(0,4)+'••••'+String(c.card_number).slice(-4)) : '—';
+          var date = ''; try{ date=new Date(c.createdAt).toLocaleDateString(); }catch(e){}
+          var actions = '';
+          if (st==='pending') {
+            actions += '<button type="button" data-card-action="approve" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-green-100 text-green-700">Approve</button>';
+            actions += '<button type="button" data-card-action="reject" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-100 text-amber-700">Reject</button>';
+          }
+          if (st==='active') actions += '<button type="button" data-card-action="freeze" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-100 text-blue-700">Freeze</button>';
+          if (st==='frozen') actions += '<button type="button" data-card-action="unfreeze" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-green-100 text-green-700">Unfreeze</button>';
+          if (st==='active'||st==='frozen') actions += '<button type="button" data-card-action="cancel" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-gray-100 text-gray-700">Cancel</button>';
+          actions += '<button type="button" data-card-action="delete" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-100 text-red-700">Delete</button>';
+          return '<tr data-card-id="'+c._id+'">'+
+            '<td class="px-4 py-3 font-medium text-gray-900">'+full+'</td>'+
+            '<td class="px-4 py-3 text-gray-600">'+(t.name||'—')+'</td>'+
+            '<td class="px-4 py-3 text-gray-600">'+(c.card_holder||'—')+'</td>'+
+            '<td class="px-4 py-3 text-xs text-gray-600">'+num+'</td>'+
+            '<td class="px-4 py-3"><span class="text-xs px-2 py-1 rounded-full '+badge+'">'+st+'</span></td>'+
+            '<td class="px-4 py-3 text-xs text-gray-500">'+date+'</td>'+
+            '<td class="px-4 py-3"><div class="flex flex-wrap gap-1">'+actions+'</div></td></tr>';
+        }).join('');
+      } catch (err) {
+        body.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-red-500">Failed to load cards</td></tr>';
+      }
+    }
+
+    var navCards = document.getElementById('navCards');
+    if (navCards) {
+      navCards.addEventListener('click', function(e){
+        e.preventDefault();
+        showSection('cards');
+        loadCardsAdmin();
+      });
+    }
+
+    var cardsBody = document.getElementById('cardsBody');
+    if (cardsBody) {
+      cardsBody.addEventListener('click', async function(e){
+        var btn = e.target.closest('button[data-card-action]');
+        if (!btn) return;
+        var tr = btn.closest('tr[data-card-id]');
+        if (!tr) return;
+        var id = tr.getAttribute('data-card-id');
+        var action = btn.getAttribute('data-card-action');
+        try {
+          if (action === 'approve') {
+            var r = await api.post('/admin/cards/'+id+'/approve');
+            toast((r.data&&r.data.message)||'Card approved', true);
+          } else if (action === 'reject') {
+            var r2 = await api.post('/admin/cards/'+id+'/reject');
+            toast((r2.data&&r2.data.message)||'Card rejected', true);
+          } else if (action === 'freeze') {
+            var r3 = await api.post('/admin/cards/'+id+'/freeze', { reason: 'Admin freeze' });
+            toast((r3.data&&r3.data.message)||'Card frozen', true);
+          } else if (action === 'unfreeze') {
+            var r4 = await api.post('/admin/cards/'+id+'/unfreeze');
+            toast((r4.data&&r4.data.message)||'Card unfrozen', true);
+          } else if (action === 'cancel') {
+            var r5 = await api.post('/admin/cards/'+id+'/cancel');
+            toast((r5.data&&r5.data.message)||'Card cancelled', true);
+          } else if (action === 'delete') {
+            if (!confirm('Delete this card?')) return;
+            var r6 = await api.delete('/admin/cards/'+id);
+            toast((r6.data&&r6.data.message)||'Card deleted', true);
+          }
+          await loadCardsAdmin();
+        } catch (err) {
+          toast((err.data&&err.data.message)||err.message||'Action failed', false);
+        }
+      });
+    }
+
+    var typesBodyEl = document.getElementById('cardTypesBody');
+    if (typesBodyEl) {
+      typesBodyEl.addEventListener('click', async function(e){
+        var btn = e.target.closest('button[data-type-action]');
+        if (!btn) return;
+        var tr = btn.closest('tr[data-type-id]');
+        if (!tr) return;
+        var id = tr.getAttribute('data-type-id');
+        var action = btn.getAttribute('data-type-action');
+        try {
+          if (action === 'toggle') {
+            var r = await api.post('/admin/card-types/'+id+'/toggle');
+            toast((r.data&&r.data.message)||'Updated', true);
+          } else if (action === 'delete') {
+            if (!confirm('Delete card type?')) return;
+            var r2 = await api.delete('/admin/card-types/'+id);
+            toast((r2.data&&r2.data.message)||'Deleted', true);
+          }
+          await loadCardsAdmin();
+        } catch (err) {
+          toast((err.data&&err.data.message)||err.message||'Failed', false);
+        }
+      });
+    }
+
+    var typeForm = document.getElementById('cardTypeForm');
+    if (typeForm) {
+      typeForm.addEventListener('submit', async function(e){
+        e.preventDefault();
+        var fd = new FormData(typeForm);
+        var body = {};
+        fd.forEach(function(v,k){ body[k]=v; });
+        try {
+          var r = await api.post('/admin/card-types', body);
+          toast((r.data&&r.data.message)||'Card type created', true);
+          typeForm.reset();
+          await loadCardsAdmin();
+        } catch (err) {
+          toast((err.data&&err.data.message)||err.message||'Create failed', false);
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       var hash = (window.location.hash || '').replace('#','');
       if (hash === 'deposits') { showSection('deposits'); loadDeposits(); }
       else if (hash === 'verifications') { showSection('verifications'); loadVerifications(); }
       else if (hash === 'transfers') { showSection('transfers'); loadTransfers(); }
+      else if (hash === 'cards') { showSection('cards'); loadCardsAdmin(); }
       else { showSection('users'); }
       loadUsers().catch(function (err) {
         toast((err.data && err.data.message) || err.message || 'Failed to load users', false);
