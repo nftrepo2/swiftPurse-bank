@@ -1,6 +1,4 @@
-
-
-//SwiftPurse\frontend\user\send.html
+//SwiftPurse\frontend\user\settings.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     body { font-family: 'Inter', sans-serif; background: #f7f7f7; }
     #sidenav {
@@ -26,6 +25,7 @@
     .main-wrapper {
       transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    /* Desktop behaviour */
     @media (min-width: 768px) {
       #sidenav { transform: translateX(0); }
       #sidenav.closed { transform: translateX(-100%); }
@@ -33,6 +33,7 @@
       .main-wrapper.full { margin-left: 0; }
     }
   </style>
+
 </head>
 <body class="min-h-screen overflow-x-hidden">
   <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
@@ -44,19 +45,19 @@
     </div>
     <div class="px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">General</div>
     <nav class="flex-1 px-2 space-y-0.5 overflow-y-auto pb-6 text-sm">
-      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_DASH ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
         Dashboard
       </a>
-      <a href="add-funds.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="add-funds.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
         Add Funds
       </a>
-      <a href="make-payment.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="make-payment.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
         Make Payment
       </a>
-      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_SEND bg-gray-100 text-gray-900 font-medium">
+      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
         Bank Transfer
       </a>
@@ -64,11 +65,11 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         Loan <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
         Fixed Deposit
       </a>
-      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
         Notifications <span id="notifBadge" class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full hidden">0</span>
       </a>
@@ -76,7 +77,7 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
         Credit Card <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
         Upgrade Account
       </a>
@@ -88,11 +89,11 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
         Pay Bills <span class="text-red-500 text-xs">▲</span>
       </a>
-      <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         Statements & Report
       </a>
-      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50  bg-gray-100 text-gray-900 font-medium">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Settings
       </a>
@@ -104,7 +105,7 @@
   </aside>
 
   <!-- MAIN -->
-  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen full">
+  <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen">
     <header class="bg-white sticky top-0 z-30 border-b border-gray-100">
       <div class="flex items-center justify-between px-4 py-3">
         <div class="flex items-center gap-3">
@@ -114,12 +115,13 @@
           <img src="https://swiftpursebank.com/wp-api/site/t_564238e3795f75706dc155a65d045103.svg" alt="SwiftPurse" class="h-8">
         </div>
         <div class="flex items-center gap-3 relative">
-          <a href="notifications.html" class="p-1.5 rounded-full hover:bg-gray-100">
+          <a href="#" class="p-1.5 rounded-full hover:bg-gray-100">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </a>
           <button onclick="toggleProfile()" class="focus:outline-none">
             <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
           </button>
+          <!-- Profile dropdown -->
           <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
             <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
               <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
@@ -130,98 +132,49 @@
             </div>
             <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
             <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile</a>
-            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings</a>
+            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 bg-gray-100 text-gray-900 font-medium"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings</a>
             <a data-auth-logout href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout</a>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="flex-1 p-4 md:p-6 max-w-lg mx-auto w-full">
-      <h1 class="text-xl font-semibold text-gray-800 mb-6">Send</h1>
-
-      <form method="post" action="/wp-user/dashboard/send?index" class="bg-white rounded-2xl shadow-sm p-5 mb-6">
-        <input type="hidden" name="newtrs" value="newtrs">
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1.5">Bank*</label>
-          <input type="text" name="bank" placeholder="Enter Bank" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+    
+    <main class="flex-1 p-4 max-w-md mx-auto w-full">
+      <h1 class="text-xl font-semibold text-gray-800 mb-6">Settings</h1>
+      <section class="mb-8">
+        <h2 class="font-medium text-gray-800 mb-1">Email</h2>
+        <p class="text-sm text-gray-500 mb-3">Your email address is an essential part of your login process.</p>
+        <input type="email" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3 focus:outline-none focus:ring-2 focus:ring-slate-300">
+        <button class="bg-gray-400 text-white px-6 py-2 rounded-lg text-sm font-medium">Save</button>
+      </section>
+      <section class="mb-8">
+        <h2 class="font-medium text-gray-800 mb-1">Passcode</h2>
+        <p class="text-sm text-gray-500 mb-1">Edit your login passcode.</p>
+        <p class="text-sm text-gray-500 mb-3">Current Passcode</p>
+        <input type="password" placeholder="Enter Passcode" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <p class="text-sm text-gray-500 mb-1">Enter new passcode</p>
+        <input type="password" placeholder="Enter new passcode" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <p class="text-sm text-gray-500 mb-1">Confirm new passcode</p>
+        <input type="password" placeholder="Retype new passcode" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <button class="bg-gray-400 text-white px-6 py-2 rounded-lg text-sm font-medium">Save</button>
+      </section>
+      <section class="mb-8">
+        <h2 class="font-medium text-gray-800 mb-1">PIN</h2>
+        <p class="text-sm text-gray-500 mb-1">Edit your transaction PIN.</p>
+        <p class="text-sm text-gray-500 mb-3">Current PIN</p>
+        <input type="password" placeholder="Enter PIN" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <p class="text-sm text-gray-500 mb-1">Enter new PIN</p>
+        <input type="password" placeholder="Enter new PIN" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <p class="text-sm text-gray-500 mb-1">Confirm new PIN</p>
+        <input type="password" placeholder="Retype new PIN" class="w-full border border-gray-200 rounded-lg px-4 py-3 bg-gray-50 mb-3">
+        <div class="flex gap-3">
+          <button class="bg-gray-400 text-white px-6 py-2 rounded-lg text-sm font-medium">Save</button>
+          <button class="bg-slate-800 text-white px-6 py-2 rounded-lg text-sm font-medium">Reset PIN</button>
         </div>
-
-        <div class="grid grid-cols-2 gap-3 mb-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Swift Code *</label>
-            <input type="text" name="swift" placeholder="Enter Swift Code" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Currency *</label>
-            <input type="text" name="currency" placeholder="Enter Currency" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3 mb-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Routing Number *</label>
-            <input type="text" name="routing" placeholder="Enter Routing Number" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Country *</label>
-            <input type="text" name="country" placeholder="Enter Country" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1.5">Account Number *</label>
-          <input type="text" name="act_no" placeholder="Enter Account Number" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1.5">Account Holder Name *</label>
-          <input type="text" name="act_hold_name" placeholder="Enter Account Holder Name" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1.5">Amount *</label>
-          <div class="relative">
-            <input type="text" name="amount" placeholder="Enter Amount" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-16 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-            <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-xs font-medium text-gray-700 px-3 py-1.5 rounded-full shadow-sm border border-gray-200">Max</button>
-          </div>
-        </div>
-
-        <div class="mb-5">
-          <label class="block text-sm font-medium text-gray-700 mb-1.5">Note *</label>
-          <textarea name="note" rows="3" placeholder="Enter Note" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300 resize-none"></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800 transition">Submit Transfer</button>
-      </form>
-
-      <!-- Recent transfer card -->
-      <div class="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-4">
-        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex justify-between text-sm">
-            <div>
-              <div class="text-xs text-gray-500">Amount</div>
-              <div class="font-medium text-gray-900">$1,000.00</div>
-            </div>
-            <div>
-              <div class="text-xs text-gray-500">Type</div>
-              <div class="font-medium text-gray-900">Bank Transfer</div>
-            </div>
-            <div>
-              <div class="text-xs text-gray-500">Date</div>
-              <div class="font-medium text-gray-900">18/09/2026</div>
-            </div>
-          </div>
-        </div>
-        <span class="text-xs font-medium text-yellow-700 bg-yellow-100 px-2.5 py-1 rounded-full shrink-0">pending</span>
-      </div>
+      </section>
     </main>
-
-    <footer class="text-center text-xs text-gray-500 py-6">
+<footer class="text-center text-xs text-gray-500 py-6">
       Copyright © 2026. All rights reserved.
     </footer>
   </div>
@@ -233,10 +186,8 @@
       const ov = document.getElementById('overlay');
       sn.classList.remove('closed');
       mw.classList.remove('full');
-      if (window.innerWidth < 768) {
-        ov.classList.remove('hidden');
-        requestAnimationFrame(() => ov.classList.remove('opacity-0'));
-      }
+      ov.classList.remove('hidden');
+      requestAnimationFrame(() => ov.classList.remove('opacity-0'));
     }
     function closeSidebar() {
       const sn = document.getElementById('sidenav');
@@ -255,17 +206,12 @@
     function toggleProfile() {
       document.getElementById('profileMenu').classList.toggle('hidden');
     }
-    document.getElementById('overlay').addEventListener('click', closeSidebar);
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('profileMenu');
       if (!menu) return;
       const btn = e.target.closest('button[onclick="toggleProfile()"]');
       if (!menu.contains(e.target) && !btn) menu.classList.add('hidden');
     });
-    if (window.innerWidth < 768) {
-      document.getElementById('sidenav').classList.add('closed');
-      document.getElementById('mainWrapper').classList.add('full');
-    }
   </script>
   <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
@@ -283,110 +229,3 @@
 
 </body>
 </html>
-
-
-//SwiftPurse\frontend\user\send.html
--in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
--when the whole transfer form fields are filled and submitted it proceed to the  confirm transact card where it will display all the indicated fields of the transder and for the service charge is 10% of every amount to be sent then the Amount to be received  will be the remainder after the 10%, when the confirmed button is clicked it proceed to transact card/pin card  below is the confirm transact template 
-//after filling transfer form, confirm transact card
-<div class="dash_body__QIMI0"><div><div><div class="no_bg__n90Yl "><div class="no_dBox__JEIor no_success__E7gDF"><div class="no_okN__qJMXZ"></div><div class="no_msg__gJh8T"></div></div></div><div><div class="style_h__pUeaw" style="margin-bottom: 1rem;">Confirm Transaction</div><form method="post" action="/wp-user/dashboard/send/confirm"><input type="hidden" name="newtrs" value="newtrs"><input type="hidden" name="extra" value="{&quot;newtrs&quot;:&quot;newtrs&quot;,&quot;bank&quot;:&quot;Test Bank US &quot;,&quot;swift&quot;:&quot;TESTUS33XXX&quot;,&quot;currency&quot;:&quot;Usd&quot;,&quot;routing&quot;:&quot;021694987&quot;,&quot;country&quot;:&quot;united state&quot;,&quot;act_no&quot;:&quot;4532 9810 6742&quot;,&quot;act_hold_name&quot;:&quot;John Doe&quot;,&quot;amount&quot;:&quot;1000&quot;,&quot;note&quot;:&quot;for my cousin&quot;,&quot;token&quot;:&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjoiMTMifQ.iJ7Ko88QyEa-ygjkz8orGqmWV-THaBu_vYlE7mTKNUn1yQKeKcis3xDPNQ8gEXq-FF2i-HDLxVXeZZ0EzUtsyg&quot;}"><div class="card_card__KJfCd"><div class="card_b__CX-PZ"><label class="i2_lable__WkUTL">Bank*</label><div class="i2_cover__4qlcw"><input name="bank" title="" placeholder="" type="text"></div><label class="i2_lable__WkUTL">Account Number *</label><div class="i2_cover__4qlcw"><input name="act_no" title="" placeholder="" type="text"></div><label class="i2_lable__WkUTL">Account Holder Name *</label><div class="i2_cover__4qlcw"><input name="act_hold_name" title="" placeholder="" type="text"></div><label class="i2_lable__WkUTL">Amount *</label><div class="i2_cover__4qlcw"><input name="amount" title="" placeholder="" type="text"></div><label class="i2_lable__WkUTL">Service Charge *</label><div class="i2_cover__4qlcw"><input title="" placeholder="" type="text"></div><label class="i2_lable__WkUTL">Amount to be received *</label><div class="i2_cover__4qlcw"><input title="" placeholder="" type="text"></div><div><input type="submit" class="sub_in__QcHzT" value="Confirmed"></div></div></div></form></div></div></div></div>
-
--when the user inputs it's four digit pin validation happens, if validations are passed successfully  then transfer form is submitted and it proceed to  last card transact successful
-
-//after transact card/pin card
-<div class="dash_body__QIMI0"><div><div><div class="no_bg__n90Yl "><div class="no_dBox__JEIor no_success__E7gDF"><div class="no_okN__qJMXZ"></div><div class="no_msg__gJh8T"></div></div></div><div><div style="margin-bottom: 1rem;"></div><div class="ep_cardd__e1pNL"><div class="ep_c__7bqQS"><div class="ep_icon__7u14u"></div></div><div class="ep_t__OO3pZ">Transaction PIN</div><div class="ep_s__vRnQC">To complete this transaction, please enter your <br>4-Digital transaction PIN</div><div class="pincode-input-container"><input class="pincode-input-text" placeholder="" aria-label="" maxlength="1" autocomplete="off" type="tel" inputmode="number" pattern="[0-9]*" value="" style="padding: 5px; margin: 5px; text-align: center; border-width: 2px; border-style: solid; border-image: none; background: transparent; width: 50px; height: 50px; border-radius: 8px; font-size: 14px; font-style: normal; font-family: Inter; font-weight: 500;"><input class="pincode-input-text" placeholder="" aria-label="" maxlength="1" autocomplete="off" type="tel" inputmode="number" pattern="[0-9]*" value="" style="padding: 5px; margin: 5px; text-align: center; border: 2px solid rgb(52, 152, 219); background: transparent; width: 50px; height: 50px; border-radius: 8px; font-size: 14px; font-style: normal; font-family: Inter; font-weight: 500;"><input class="pincode-input-text" placeholder="" aria-label="" maxlength="1" autocomplete="off" type="tel" inputmode="number" pattern="[0-9]*" value="" style="padding: 5px; margin: 5px; text-align: center; border: 2px solid rgb(52, 152, 219); background: transparent; width: 50px; height: 50px; border-radius: 8px; font-size: 14px; font-style: normal; font-family: Inter; font-weight: 500;"><input class="pincode-input-text" placeholder="" aria-label="" maxlength="1" autocomplete="off" type="tel" inputmode="number" pattern="[0-9]*" value="" style="padding: 5px; margin: 5px; text-align: center; border: 2px solid rgb(52, 152, 219); background: transparent; width: 50px; height: 50px; border-radius: 8px; font-size: 14px; font-style: normal; font-family: Inter; font-weight: 500;"></div><div class="ep_btnn__2Rozs">Confirm</div></div><form method="post" action="/wp-user/dashboard/send/pin"><input type="hidden" name="newtrs" value="newtrs"><input type="hidden" name="extra" value="{&quot;newtrs&quot;:&quot;newtrs&quot;,&quot;bank&quot;:&quot;Test Bank US &quot;,&quot;swift&quot;:&quot;TESTUS33XXX&quot;,&quot;currency&quot;:&quot;Usd&quot;,&quot;routing&quot;:&quot;021694987&quot;,&quot;country&quot;:&quot;united state&quot;,&quot;act_no&quot;:&quot;4532 9810 6742&quot;,&quot;act_hold_name&quot;:&quot;John Doe&quot;,&quot;amount&quot;:&quot;1000&quot;,&quot;note&quot;:&quot;for my cousin&quot;,&quot;token&quot;:&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjoiMTMifQ.iJ7Ko88QyEa-ygjkz8orGqmWV-THaBu_vYlE7mTKNUn1yQKeKcis3xDPNQ8gEXq-FF2i-HDLxVXeZZ0EzUtsyg&quot;}"><button type="submit" style="visibility: hidden;"></button></form></div></div></div></div>
-
--on the card transact successful all the dynamic indicated details about the transfer made are displayed, 
--when the ok button is it redirects to the dashboard.html page 
-//last card transact successful
-<div class="dash_body__QIMI0"><div><div><div class="no_bg__n90Yl "><div class="no_dBox__JEIor no_success__E7gDF"><div class="no_okN__qJMXZ"></div><div class="no_msg__gJh8T"></div></div></div><div class="ts0"><div class="transfer-submitted"><div class="confirmation-card"><div class="success-icon"><svg width="57" height="56" class="check-icon" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28.5" cy="28" r="28" fill="#23A26D" fill-opacity="0.12"></circle><path d="M28 14.6667C20.6533 14.6667 14.6666 20.6533 14.6666 28C14.6666 35.3467 20.6533 41.3333 28 41.3333C35.3466 41.3333 41.3333 35.3467 41.3333 28C41.3333 20.6533 35.3466 14.6667 28 14.6667ZM34.3733 24.9333L26.8133 32.4933C26.6266 32.68 26.3733 32.7867 26.1066 32.7867C25.84 32.7867 25.5866 32.68 25.4 32.4933L21.6266 28.72C21.24 28.3333 21.24 27.6933 21.6266 27.3067C22.0133 26.92 22.6533 26.92 23.04 27.3067L26.1066 30.3733L32.96 23.52C33.3466 23.1333 33.9866 23.1333 34.3733 23.52C34.76 23.9067 34.76 24.5333 34.3733 24.9333Z" fill="#23A26D"></path></svg></div><h2>Transfer Submitted</h2><div class="transfer-details"><div class="detail-row "><span class="label">Bank</span><span class="value">Test Bank US </span></div><div class="detail-row "><span class="label">Date</span><span class="value">Sep 18, 2026</span></div><div class="detail-row "><span class="label">Name</span><span class="value">John Doe</span></div><div class="detail-row "><span class="label">Payment Method</span><span class="value">Bank Transfer</span></div><div class="detail-row amount"><span class="label">Amount</span><span class="value">USD1,000.00</span></div></div><button class="confirm-button">Okay</button></div></div></div></div></div></div>
-
--after successful transfer whose status is  Processing by default 
--user recieves this notification below in it's dashboard notifications page
-Title: Transfer initiated
-Message: Your Transfer of $50(dynamic based on amount)is under review 
-Time: 21 hours ago(dynamic)
-icon: bell icon 
-link named view details leads to the  /user/notifications.html page where all history are displayed 
-
-and this message notifcation should also be pushed to user screen using this dynamic snipt of code according to the event that occurred
-
-{/* For example, after a successful deposit, trade, withdrawal, or admin action, import the helper in that backend route:
-
-const { sendPushToUser } = require('../utils/pushNotifications');
-
-Then call it after the database operation succeeds:
-
-try {
-  await sendPushToUser(req.user, {
-    title: 'Deposit confirmed',
-    body: 'Your deposit has been successfully processed.',
-    url: '/user/dashboard.html',
-    tag: 'deposit-confirmed',
-  });
-} catch (error) {
-  console.error('Push notification failed:', error.message);
-} */}
-
-//
-
--an email with the dynamic indicated details about the transfer is sent to the user email usingthis template below
-
-//transfer email template
-<div class="   "><div class="aHl" id="avWBGd-17"></div><div id=":91" tabindex="-1"></div><div class="ii gt" jslog="20277; u014N:xr6bB; 1:WyIjdGhyZWFkLWY6MTg3NjY1NTE2ODAwMDg4NDEyMSJd; 4:WyIjbXNnLWY6MTg3NjY1NTE2ODAwMDg4NDEyMSIsbnVsbCxudWxsLG51bGwsMSwwLFsxLDAsMF0sMTQ4LDEwMDMsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDEsbnVsbCxudWxsLFswXSxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwwLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxbMCwxXSwwXQ.." id=":8t"><div class="a3s aiL " id=":8s"><div id="avWBGd-20"><u></u>
-<div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"> <tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff;border-bottom:1px solid transparent;border-left:1px solid transparent;border-radius:0;border-right:1px solid transparent;border-top:1px solid transparent;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;background-color:#eff1ff;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" bgcolor="#eff1ff" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><div style="box-sizing:border-box;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;text-align:center" align="center"><div style="display:none;max-height:0px;overflow:hidden"> </div></div></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff;border-bottom:1px solid transparent;border-left:1px solid transparent;border-radius:0;border-right:1px solid transparent;border-top:1px solid transparent;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;background-color:#eff1ff;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" bgcolor="#eff1ff" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:30px;padding-top:30px;width:100%;padding-right:0;padding-left:0" width="100%"><div align="center" style="box-sizing:border-box;line-height:10px"><div style="box-sizing:border-box;max-width:200.6px"><a href="#m_7968352123809148647_" style="box-sizing:border-box;outline:0"><img src="https://ci3.googleusercontent.com/meips/ADKq_Na66Eqf61ovhQLAMrZXeO-xcS_R2ig6x5MzQhlLZaXUhKSQZuI6eMGIA2W8t_RHy6xAcpTmT1S2gPJV=s0-d-e1-ft#https://swiftpursebank.com/i/logo.png" style="box-sizing:border-box;display:block;height:auto;border:0;width:100%" width="200.6" alt="SwiftPurse Bank Logo-purple" title="SwiftPurse Bank Logo-purple" class="CToWUd" data-bit="iit"></a></div></div></td></tr></tbody></table></td> </tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;padding-bottom:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;width:100%" width="100%"><div align="center" style="box-sizing:border-box;line-height:10px"><div style="box-sizing:border-box;max-width:590px"> <a href="#m_7968352123809148647_" style="box-sizing:border-box;outline:0"><img src="https://ci3.googleusercontent.com/meips/ADKq_NbRb3HlgQ4tR9gUCCqSwK7CBhoaKUITa1oj3Os1H5C06zY2nBFPzgwWLWMS8guNvnobIEccrL_31UjXfw=s0-d-e1-ft#https://swiftpursebank.com/i/dontu.png" style="box-sizing:border-box;display:block;height:auto;border:0;width:100%" width="590" alt="Don't You Want Instant Payments?" title="Don't You Want Instant Payments?" class="CToWUd" data-bit="iit"></a></div></div></td></tr></tbody></table>
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;word-break:break-word"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:15px"><div style="box-sizing:border-box;font-family:sans-serif"><div style="box-sizing:border-box;font-size:12px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;color:#000;line-height:1.5">
-	    
-	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">
-	        We hope this message finds you well. This is to inform you that you have initiated a bank transfer request. Below are the details of the recent transaction:
-	        </p>
-	        
-	        
-	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px"> 
-	        <br style="box-sizing:border-box">Bank Name: Test Bank US <br style="box-sizing:border-box">SWIFT Code: TESTUS33XXX<br style="box-sizing:border-box">Country: United States<br style="box-sizing:border-box">Account Number: 4532 9810 6742<br style="box-sizing:border-box">Account Holder Name: John Doe<br style="box-sizing:border-box">Amount Transferred: 1,000.00<br style="box-sizing:border-box">Transferred Currency: USD<br style="box-sizing:border-box">Date and time: 09/18/2026 08:50<br style="box-sizing:border-box">Current Account Balance: 1,000.00<br style="box-sizing:border-box">Transaction Status: <span style="color:yellow">Processing</span> <br style="box-sizing:border-box">Transaction ID: 05129407942 <br style="box-sizing:border-box">
-	        <br style="box-sizing:border-box">
-	        <br style="box-sizing:border-box"></p>
-	 
-	    <p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">
-	        For any questions or assistance regarding this transaction, 
-	        please contact SwiftPurse Bank's Customer Support at <a href="mailto:support@swiftpursebank.com" target="_blank">support@swiftpursebank.com</a>.  
-
-	<br style="box-sizing:border-box">
-<strong>Thank you for banking with SwiftPurse Bank.</strong>
-	        </p>
-	         
-	
-	</div></div></td></tr></tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:15px;padding-top:20px;text-align:center" align="center"><div style="box-sizing:border-box">
-	
-	</div></td></tr></tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;word-break:break-word"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box;padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:15px"><div style="box-sizing:border-box;font-family:sans-serif"><div style="box-sizing:border-box;font-size:12px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;color:#000;line-height:1.5"><p style="box-sizing:border-box;line-height:inherit;margin:0;font-size:18px">Love,<br style="box-sizing:border-box"><br style="box-sizing:border-box">The SwiftPurse Bank Team</p></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#eff1ff" bgcolor="#eff1ff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#fff;color:#333;width:590px;margin:0 auto" width="590" bgcolor="#fff"><tbody style="box-sizing:border-box"><tr style="box-sizing:border-box"><td width="100%" style="box-sizing:border-box;font-weight:400;text-align:left;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0" align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box"><tbody><tr style="box-sizing:border-box"><td style="box-sizing:border-box"><div style="box-sizing:border-box;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;text-align:center" align="center"><table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%"> <tbody> <tr> <td> <table role="presentation" style="color:#333;width:590px" align="center" border="0" cellpadding="0" cellspacing="0" width="590"> <tbody> <tr> <td style="font-weight:400;text-align:left;vertical-align:top;padding-top:5px;padding-bottom:25px;background-color:#fff;border:0" width="100%"> <table role="presentation" style="word-break:break-word" border="0" cellpadding="30" cellspacing="0" width="100%"> <tbody> <tr> <td style="margin-top:0"> 
-
-<div style="padding-top:11.6px;margin-bottom:16px;border-top:1px solid #e3e3e3">
-
-<div style="color:#979797;line-height:1.2;font-family:'Mulish, sans-serif'">
-
-<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
-<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
-<p style="margin:0;font-family:Mulish,sans-serif;font-size:12px">
-2026 SwiftPurse Bank . All rights reserved.</p> 
-<p style="margin:0;font-family:Mulish,sans-serif">&nbsp;</p> 
-<p style="margin:0;font-family:Mulish,sans-serif;font-size:12px"><span style="line-height:1.6">
-UK banking services offered by SwiftPurse Bank (RC796975) with registered address at 
-<a href="#m_7968352123809148647_">Head office: 21 Lombard St, city of london,London Ec3v 9AH , UK.</a>
-Clients' money is safeguarded with reputable UK and EU banks. Financial Services Compensation Scheme (FSCS) does not apply.</span></p> 
-<p style="padding-top:25px"><img style="display:block;width:20%;min-width:80px" title="SwiftPurse Bank logo" src="https://ci3.googleusercontent.com/meips/ADKq_Na66Eqf61ovhQLAMrZXeO-xcS_R2ig6x5MzQhlLZaXUhKSQZuI6eMGIA2W8t_RHy6xAcpTmT1S2gPJV=s0-d-e1-ft#https://swiftpursebank.com/i/logo.png" alt="SwiftPurse Bank logo" class="CToWUd" data-bit="iit"></p> </div>
-</div></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table></div>
-
-</td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table><div class="yj6qo"></div><div class="adL">
-</div></div><div class="adL">
-
-</div></div></div></div><div class="WhmR8e" data-hash="0" id="avWBGd-21"></div></div>
-
--under the transfer form in the send.html page the indicated details of transfer hsitory data is displayed there but dynamic
--in the user dashboard recent transaction section the transfer history data is fetched/displayed  there with the template below but displaying dynamic data 
-<a href="/wp-user/dashboard/receipt/41612121797"><div class="trans_itemtrx__7YwhW"><img src="/wp-user/i/d3.svg"><div class="trans_outer__t5VDq"><div class="trans_i1ne__1r0bC"><div class="trans_msg__fFEUt">Bank Transfer</div><div class="trans_amt__uXQ75 trans_debit__Glpb2 ">-$ 2,000.00</div></div><div class="trans_i2wo__tiBKH"><div class="trans_date__+Pc+Q">Sun Sep 20, 2026</div><div class="trans_status__VCopI trans_in_progress__Hplfr">in progress</div></div></div></div></a>
-
--the transfer amount is not deducted from the user account till the transfer status is successful
--when the transfer status is successful using same email template the user receive a mail telling it that the transfer of amount to the receiver was successful and it's current balance of amount is now available in it's dashboard 
-
--the user also receive notifcation in their notfication page and screen about the transfer of amount been successful

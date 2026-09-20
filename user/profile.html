@@ -16,8 +16,8 @@
       will-change: transform;
     }
     #sidenav.closed { transform: translateX(-100%); }
-    #overlay { 
-      transition: opacity 0.3s ease; 
+    #overlay {
+      transition: opacity 0.3s ease;
       backdrop-filter: blur(2px);
     }
     .main-wrapper {
@@ -34,7 +34,6 @@
 <body class="min-h-screen overflow-x-hidden">
   <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
 
-  <!-- SIDEBAR -->
   <aside id="sidenav" class="fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg closed">
     <div class="p-4 border-b">
       <img src="https://swiftpursebank.com/wp-api/site/t_cbb32d3de57c298453db01621c630933.svg" alt="SwiftPurse" class="h-10">
@@ -53,37 +52,21 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
         Make Payment
       </a>
-      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 ">
+      <a href="send.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
         Bank Transfer
-      </a>
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
-        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Loan <span class="text-red-500 text-xs">▲</span>
       </a>
       <a href="fixed-deposit.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
         Fixed Deposit
       </a>
-      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 NAV_NOTIF">
+      <a href="notifications.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
         Notifications <span id="notifBadge" class="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full hidden">0</span>
-      </a>
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
-        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-        Credit Card <span class="text-red-500 text-xs">▲</span>
       </a>
       <a href="upgrade.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
         Upgrade Account
-      </a>
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
-        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        Help & Support
-      </a>
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
-        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        Pay Bills <span class="text-red-500 text-xs">▲</span>
       </a>
       <a href="statements.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -100,7 +83,6 @@
     </nav>
   </aside>
 
-  <!-- MAIN -->
   <div id="mainWrapper" class="main-wrapper flex-1 flex flex-col min-h-screen full">
     <header class="bg-white sticky top-0 z-30 border-b border-gray-100">
       <div class="flex items-center justify-between px-4 py-3">
@@ -115,59 +97,58 @@
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </a>
           <button onclick="toggleProfile()" class="focus:outline-none">
-            <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
+            <img id="headerAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-9 h-9 rounded-full object-cover border border-gray-200">
           </button>
           <div id="profileMenu" class="hidden absolute right-0 top-12 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
             <div class="px-4 py-2 border-b border-gray-100 flex items-center gap-3">
-              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" class="w-8 h-8 rounded-full">
+              <img id="menuAvatar" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="User" class="w-8 h-8 rounded-full object-cover">
               <div>
-                <div class="text-sm font-medium text-gray-900">Gomez Maria</div>
-                <div class="text-xs text-gray-500">Tier 1</div>
+                <div class="text-sm font-medium text-gray-900 userDisplayName">User</div>
+                <div class="text-xs text-gray-500 userTier">Tier 1</div>
               </div>
             </div>
-            <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
-            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Profile</a>
-            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Settings</a>
-            <a data-auth-logout href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Logout</a>
+            <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="profile.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Profile</a>
+            <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Settings</a>
+            <a data-auth-logout href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Logout</a>
           </div>
         </div>
       </div>
     </header>
 
-    
     <main class="flex-1 p-4 md:p-6 max-w-lg mx-auto w-full">
+      <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2 rounded-lg text-sm text-white shadow-lg"></div>
       <h1 class="text-xl font-semibold text-gray-800 mb-6">Profile</h1>
 
       <!-- Profile Picture Card -->
-      <form method="post" action="/wp-user/dashboard/profile?index" enctype="multipart/form-data" class="mb-5">
-        <input type="file" name="profilePic" id="profilePic" class="hidden" accept="image/*">
-        <input type="hidden" name="updatepic" value="updatepic">
+      <div class="mb-5">
         <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
           <div class="bg-slate-800 text-white px-4 py-3 font-medium text-sm">About</div>
           <div class="p-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <img src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="Profile" class="w-12 h-12 rounded-full object-cover border border-gray-200">
+              <img id="profileImg" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="Profile" class="w-12 h-12 rounded-full object-cover border border-gray-200">
               <div>
-                <div class="font-medium text-gray-900 text-sm">Gomez Maria</div>
-                <div class="text-xs text-gray-500">gomermaria302@gmail.com</div>
+                <div id="aboutName" class="font-medium text-gray-900 text-sm">—</div>
+                <div id="aboutEmail" class="text-xs text-gray-500">—</div>
               </div>
             </div>
-            <label for="profilePic" class="bg-slate-800 text-white text-xs font-medium px-4 py-2 rounded-lg cursor-pointer hover:bg-slate-700 transition">
-              Update Pic
-            </label>
+            <div>
+              <input type="file" id="profilePic" class="hidden" accept="image/*">
+              <label for="profilePic" id="btnUpdatePic" class="bg-slate-800 text-white text-xs font-medium px-4 py-2 rounded-lg cursor-pointer hover:bg-slate-700 transition">Update Pic</label>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
 
-      <!-- Username & Account Number Card -->
+      <!-- Username & Account Number -->
       <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-5">
         <div class="bg-slate-800 text-white px-4 py-3 font-medium text-sm">About</div>
         <div class="p-4 space-y-4">
           <div>
             <label class="block text-xs text-gray-500 mb-1.5">Your Username</label>
             <div class="relative">
-              <input type="text" value="@maria2" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
-              <button type="button" onclick="navigator.clipboard.writeText('@maria2')" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
+              <input id="fldUsername" type="text" value="" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
+              <button type="button" id="copyUsername" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                 Copy
               </button>
@@ -176,8 +157,8 @@
           <div>
             <label class="block text-xs text-gray-500 mb-1.5">Your Account Number</label>
             <div class="relative">
-              <input type="text" value="7360436856" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
-              <button type="button" onclick="navigator.clipboard.writeText('7360436856')" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
+              <input id="fldAccountNo" type="text" value="" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
+              <button type="button" id="copyAccount" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                 Copy
               </button>
@@ -187,60 +168,51 @@
       </div>
 
       <!-- Profile Details Form -->
-      <form method="post" action="/wp-user/dashboard/profile?index">
-        <input type="hidden" name="updateprofile" value="updateprofile">
+      <form id="profileForm">
         <div class="bg-white rounded-2xl shadow-sm p-5 space-y-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Fullname</label>
-            <input type="text" name="fullname" value="Gomez Maria" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+            <input type="text" name="fullname" id="fldFullname" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
           </div>
-
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Number</label>
-              <input type="text" name="phone" value="+1 936 463-3603" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+              <input type="text" name="phone" id="fldPhone" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Gender</label>
-              <input type="text" name="gender" value="" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+              <input type="text" name="gender" id="fldGender" placeholder="Male / Female / Others" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
             </div>
           </div>
-
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Date Of Birth</label>
-              <input type="text" name="dob" value="" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+              <input type="text" name="dob" id="fldDob" placeholder="YYYY-MM-DD" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
-              <input type="text" name="country" value="United States" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+              <input type="text" name="country" id="fldCountry" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
             </div>
           </div>
-
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Marital Status</label>
-            <input type="text" name="marital_status" value="" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+            <input type="text" name="marital_status" id="fldMarital" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
           </div>
-
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Personal Address</label>
-            <input type="text" name="home_address" value="21842 Desert lily Rod" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+            <input type="text" name="home_address" id="fldAddress" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
           </div>
-
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Next Of Kin</label>
-            <input type="text" name="next_of_kin" value="" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
+            <input type="text" name="next_of_kin" id="fldKin" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
           </div>
-
-          <button type="submit" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800 transition mt-2">
+          <button type="submit" id="btnSave" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800 transition mt-2">
             Update Profile
           </button>
         </div>
       </form>
     </main>
-<footer class="text-center text-xs text-gray-500 py-6">
-      Copyright © 2026. All rights reserved.
-    </footer>
+    <footer class="text-center text-xs text-gray-500 py-6">Copyright © 2026. All rights reserved.</footer>
   </div>
 
   <script>
@@ -284,19 +256,124 @@
       document.getElementById('mainWrapper').classList.add('full');
     }
   </script>
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = '0acec184ba638708391cb26d405f0f81a1ac24bc';
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      c.type='text/javascript';c.charset='utf-8';c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+  (function () {
+    function toast(msg, ok) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg ' + (ok ? 'bg-emerald-600' : 'bg-red-600');
+      el.classList.remove('hidden');
+      setTimeout(function () { el.classList.add('hidden'); }, 3200);
+    }
+
+    function fill(user) {
+      var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'User';
+      var username = user.username ? ('@' + String(user.username).replace(/^@/, '')) : '';
+      document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
+      document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = user.account_tier || 'Tier 1'; });
+      document.getElementById('aboutName').textContent = name;
+      document.getElementById('aboutEmail').textContent = user.email || '';
+      document.getElementById('fldUsername').value = username;
+      document.getElementById('fldAccountNo').value = user.account_no || '';
+      document.getElementById('fldFullname').value = name;
+      document.getElementById('fldPhone').value = user.phone || '';
+      document.getElementById('fldGender').value = user.gender || '';
+      document.getElementById('fldDob').value = user.dob || '';
+      document.getElementById('fldCountry').value = user.country || '';
+      document.getElementById('fldMarital').value = user.marital_status || '';
+      document.getElementById('fldAddress').value = user.home_address || '';
+      document.getElementById('fldKin').value = user.next_of_kin || '';
+      if (user.image) {
+        document.getElementById('profileImg').src = user.image;
+        document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function (img) { img.src = user.image; });
+      }
+    }
+
+    async function loadProfile() {
+      try {
+        var res = await api.get('/user/profile');
+        var user = (res.data && res.data.user) || res.data || {};
+        fill(user);
+      } catch (e) {
+        try {
+          var res2 = await api.get('/auth/me');
+          var user2 = (res2 && res2.data) || {};
+          if (user2.user) user2 = user2.user;
+          fill(user2);
+        } catch (err) {}
+      }
+    }
+
+    document.getElementById('copyUsername').onclick = function () {
+      var v = document.getElementById('fldUsername').value;
+      if (v) navigator.clipboard.writeText(v).then(function () { toast('Username copied', true); });
+    };
+    document.getElementById('copyAccount').onclick = function () {
+      var v = document.getElementById('fldAccountNo').value;
+      if (v) navigator.clipboard.writeText(v).then(function () { toast('Account number copied', true); });
+    };
+
+    document.getElementById('profilePic').onchange = async function () {
+      var file = this.files && this.files[0];
+      if (!file) return;
+      var btn = document.getElementById('btnUpdatePic');
+      btn.textContent = 'Uploading…';
+      try {
+        var reader = new FileReader();
+        var base64 = await new Promise(function (resolve, reject) {
+          reader.onload = function () { resolve(reader.result); };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+        var res = await api.post('/user/profile/photo', { imageBase64: base64 });
+        var img = (res.data && res.data.image) || '';
+        if (img) {
+          document.getElementById('profileImg').src = img;
+          document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function (el) { el.src = img; });
+        }
+        toast((res.data && res.data.message) || 'Profile picture updated successfully', true);
+        setTimeout(function () { window.location.href = 'profile.html?updated=1'; }, 600);
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Upload failed', false);
+      }
+      btn.textContent = 'Update Pic';
+      this.value = '';
+    };
+
+    document.getElementById('profileForm').onsubmit = async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('btnSave');
+      btn.disabled = true;
+      btn.textContent = 'Saving…';
+      try {
+        var body = {
+          fullname: document.getElementById('fldFullname').value,
+          phone: document.getElementById('fldPhone').value,
+          gender: document.getElementById('fldGender').value,
+          dob: document.getElementById('fldDob').value,
+          country: document.getElementById('fldCountry').value,
+          marital_status: document.getElementById('fldMarital').value,
+          home_address: document.getElementById('fldAddress').value,
+          next_of_kin: document.getElementById('fldKin').value,
+        };
+        var res = await api.post('/user/profile', body);
+        toast((res.data && res.data.message) || 'Profile updated successfully', true);
+        setTimeout(function () { window.location.href = 'profile.html?updated=1'; }, 700);
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Update failed', false);
+        btn.disabled = false;
+        btn.textContent = 'Update Profile';
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', async function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('updated') === '1') toast('Profile updated successfully', true);
+      await loadProfile();
+    });
+  })();
   </script>
-
-<script src="../js/config.js"></script>
-<script src="../js/auth.js"></script>
-
 </body>
 </html>

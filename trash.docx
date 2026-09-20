@@ -1,3 +1,34 @@
+//SwiftPurse\frontend\user\settings.html
+-in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
+-all dynamic content fitting into each field of the forms you should display
+-upload pic should be handled by cloudinary
+-and the rest form fields/form fields when updated and the form submits succesfully should redirect back to same page and display a message 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //SwiftPurse\frontend\user\send.html
 -in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
 -when the whole transfer form fields are filled and submitted it proceed to the  confirm transact card where it will display all the indicated fields of the transder and for the service charge is 10% of every amount to be sent then the Amount to be received  will be the remainder after the 10%, when the confirmed button is clicked it proceed to transact card/pin card  below is the confirm transact template 
