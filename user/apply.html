@@ -10,31 +10,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background: #f7f7f7; }
-    #sidenav {
-      width: 250px;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
-    }
+    #sidenav { width: 250px; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
     #sidenav.closed { transform: translateX(-100%); }
-    #overlay {
-      transition: opacity 0.3s ease;
-      backdrop-filter: blur(2px);
-    }
-    .main-wrapper {
-      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    #overlay { transition: opacity 0.3s ease; backdrop-filter: blur(2px); }
+    .main-wrapper { transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     @media (min-width: 768px) {
       #sidenav { transform: translateX(0); }
       #sidenav.closed { transform: translateX(-100%); }
       .main-wrapper { margin-left: 250px; }
       .main-wrapper.full { margin-left: 0; }
     }
+    .progress-ring { transform: rotate(-90deg); }
   </style>
 </head>
 <body class="min-h-screen overflow-x-hidden">
   <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 md:hidden" onclick="closeSidebar()"></div>
-
-  <aside id="sidenav" class="closed fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg ">
+<aside id="sidenav" class="closed fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-lg ">
     <div class="p-4 border-b">
       <img src="https://swiftpursebank.com/wp-api/site/t_cbb32d3de57c298453db01621c630933.svg" alt="SwiftPurse" class="h-10">
     </div>
@@ -88,7 +79,7 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         Statements & Report
       </a>
-      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gray-100 text-gray-900 font-medium">
+      <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Settings
       </a>
@@ -130,266 +121,188 @@
         </div>
       </div>
     </header>
-
-    <main class="flex-1 p-4 md:p-6 max-w-lg mx-auto w-full">
+    <main class="flex-1 p-4 md:p-6 max-w-5xl mx-auto w-full">
       <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2 rounded-lg text-sm text-white shadow-lg"></div>
-      <h1 class="text-xl font-semibold text-gray-800 mb-6">Profile</h1>
 
-      <!-- Profile Picture Card -->
       <div class="mb-5">
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-          <div class="bg-slate-800 text-white px-4 py-3 font-medium text-sm">About</div>
-          <div class="p-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <img id="profileImg" src="https://swiftpursebank.com/wp-user/uploads/pic_5d4333b123ce5455c301f5a86f394544.png" alt="Profile" class="w-12 h-12 rounded-full object-cover border border-gray-200">
-              <div>
-                <div id="aboutName" class="font-medium text-gray-900 text-sm">—</div>
-                <div id="aboutEmail" class="text-xs text-gray-500">—</div>
+        <a href="loan.html" class="text-sm text-gray-600 hover:text-gray-900 inline-flex items-center gap-1 mb-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+        <h1 class="text-xl font-semibold text-gray-800">Apply for a Loan</h1>
+        <p class="text-sm text-gray-500 mt-0.5">Choose a plan, enter your details, and preview your repayment</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 space-y-4">
+          <div>
+            <div class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-2">Available Plans</div>
+            <div id="planList" class="space-y-3">
+              <div class="text-sm text-gray-400 py-6 text-center">Loading plans…</div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <div class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-3">Loan Details</div>
+            <form id="applyForm" class="space-y-3">
+              <input type="hidden" id="planId" value="">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs text-gray-500 mb-1">Loan Amount ($)</label>
+                  <input id="amount" type="number" step="0.01" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200" placeholder="Min: 1000">
+                </div>
+                <div>
+                  <label class="block text-xs text-gray-500 mb-1">Duration (months)</label>
+                  <input id="months" type="number" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200" placeholder="1 – 60">
+                </div>
               </div>
-            </div>
-            <div>
-              <input type="file" id="profilePic" class="hidden" accept="image/*">
-              <label for="profilePic" id="btnUpdatePic" class="bg-slate-800 text-white text-xs font-medium px-4 py-2 rounded-lg cursor-pointer hover:bg-slate-700 transition">Update Pic</label>
-            </div>
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">Purpose of Loan</label>
+                <textarea id="purpose" rows="2" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none" placeholder="Describe why you need this loan…"></textarea>
+              </div>
+              <button type="submit" id="btnApply" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl">Submit Application</button>
+            </form>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <div class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-3">Repayment Preview</div>
+            <div id="previewBox" class="text-sm text-gray-500">Enter amount and duration to see preview</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <div class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-1">Your Account Balance</div>
+            <div id="acctBal" class="text-lg font-semibold text-gray-900">$0.00</div>
           </div>
         </div>
       </div>
 
-      <!-- Username & Account Number -->
-      <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-5">
-        <div class="bg-slate-800 text-white px-4 py-3 font-medium text-sm">About</div>
-        <div class="p-4 space-y-4">
-          <div>
-            <label class="block text-xs text-gray-500 mb-1.5">Your Username</label>
-            <div class="relative">
-              <input id="fldUsername" type="text" value="" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
-              <button type="button" id="copyUsername" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-          <div>
-            <label class="block text-xs text-gray-500 mb-1.5">Your Account Number</label>
-            <div class="relative">
-              <input id="fldAccountNo" type="text" value="" readonly class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 pr-20 text-sm text-gray-800 focus:outline-none">
-              <button type="button" id="copyAccount" class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Profile Details Form -->
-      <form id="profileForm">
-        <div class="bg-white rounded-2xl shadow-sm p-5 space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Fullname</label>
-            <input type="text" name="fullname" id="fldFullname" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Number</label>
-              <input type="text" name="phone" id="fldPhone" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Gender</label>
-              <input type="text" name="gender" id="fldGender" placeholder="Male / Female / Others" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Date Of Birth</label>
-              <input type="text" name="dob" id="fldDob" placeholder="YYYY-MM-DD" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
-              <input type="text" name="country" id="fldCountry" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Marital Status</label>
-            <input type="text" name="marital_status" id="fldMarital" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Personal Address</label>
-            <input type="text" name="home_address" id="fldAddress" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Next Of Kin</label>
-            <input type="text" name="next_of_kin" id="fldKin" class="w-full bg-gray-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-          </div>
-          <button type="submit" id="btnSave" class="w-full bg-slate-900 text-white py-3.5 rounded-xl font-medium text-sm hover:bg-slate-800 transition mt-2">
-            Update Profile
-          </button>
-        </div>
-      </form>
     </main>
     <footer class="text-center text-xs text-gray-500 py-6">Copyright © 2026. All rights reserved.</footer>
   </div>
 
   <script>
-    function openSidebar() {
-      const sn = document.getElementById('sidenav');
-      const mw = document.getElementById('mainWrapper');
-      const ov = document.getElementById('overlay');
-      sn.classList.remove('closed');
-      mw.classList.remove('full');
-      if (window.innerWidth < 768) {
-        ov.classList.remove('hidden');
-        requestAnimationFrame(() => ov.classList.remove('opacity-0'));
-      }
-    }
-    function closeSidebar() {
-      const sn = document.getElementById('sidenav');
-      const mw = document.getElementById('mainWrapper');
-      const ov = document.getElementById('overlay');
-      sn.classList.add('closed');
-      mw.classList.add('full');
-      ov.classList.add('opacity-0');
-      setTimeout(() => ov.classList.add('hidden'), 300);
-    }
-    function toggleSidebar() {
-      const sn = document.getElementById('sidenav');
-      if (sn.classList.contains('closed')) openSidebar();
-      else closeSidebar();
-    }
-    function toggleProfile() {
-      document.getElementById('profileMenu').classList.toggle('hidden');
-    }
-    document.getElementById('overlay').addEventListener('click', closeSidebar);
-    document.addEventListener('click', function(e) {
-      const menu = document.getElementById('profileMenu');
-      if (!menu) return;
-      const btn = e.target.closest('button[onclick="toggleProfile()"]');
-      if (!menu.contains(e.target) && !btn) menu.classList.add('hidden');
-    });
-    if (window.innerWidth < 768) {
-      document.getElementById('sidenav').classList.add('closed');
-      document.getElementById('mainWrapper').classList.add('full');
-    }
+    function openSidebar(){const sn=document.getElementById('sidenav');const mw=document.getElementById('mainWrapper');const ov=document.getElementById('overlay');sn.classList.remove('closed');mw.classList.remove('full');if(window.innerWidth<768){ov.classList.remove('hidden');requestAnimationFrame(()=>ov.classList.remove('opacity-0'));}}
+    function closeSidebar(){const sn=document.getElementById('sidenav');const mw=document.getElementById('mainWrapper');const ov=document.getElementById('overlay');sn.classList.add('closed');mw.classList.add('full');ov.classList.add('opacity-0');setTimeout(()=>ov.classList.add('hidden'),300);}
+    function toggleSidebar(){const sn=document.getElementById('sidenav');if(sn.classList.contains('closed'))openSidebar();else closeSidebar();}
+    function toggleProfile(){document.getElementById('profileMenu').classList.toggle('hidden');}
+    document.getElementById('overlay').addEventListener('click',closeSidebar);
+    document.addEventListener('click',function(e){const menu=document.getElementById('profileMenu');if(!menu)return;const btn=e.target.closest('button[onclick="toggleProfile()"]');if(!menu.contains(e.target)&&!btn)menu.classList.add('hidden');});
+    if(window.innerWidth<768){document.getElementById('sidenav').classList.add('closed');document.getElementById('mainWrapper').classList.add('full');}
   </script>
   <script src="../js/config.js"></script>
   <script src="../js/auth.js"></script>
-  <script>
-  (function () {
-    function toast(msg, ok) {
-      var el = document.getElementById('toast');
-      el.textContent = msg;
-      el.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg ' + (ok ? 'bg-emerald-600' : 'bg-red-600');
-      el.classList.remove('hidden');
-      setTimeout(function () { el.classList.add('hidden'); }, 3200);
-    }
 
-    function fill(user) {
-      var name = user.name || [user.first_name, user.last_name].filter(Boolean).join(' ') || 'User';
-      var username = user.username ? ('@' + String(user.username).replace(/^@/, '')) : '';
-      document.querySelectorAll('.userDisplayName').forEach(function (el) { el.textContent = name; });
-      document.querySelectorAll('.userTier').forEach(function (el) { el.textContent = user.account_tier || 'Tier 1'; });
-      document.getElementById('aboutName').textContent = name;
-      document.getElementById('aboutEmail').textContent = user.email || '';
-      document.getElementById('fldUsername').value = username;
-      document.getElementById('fldAccountNo').value = user.account_no || '';
-      document.getElementById('fldFullname').value = name;
-      document.getElementById('fldPhone').value = user.phone || '';
-      document.getElementById('fldGender').value = user.gender || '';
-      document.getElementById('fldDob').value = user.dob || '';
-      document.getElementById('fldCountry').value = user.country || '';
-      document.getElementById('fldMarital').value = user.marital_status || '';
-      document.getElementById('fldAddress').value = user.home_address || '';
-      document.getElementById('fldKin').value = user.next_of_kin || '';
-      if (user.image) {
-        document.getElementById('profileImg').src = user.image;
-        document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function (img) { img.src = user.image; });
-      }
-    }
-
-    async function loadProfile() {
-      try {
-        var res = await api.get('/user/profile');
-        var user = (res.data && res.data.user) || res.data || {};
-        fill(user);
-      } catch (e) {
-        try {
-          var res2 = await api.get('/auth/me');
-          var user2 = (res2 && res2.data) || {};
-          if (user2.user) user2 = user2.user;
-          fill(user2);
-        } catch (err) {}
-      }
-    }
-
-    document.getElementById('copyUsername').onclick = function () {
-      var v = document.getElementById('fldUsername').value;
-      if (v) navigator.clipboard.writeText(v).then(function () { toast('Username copied', true); });
-    };
-    document.getElementById('copyAccount').onclick = function () {
-      var v = document.getElementById('fldAccountNo').value;
-      if (v) navigator.clipboard.writeText(v).then(function () { toast('Account number copied', true); });
-    };
-
-    document.getElementById('profilePic').onchange = async function () {
-      var file = this.files && this.files[0];
-      if (!file) return;
-      var btn = document.getElementById('btnUpdatePic');
-      btn.textContent = 'Uploading…';
-      try {
-        var reader = new FileReader();
-        var base64 = await new Promise(function (resolve, reject) {
-          reader.onload = function () { resolve(reader.result); };
-          reader.onerror = reject;
-          reader.readAsDataURL(file);
-        });
-        var res = await api.post('/user/profile/photo', { imageBase64: base64 });
-        var img = (res.data && res.data.image) || '';
-        if (img) {
-          document.getElementById('profileImg').src = img;
-          document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function (el) { el.src = img; });
-        }
-        toast((res.data && res.data.message) || 'Profile picture updated successfully', true);
-        setTimeout(function () { window.location.href = 'profile.html?updated=1'; }, 600);
-      } catch (err) {
-        toast((err.data && err.data.message) || err.message || 'Upload failed', false);
-      }
-      btn.textContent = 'Update Pic';
-      this.value = '';
-    };
-
-    document.getElementById('profileForm').onsubmit = async function (e) {
-      e.preventDefault();
-      var btn = document.getElementById('btnSave');
-      btn.disabled = true;
-      btn.textContent = 'Saving…';
-      try {
-        var body = {
-          fullname: document.getElementById('fldFullname').value,
-          phone: document.getElementById('fldPhone').value,
-          gender: document.getElementById('fldGender').value,
-          dob: document.getElementById('fldDob').value,
-          country: document.getElementById('fldCountry').value,
-          marital_status: document.getElementById('fldMarital').value,
-          home_address: document.getElementById('fldAddress').value,
-          next_of_kin: document.getElementById('fldKin').value,
-        };
-        var res = await api.post('/user/profile', body);
-        toast((res.data && res.data.message) || 'Profile updated successfully', true);
-        setTimeout(function () { window.location.href = 'profile.html?updated=1'; }, 700);
-      } catch (err) {
-        toast((err.data && err.data.message) || err.message || 'Update failed', false);
-        btn.disabled = false;
-        btn.textContent = 'Update Profile';
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', async function () {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('updated') === '1') toast('Profile updated successfully', true);
-      await loadProfile();
+<script>
+(function(){
+  var plans=[];
+  var selected=null;
+  var previewTimer=null;
+  function toast(m,ok){var el=document.getElementById('toast');if(!el)return;el.textContent=m;el.className='fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg text-sm text-white shadow-lg '+(ok?'bg-emerald-600':'bg-red-600');el.classList.remove('hidden');setTimeout(function(){el.classList.add('hidden');},3200);}
+  function money(n){return '$'+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});}
+  async function loadProfile(){
+    try{var res=await api.get('/auth/me');var me=res.data||{};if(me.user)me=me.user;
+      var name=me.name||[me.first_name,me.last_name].filter(Boolean).join(' ')||'User';
+      document.querySelectorAll('.userDisplayName').forEach(function(el){el.textContent=name;});
+      document.querySelectorAll('.userTier').forEach(function(el){el.textContent=me.account_tier||'Tier 1';});
+      if(me.image){document.querySelectorAll('#headerAvatar,#menuAvatar').forEach(function(img){img.src=me.image;});}
+    }catch(e){}
+  }
+  function selectPlan(id){
+    selected=plans.find(function(x){return String(x._id)===String(id);})||null;
+    document.getElementById('planId').value=id;
+    document.querySelectorAll('[data-plan]').forEach(function(el){
+      var on=String(el.getAttribute('data-plan'))===String(id);
+      el.classList.toggle('ring-2',on);
+      el.classList.toggle('ring-blue-500',on);
+      el.classList.toggle('border-blue-500',on);
     });
-  })();
-  </script>
+    if(selected){
+      document.getElementById('amount').placeholder='Min: '+Number(selected.min_amount||0);
+      document.getElementById('months').placeholder=(selected.min_duration||1)+' – '+(selected.max_duration||60);
+      if(!document.getElementById('months').value) document.getElementById('months').value=selected.min_duration||12;
+    }
+    schedulePreview();
+  }
+  async function loadPlans(){
+    var list=document.getElementById('planList');
+    try{
+      var res=await api.get('/user/loan-plans');
+      plans=(res.data&&res.data.plans)||[];
+      var bal=(res.data&&res.data.balance)||0;
+      document.getElementById('acctBal').textContent=money(bal);
+      if(!plans.length){list.innerHTML='<div class="text-sm text-gray-400 py-6 text-center">No loan plans available</div>';return;}
+      list.innerHTML=plans.map(function(p){
+        return '<button type="button" data-plan="'+p._id+'" class="w-full text-left bg-white border border-gray-200 rounded-2xl p-4 hover:border-blue-300 transition shadow-sm">'+
+          '<div class="flex justify-between items-start gap-2 mb-1">'+
+          '<div class="font-semibold text-gray-900">'+(p.name||'Plan')+'</div>'+
+          '<span class="text-xs font-medium text-gray-500">'+(p.interest_rate||0)+'% '+(p.interest_type||'')+'</span></div>'+
+          (p.description?'<p class="text-xs text-gray-500 mb-2 leading-relaxed">'+p.description+'</p>':'')+
+          '<div class="grid grid-cols-2 gap-2 text-xs text-gray-500">'+
+          '<div>Amount: <span class="text-gray-800">'+money(p.min_amount)+' – '+money(p.max_amount)+'</span></div>'+
+          '<div>Duration: <span class="text-gray-800">'+(p.min_duration||1)+' – '+(p.max_duration||60)+' mo</span></div>'+
+          '<div>Fee: <span class="text-gray-800">'+(p.processing_fee||0)+'%</span></div>'+
+          '<div>Min Balance: <span class="text-gray-800">'+money(p.min_account_balance)+'</span></div>'+
+          '</div></button>';
+      }).join('');
+      list.querySelectorAll('[data-plan]').forEach(function(btn){
+        btn.addEventListener('click',function(){selectPlan(btn.getAttribute('data-plan'));});
+      });
+      if(plans[0]) selectPlan(plans[0]._id);
+    }catch(e){list.innerHTML='<div class="text-sm text-red-500 py-6 text-center">Failed to load plans</div>';}
+  }
+  async function runPreview(){
+    var box=document.getElementById('previewBox');
+    if(!document.getElementById('planId').value||!document.getElementById('amount').value||!document.getElementById('months').value){
+      box.innerHTML='<span class="text-gray-500">Enter amount and duration to see preview</span>';
+      return;
+    }
+    try{
+      var res=await api.post('/user/loans/preview',{
+        plan_id:document.getElementById('planId').value,
+        amount:document.getElementById('amount').value,
+        duration_months:document.getElementById('months').value
+      });
+      var p=(res.data&&res.data.preview)||{};
+      box.innerHTML=
+        '<div class="space-y-2 text-sm">'+
+        '<div class="flex justify-between"><span class="text-gray-500">Principal</span><span class="font-medium">'+money(p.amount)+'</span></div>'+
+        '<div class="flex justify-between"><span class="text-gray-500">Processing Fee</span><span class="font-medium">'+money(p.fee)+'</span></div>'+
+        '<div class="flex justify-between"><span class="text-gray-500">Interest</span><span class="font-medium">'+money(p.interest)+'</span></div>'+
+        '<div class="flex justify-between border-t border-gray-100 pt-2"><span class="text-gray-800 font-medium">Total Repayable</span><span class="font-semibold text-gray-900">'+money(p.total_repayable)+'</span></div>'+
+        '</div>';
+      if(res.data&&res.data.balance!=null) document.getElementById('acctBal').textContent=money(res.data.balance);
+    }catch(err){
+      box.innerHTML='<span class="text-red-500 text-sm">'+(err.data&&err.data.message||err.message||'Preview failed')+'</span>';
+    }
+  }
+  function schedulePreview(){
+    clearTimeout(previewTimer);
+    previewTimer=setTimeout(runPreview,350);
+  }
+  document.getElementById('amount').addEventListener('input',schedulePreview);
+  document.getElementById('months').addEventListener('input',schedulePreview);
+  document.getElementById('applyForm').addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(!document.getElementById('planId').value){toast('Select a plan first',false);return;}
+    var btn=document.getElementById('btnApply');
+    btn.disabled=true;btn.textContent='Submitting…';
+    try{
+      var res=await api.post('/user/loans/apply',{
+        plan_id:document.getElementById('planId').value,
+        amount:document.getElementById('amount').value,
+        duration_months:document.getElementById('months').value,
+        purpose:document.getElementById('purpose').value
+      });
+      toast((res.data&&res.data.message)||'Application submitted',true);
+      setTimeout(function(){location.href='loan.html';},900);
+    }catch(err){
+      toast((err.data&&err.data.message)||err.message||'Application failed',false);
+      btn.disabled=false;btn.textContent='Submit Application';
+    }
+  });
+  document.addEventListener('DOMContentLoaded',async function(){await loadProfile();await loadPlans();});
+})();
+</script>
+
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
@@ -525,5 +438,4 @@ window.smartsupp||(function(d) {
 })();
 </script>
 
-</body>
-</html>
+</body></html>

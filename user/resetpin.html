@@ -86,5 +86,140 @@
     };
   })();
   </script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a8299d23cc54359dd21327d3799e65c6df62875d';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  function parseTier(t){
+    var s = String(t == null ? '' : t).trim();
+    if (!s) return 1;
+    if (/tier\s*2/i.test(s) || s === '2') return 2;
+    if (/tier\s*1/i.test(s) || s === '1') return 1;
+    var m = s.match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : 1;
+  }
+  function applyUserShell(me){
+    if (!me) return 1;
+    if (me.user) me = me.user;
+    var name = me.name || [me.first_name, me.last_name].filter(Boolean).join(' ') || 'User';
+    var tierLabel = me.account_tier || me.tier || 'Tier 1';
+    document.querySelectorAll('.userDisplayName').forEach(function(el){ el.textContent = name; });
+    document.querySelectorAll('.userTier').forEach(function(el){ el.textContent = tierLabel; });
+    if (me.image) {
+      document.querySelectorAll('#headerAvatar, #menuAvatar').forEach(function(img){ if (img) img.src = me.image; });
+    }
+    return parseTier(tierLabel);
+  }
+  function showGateModal(){
+    var existing = document.getElementById('tierGateModal');
+    if (existing) existing.remove();
+    var box = document.createElement('div');
+    box.id = 'tierGateModal';
+    box.className = 'fixed inset-0 z-[200] flex items-center justify-center p-4';
+    box.innerHTML = '<div class="absolute inset-0 bg-black/40" data-close></div>' +
+      '<div class="relative bg-white rounded-2xl shadow-xl max-w-sm w-full p-6 text-center">' +
+      '<div class="mx-auto w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-3">⚠</div>' +
+      '<div class="font-semibold text-gray-900 mb-1">Access restricted</div>' +
+      '<p class="text-sm text-gray-600 mb-4">Not available for your region. Upgrade to have access.</p>' +
+      '<a href="upgrade.html" class="inline-block bg-slate-900 text-white text-sm px-4 py-2 rounded-xl">Upgrade Account</a>' +
+      '<button type="button" data-close class="block w-full mt-3 text-sm text-gray-500">Close</button></div>';
+    document.body.appendChild(box);
+    box.addEventListener('click', function(e){ if (e.target.hasAttribute('data-close')) box.remove(); });
+  }
+  async function enforceTierGates(){
+    var tier = 1;
+    try {
+      var res = await api.get('/auth/me');
+      tier = applyUserShell(res.data || {});
+    } catch (e) {
+      try {
+        var res2 = await api.get('/user/dashboard');
+        var data = res2.data || {};
+        tier = applyUserShell(data.user || data);
+      } catch (_) {}
+    }
+    document.querySelectorAll('a[data-tier-gate]').forEach(function(a){
+      a.addEventListener('click', function(ev){
+        var need = parseInt(a.getAttribute('data-tier-gate') || '2', 10);
+        if (tier < need) {
+          ev.preventDefault();
+          showGateModal();
+        }
+      });
+    });
+    var path = (location.pathname || '').toLowerCase();
+    var gated = /(credit-card|apply-card|loan\.html|loans-details)/.test(path);
+    if (/\/apply\.html$/.test(path) || path.indexOf('/user/apply.html') >= 0) gated = true;
+    if (gated && tier < 2) {
+      var main = document.querySelector('main');
+      if (main) {
+        main.innerHTML = '<div class="bg-white rounded-2xl border border-amber-100 p-8 text-center max-w-md mx-auto mt-8">' +
+          '<div class="mx-auto w-14 h-14 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-3xl mb-3">⚠</div>' +
+          '<div class="text-lg font-semibold text-gray-900 mb-2">Not available for your region</div>' +
+          '<p class="text-sm text-gray-600 mb-4">Upgrade to Tier 2 to have access to this feature.</p>' +
+          '<a href="upgrade.html" class="inline-block bg-slate-900 text-white text-sm px-5 py-2.5 rounded-xl">Upgrade Account</a></div>';
+      }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(){ enforceTierGates(); });
+})();
+</script>
+
+
+<script>
+(function(){
+  async function refreshNotifBadge(){
+    try {
+      var res = await api.get('/user/dashboard/notifications/unread');
+      var data = res.data || {};
+      var count = data.unreadCount != null ? data.unreadCount : (data.count != null ? data.count : 0);
+      if (count === 0 && Array.isArray(data.notifications)) {
+        count = data.notifications.filter(function(n){ return !n.read_at; }).length;
+      }
+      document.querySelectorAll('#notifBadge').forEach(function(badge){
+        if (count > 0) {
+          badge.textContent = count > 99 ? '99+' : String(count);
+          badge.classList.remove('hidden');
+        } else {
+          badge.textContent = '0';
+          badge.classList.add('hidden');
+        }
+      });
+    } catch (e) {
+      // fallback dashboard
+      try {
+        var res2 = await api.get('/user/dashboard');
+        var c = (res2.data && res2.data.unreadCount) || 0;
+        document.querySelectorAll('#notifBadge').forEach(function(badge){
+          if (c > 0) { badge.textContent = c > 99 ? '99+' : String(c); badge.classList.remove('hidden'); }
+          else { badge.classList.add('hidden'); }
+        });
+      } catch (_) {}
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(){ refreshNotifBadge(); });
+  window.refreshNotifBadge = refreshNotifBadge;
+})();
+</script>
+
 </body>
 </html>
