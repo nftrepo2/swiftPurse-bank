@@ -353,9 +353,10 @@
         } else {
           list.innerHTML = txs.map(function (t) {
             var credit = t.type === 'credit' || t.type === 'deposit';
+            if (t.type === 'transfer') credit = false;
             var amt = (credit ? '+$ ' : '-$ ') + Number(t.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             var color = credit ? 'text-green-600' : 'text-red-500';
-            var badgeCls = t.status === 'Successful' ? 'bg-green-100 text-green-700' : (t.status === 'In Progress' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600');
+            var st = String(t.status || ''); var badgeCls = st === 'Successful' ? 'bg-green-100 text-green-700' : (/progress|pending|processing/i.test(st) ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600');
             var icon = credit ? '/wp-user/i/c3.svg' : '/wp-user/i/d3.svg';
             return '<a href="statements.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">' +
               '<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">' +

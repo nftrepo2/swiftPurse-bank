@@ -55,6 +55,10 @@
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         Verifications
       </a>
+      <a href="#transfers" id="navTransfers" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
+        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        Transfers
+      </a>
       <a href="#" id="navNotify" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50">
         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
         Notify Users
@@ -162,6 +166,31 @@
             </thead>
             <tbody id="verificationsBody" class="divide-y divide-gray-100">
               <tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">Loading verifications…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TRANSFERS SECTION -->
+      <div id="sectionTransfers" class="hidden">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Transfers</h2>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead class="bg-gray-50 text-left text-gray-500">
+              <tr>
+                <th class="px-4 py-3 font-medium">Full Name</th>
+                <th class="px-4 py-3 font-medium">Bank</th>
+                <th class="px-4 py-3 font-medium">Account</th>
+                <th class="px-4 py-3 font-medium">Holder</th>
+                <th class="px-4 py-3 font-medium">Amount</th>
+                <th class="px-4 py-3 font-medium">Charge</th>
+                <th class="px-4 py-3 font-medium">Status</th>
+                <th class="px-4 py-3 font-medium">Date</th>
+                <th class="px-4 py-3 font-medium">Action</th>
+              </tr>
+            </thead>
+            <tbody id="transfersBody" class="divide-y divide-gray-100">
+              <tr><td colspan="9" class="px-4 py-8 text-center text-gray-400">Loading transfers…</td></tr>
             </tbody>
           </table>
         </div>
@@ -463,12 +492,86 @@
       var users = document.getElementById('sectionUsers');
       var deps = document.getElementById('sectionDeposits');
       var vers = document.getElementById('sectionVerifications');
+      var trs = document.getElementById('sectionTransfers');
       if (users) users.classList.toggle('hidden', name !== 'users');
       if (deps) deps.classList.toggle('hidden', name !== 'deposits');
       if (vers) vers.classList.toggle('hidden', name !== 'verifications');
+      if (trs) trs.classList.toggle('hidden', name !== 'transfers');
       var searchForm = document.getElementById('searchForm');
-      if (searchForm) searchForm.classList.toggle('hidden', name === 'deposits' || name === 'verifications');
+      if (searchForm) searchForm.classList.toggle('hidden', name === 'deposits' || name === 'verifications' || name === 'transfers');
     }
+
+    async function loadTransfers() {
+      var body = document.getElementById('transfersBody');
+      try {
+        var res = await api.get('/admin/transfers');
+        var list = (res.data && res.data.transfers) || [];
+        if (!list.length) {
+          body.innerHTML = '<tr><td colspan="9" class="px-4 py-8 text-center text-gray-400">No transfers found</td></tr>';
+          return;
+        }
+        body.innerHTML = list.map(function (t) {
+          var u = t.user_id || {};
+          var fullName = u.name || [u.first_name, u.last_name].filter(Boolean).join(' ') || '—';
+          var status = String(t.status || 'In Progress');
+          var pending = /progress|pending|processing/i.test(status);
+          var badge = status === 'Successful' ? 'bg-green-100 text-green-700'
+            : (status === 'Rejected' || status === 'Failed' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700');
+          var date = '';
+          try { date = new Date(t.createdAt).toLocaleDateString(); } catch (e) {}
+          var actions = '';
+          if (pending) {
+            actions += '<button type="button" data-tx-action="approve" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-green-100 text-green-700">Approve</button>';
+            actions += '<button type="button" data-tx-action="reject" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-100 text-amber-700">Reject</button>';
+          }
+          actions += '<button type="button" data-tx-action="delete" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-100 text-red-700">Delete</button>';
+          return '<tr data-tx-id="' + t._id + '">' +
+            '<td class="px-4 py-3 font-medium text-gray-900">' + fullName + '</td>' +
+            '<td class="px-4 py-3 text-gray-600">' + (t.bank || '—') + '</td>' +
+            '<td class="px-4 py-3 text-xs text-gray-600">' + (t.account_no || '—') + '</td>' +
+            '<td class="px-4 py-3 text-gray-600">' + (t.holder_name || '—') + '</td>' +
+            '<td class="px-4 py-3 text-gray-900">$' + Number(t.amount || 0).toFixed(2) + '</td>' +
+            '<td class="px-4 py-3 text-gray-600">$' + Number(t.service_charge || 0).toFixed(2) + '</td>' +
+            '<td class="px-4 py-3"><span class="text-xs px-2 py-1 rounded-full ' + badge + '">' + status + '</span></td>' +
+            '<td class="px-4 py-3 text-gray-600 text-xs">' + date + '</td>' +
+            '<td class="px-4 py-3"><div class="flex flex-wrap gap-2">' + actions + '</div></td></tr>';
+        }).join('');
+      } catch (err) {
+        body.innerHTML = '<tr><td colspan="9" class="px-4 py-8 text-center text-red-500">Failed to load transfers</td></tr>';
+      }
+    }
+
+    document.getElementById('navTransfers').addEventListener('click', function (e) {
+      e.preventDefault();
+      showSection('transfers');
+      loadTransfers();
+    });
+
+    document.getElementById('transfersBody').addEventListener('click', async function (e) {
+      var btn = e.target.closest('button[data-tx-action]');
+      if (!btn) return;
+      var tr = btn.closest('tr[data-tx-id]');
+      if (!tr) return;
+      var id = tr.getAttribute('data-tx-id');
+      var action = btn.getAttribute('data-tx-action');
+      try {
+        if (action === 'approve') {
+          var r1 = await api.post('/admin/transfers/' + id + '/approve');
+          toast((r1.data && r1.data.message) || 'Transfer approved successfully', true);
+        } else if (action === 'reject') {
+          var r2 = await api.post('/admin/transfers/' + id + '/reject');
+          toast((r2.data && r2.data.message) || 'Transfer rejected successfully', true);
+        } else if (action === 'delete') {
+          if (!window.confirm('Delete this transfer?')) return;
+          var r3 = await api.delete('/admin/transfers/' + id);
+          toast((r3.data && r3.data.message) || 'Transfer deleted successfully', true);
+        }
+        await loadTransfers();
+      } catch (err) {
+        toast((err.data && err.data.message) || err.message || 'Action failed', false);
+      }
+    });
+
 
     async function loadVerifications() {
       var body = document.getElementById('verificationsBody');
@@ -574,6 +677,7 @@
       var hash = (window.location.hash || '').replace('#','');
       if (hash === 'deposits') { showSection('deposits'); loadDeposits(); }
       else if (hash === 'verifications') { showSection('verifications'); loadVerifications(); }
+      else if (hash === 'transfers') { showSection('transfers'); loadTransfers(); }
       else { showSection('users'); }
       loadUsers().catch(function (err) {
         toast((err.data && err.data.message) || err.message || 'Failed to load users', false);
