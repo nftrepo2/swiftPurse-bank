@@ -229,3 +229,165 @@
 
 </body>
 </html>
+
+//SwiftPurse\frontend\user\resetpin.html page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      transition: opacity ease-in 0.2s;
+    }
+    body[unresolved] {
+      opacity: 0;
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" href="/wp-user/logo.svg">
+  <link rel="manifest" href="/wp-user/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+  <title>App - SwiftPurse Bank</title>
+  <style>
+    body {
+      font-family: Inter, Mulish, sans-serif;
+    }
+    #root {
+      font-family: Inter, Mulish, sans-serif;
+    }
+  </style>
+  <link rel="stylesheet" href="/wp-user/l.css">
+  <script type="text/javascript" charset="utf-8" async="" src="https://www.smartsuppchat.com/loader.js?"></script>
+  <link href="/wp-user/static/css/main.c0006301.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="https://swiftpursebank.com/wp-api/site/t_8e130165f44db81d6468a6473e71287e.png">
+</head>
+<body style="position:relative;background:#f7f7f7">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div style="position:absolute;display:flex;align-items:center;justify-content:center;height:100vh;width:100%">
+    <div>
+      <img src="/wp-user/b/loader.svg" width="250px">
+    </div>
+  </div>
+  <div id="root" style="width:100%;position:absolute;overflow-y:scroll;top:0;z-index:10">
+    <div class="auth_auht__agowh">
+      <div class="auth_body__Nxb17">
+        <div>
+          <div>
+            <div>
+              <div class="no_bg__n90Yl ">
+                <div class="no_dBox__JEIor no_success__E7gDF">
+                  <div class="no_okN__qJMXZ"></div>
+                  <div class="no_msg__gJh8T"></div>
+                </div>
+              </div>
+              <div class="h_he__1bJEC">
+                <div class="h_lef__Giskv">
+                  <div class="h_back__CqQD2"></div>
+                  <div class="h_txt__QXwcP"></div>
+                </div>
+                <a href="login.html">Sign In</a>
+              </div>
+              <div class="s_sub__UYtpB">
+                <div class="s_text__r-1R0">Create New Transfer PIN</div>
+                <div class="s_lock__8c5hE"></div>
+              </div>
+              <div class="s_s__1SMAd">This Transfer PIN should be different from your previous PIN</div>
+              <form method="post" action="/">
+                <input type="hidden" name="reset_code" value="8fwvX601">
+                <input type="hidden" name="email" value="gomermaria302@gmail.com">
+                <div class="i2_duo__+gbgG">
+                  <input name="new_password" pattern=".{4,4}|[0-9]*" title="Transfer PIN must be 4 digits" maxlength="4" required="" placeholder="Create PIN (4 digits)" type="password">
+                  <div class="icons_show__jJGPL"></div>
+                </div>
+                <div class="i2_duo__+gbgG">
+                  <input pattern=".{6,6}|[0-9]*" title="" maxlength="4" placeholder="Confirm PIN" type="password">
+                  <div class="icons_show__jJGPL"></div>
+                </div>
+                <input type="submit" class="sub_in__l+9cS" value="Continue">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Smartsupp Live Chat script -->
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '0acec184ba638708391cb26d405f0f81a1ac24bc';
+    window.smartsupp || (function(d) {
+      var s, c, o = smartsupp = function() {
+        o._.push(arguments)
+      };
+      o._ = [];
+      s = d.getElementsByTagName('script')[0];
+      c = d.createElement('script');
+      c.type = 'text/javascript';
+      c.charset = 'utf-8';
+      c.async = true;
+      c.src = 'https://www.smartsuppchat.com/loader.js?';
+      s.parentNode.insertBefore(c, s);
+    })(document);
+  </script>
+  <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+  <iframe id="chat-application-iframe" title="Smartsupp" aria-hidden="true" style="display: block; position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; opacity: 0; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; z-index: -1; pointer-events: none;"></iframe>
+  <div id="smartsupp-widget-container">
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div data-testid="widgetButtonFrame" style="border-radius: 9999px; box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 2px 32px; color-scheme: normal; height: 56px; position: fixed; bottom: 24px; left: initial; right: 12px; z-index: 10000000; width: 109px;">
+      <iframe allowfullscreen="" scrolling="no" id="widgetButtonFrame" title="Smartsupp widget button" style="position: absolute; width: 100%; height: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; display: block; text-align: left; margin: 0px; padding: 0px; top: 0px; left: 0px; opacity: 1;"></iframe>
+      <!---->
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</body>
+</html>
+
+//SwiftPurse\frontend\user\settings.html
+-in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
+-all user dynamic content are displayed in their indicated field/ui 
+-all form fields and their button are work as expected when any validation for  any form fields and submitted successfully it displays a message and it redirects back to same page
+-for the reset pin form when it is filled and passed validation it is resetted when the Reset PIN button is clicked a dynamic link to reset the pin is sent to the user email using the forgotten passwird template with write up below
+
+Hi there,
+
+ 
+
+
+We received a request to reset your PIN. If you initiated this request, please click the link below to proceed:
+
+
+Reset Your PIN
+
+For security purposes, this link will expire in 5 minutes and can only be used once. If you did not request a PIN reset, please disregard this email or contact our support team immediately.
+
+Best Regards,
+
+The SwiftPurse Bank Team
+
+2026 SwiftPurse Bank . All rights reserved.
+
+UK banking services offered by SwiftPurse Bank (RC796975) with registered address at Head office: 21 Lombard St, city of london,London Ec3v 9AH , UK. Clients' money is safeguarded with reputable UK and EU banks. Financial Services Compensation Scheme (FSCS) does not apply.
+-when the unique reset link is clicked it redirects to resetpin.html page
+
+
+//SwiftPurse\frontend\user\resetpin.html page
+-when the link with token is valid the forms field shows then the user inputs the 4 digit pin then after validation the form submitted succesfully the user is redirected to the login page

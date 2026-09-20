@@ -1,8 +1,34 @@
 //SwiftPurse\frontend\user\settings.html
 -in the navbar of this page at the profile image section when clicked the sub nav profile image there should be populated with dynamic content 
--all dynamic content fitting into each field of the forms you should display
--upload pic should be handled by cloudinary
--and the rest form fields/form fields when updated and the form submits succesfully should redirect back to same page and display a message 
+-all user dynamic content are displayed in their indicated field/ui 
+-all form fields and their button are work as expected when any validation for  any form fields and submitted successfully it displays a message and it redirects back to same page
+-for the reset pin form when it is filled and passed validation it is resetted when the Reset PIN button is clicked a dynamic link to reset the pin is sent to the user email using the forgotten passwird template with write up below
+
+Hi there,
+
+ 
+
+
+We received a request to reset your PIN. If you initiated this request, please click the link below to proceed:
+
+
+Reset Your PIN
+
+For security purposes, this link will expire in 5 minutes and can only be used once. If you did not request a PIN reset, please disregard this email or contact our support team immediately.
+
+Best Regards,
+
+The SwiftPurse Bank Team
+
+2026 SwiftPurse Bank . All rights reserved.
+
+UK banking services offered by SwiftPurse Bank (RC796975) with registered address at Head office: 21 Lombard St, city of london,London Ec3v 9AH , UK. Clients' money is safeguarded with reputable UK and EU banks. Financial Services Compensation Scheme (FSCS) does not apply.
+-when the unique reset link is clicked it redirects to resetpin.html page
+
+
+//SwiftPurse\frontend\user\resetpin.html page
+-when the link with token is valid the forms field shows then the user inputs the 4 digit pin then after validation the form submitted succesfully the user is redirected to the login page
+
 
 
 
