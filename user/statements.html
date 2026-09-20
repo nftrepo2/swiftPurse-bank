@@ -311,7 +311,7 @@
         }
         items.forEach(function (it) { cache[it.id] = it; });
         list.innerHTML = items.map(function (t) {
-          var debit = !!t.is_debit;
+          var debit = !!t.is_debit; if (/loan\s*disburse/i.test(String(t.title || '')) || t.type === 'credit') debit = false;
           var amtCls = debit ? 'text-red-500' : 'text-green-600';
           var dotCls = debit ? 'text-red-500' : 'text-green-500';
           var badge = statusBadgeClass(t.status);

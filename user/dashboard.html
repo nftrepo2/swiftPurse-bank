@@ -349,19 +349,21 @@
           list.innerHTML = '<div class="text-sm text-gray-500 p-3 text-center">No transactions yet</div>';
         } else {
           list.innerHTML = txs.map(function (t) {
-            var credit = t.type === 'credit' || t.type === 'deposit';
-            if (t.type === 'transfer') credit = false;
-            var amt = (credit ? '+$ ' : '-$ ') + Number(t.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            var credit = t.type === 'credit' || t.type === 'deposit' || /loan\s*disburse/i.test(String(t.title || ''));
+            if (t.type === 'transfer' || t.type === 'debit' || t.type === 'withdrawal') credit = false;
+            var amt = (credit ? '+$' : '-$') + Number(t.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             var color = credit ? 'text-green-600' : 'text-red-500';
-            var st = String(t.status || ''); var badgeCls = st === 'Successful' ? 'bg-green-100 text-green-700' : (/progress|pending|processing/i.test(st) ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600');
-            var icon = credit ? '/wp-user/i/c3.svg' : '/wp-user/i/d3.svg';
-            return '<a href="statements.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">' +
-              '<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">' +
-              '<img src="' + icon + '" alt="" class="w-5 h-5" onerror="this.style.display=\'none\'"></div><div>' +
-              '<div class="font-medium text-gray-900 text-sm">' + (t.title || 'INWARD TRANSFER') + '</div>' +
-              '<div class="text-xs text-gray-500">' + fmtDate(t.createdAt) + '</div></div></div>' +
-              '<div class="text-right"><div class="font-medium ' + color + ' text-sm">' + amt + '</div>' +
-              '<span class="text-[10px] ' + badgeCls + ' px-2 py-0.5 rounded-full">' + (t.status || 'Successful') + '</span></div></a>';
+            var title = t.title || (credit ? 'INWARD TRANSFER' : 'Bank Transfer');
+            var st = String(t.status || (credit ? 'Successful' : 'In Progress'));
+            var stCls = /success/i.test(st) ? 'text-green-600' : (/fail|reject/i.test(st) ? 'text-red-500' : 'text-amber-600');
+            var when = '';
+            try { when = new Date(t.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); } catch (e) {}
+            return '<div class="flex items-center justify-between bg-white rounded-2xl p-3 shadow-sm">' +
+              '<div class="flex items-center gap-3 min-w-0">' +
+              '<div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-sm ' + (credit ? 'text-green-600' : 'text-red-500') + '">●</div>' +
+              '<div class="min-w-0"><div class="font-medium text-gray-900 text-sm truncate">' + title + '</div>' +
+              '<div class="text-[11px] text-gray-400">' + when + ' · <span class="' + stCls + '">' + st + '</span></div></div></div>' +
+              '<div class="font-semibold text-sm ' + color + ' whitespace-nowrap">' + amt + '</div></div>';
           }).join('');
         }
       }
